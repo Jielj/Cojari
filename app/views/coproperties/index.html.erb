@@ -1,0 +1,39 @@
+<%= render "layouts/navbar" %>
+<div class="card pt-3">
+<div class="inline-container p-3">
+
+  <div class="cards-container">
+    <div class="map-card barbarian btns search-form flex search-btns">
+      <div class="inline-container map-container"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="pk.eyJ1IjoiamloYW5lamlpaSIsImEiOiJjbDhnM2Q4eXowM2Y0M3BwMmM0cGV2a2YzIn0.q-DEG9fibQC0mzodxg2NNQ">
+      </div>
+      <div class="inline-container search-container ">
+        <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+          <%= f.input :name, input_html: {value: ""}, class: "search-bar" %>
+          <%= f.input :category, input_html: {value: ""}, class: "search-bar" %>
+          <%= f.input :specie,input_html: {value: ""}, class: "search-bar" %>
+          <%= f.submit "Search", class: "search-btn search-btn-main" %>
+        <% end %>
+      </div>
+    </div>
+    <% @coproperties.each do |coproperty| %>
+      <div class="slide-container">
+        <%# <div class="wrapper"> %>
+          <div class="clash-card barbarian btns">
+            <div class="clash-card__image clash-card__image--barbarian">
+              <img src="<%=coproperty.photo%>" alt="barbarian" />
+            </div>
+            <div class="clash-card__level clash-card__level--barbarian"><%= coproperty.coproperty_name %></div>
+            <div class="clash-card__unit-name"><%= coproperty.number_properties %></div>
+            <div class="clash-card__unit-name"><%= coproperty.address %></div>
+            <div class="clash-card__unit-description">
+            </div>
+            <%= link_to "More about", coproperty_path(coproperty.id), class: "bttn btn-main" %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render "layouts/footer" %>

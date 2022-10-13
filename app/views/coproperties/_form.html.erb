@@ -1,0 +1,18 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+
+        <h2>Complete coproperty form</h2>
+
+        <%= simple_form_for @coproperty do |f| %>
+        <%= f.input :coproperty_name %>
+        <%= f.input :expense_method, collection:['monthly','yearly','Other'] %>
+        <%= f.input :number_properties %>
+        <%= f.input :address %>
+        <%= f.input :coprop_private_area %>
+        <%= f.input :coprop_common_area %>
+        <%= f.input :bank_account %>
+        <%= f.input :photo %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
