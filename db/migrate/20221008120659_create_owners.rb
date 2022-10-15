@@ -5,7 +5,7 @@ class CreateOwners < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :gender
       t.integer :card_number
-      t.integer :phone_number
+      t.string :phone_number
       t.date :ownership_date
       t.date :birth_date
       t.references :user, null: false, foreign_key: true
