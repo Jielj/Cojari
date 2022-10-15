@@ -5,4 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :owner
   has_one :syndic
+
+  def get_user_type
+    if !self.owner.nil? || !self.syndic.nil?
+      if self.owner.nil?
+        return self.syndic
+      else
+        return self.owner
+      end
+    end
+  end
+
+
 end

@@ -35,10 +35,10 @@ class ExpensesController < ApplicationController
 private
 
   def expense_params
-    params.require(:expense).permit(:expense_name; :expense_type; :expense_amount; :expense_date; :expense_status; :budget_id)
+    params.require(:expense).permit(:expense_name, :expense_type, :expense_amount, :expense_date, :expense_status, :budget_id, photos: [])
   end
 
   def find_expense
-    @expense = expense.find(params[:id])
+    @expense = Expense.find(params[:id])
   end
 end

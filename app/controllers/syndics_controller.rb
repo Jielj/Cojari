@@ -11,7 +11,7 @@ class SyndicsController < ApplicationController
   def create
     @syndic = Syndic.new(syndic_params)
     if @syndic.save
-    redirect_to @syndic, :notice => "Successfully created coproperty."
+    redirect_to syndic_coproperties_path(@syndic.id), :notice => "Successfully created coproperty."
     else
     render :action => 'new'
     end

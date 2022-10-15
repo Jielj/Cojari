@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+
+        <h2>Fiche de Frais</h2>
+
+        <%= simple_form_for @expense do |f| %>
+        <%= f.input :expense_name %>
+        <%= f.input :expense_status, collection:['Proposé','Validé','Refusé','Payé'] %>
+        <%= f.input :expense_type, collection:['Nettoyage','Jardinage','Gardiennage','Eau / Electricité','Sécurité','Maintenance','Consommables','Frais Juridiques','Evénements','Autres Frais'] %>
+        <%= f.input :expense_date %>
+        <%= f.input :expense_amount %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>

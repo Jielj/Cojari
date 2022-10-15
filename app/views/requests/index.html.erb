@@ -1,0 +1,21 @@
+<%= render "layouts/navbar" %>
+<div class="card pt-3">
+<div class="inline-container p-3">
+    <% @requests.each do |request| %>
+      <div class="slide-container">
+        <%# <div class="wrapper"> %>
+          <div class="clash-card barbarian btns">
+            <div class="clash-card__image clash-card__image--barbarian">
+            </div>
+            <div class="clash-card__level clash-card__level--barbarian"><%= request.request_title %></div>
+            <div class="clash-card__unit-name"><%= request.request_date %></div>
+            <div class="clash-card__unit-name"><%= request.request_status %></div>
+            <div class="clash-card__unit-description">
+            </div>
+            <%= link_to "More about", request_path(request.id), class: "bttn btn-main" %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
