@@ -1,0 +1,28 @@
+<%# <%= render "layouts/navbar" %>
+<div class="m-4 card-border">
+  <div class="container info-card card-dem">
+    <div class="row">
+      <%# <img src= <%=  "#{@request.photo}" %>
+      <span class="info-top col">
+        <h1><%= @request.request_title %></h1>
+        <h3><%= @request.request_date %></h3>
+         <h3><%= @request.request_status %></h3>
+        <div class="info-bottom col-8 search-btns">
+        </div>
+      </span>
+    </div>
+  </div>
+
+      <%= link_to "Update", edit_request_path(@request.id), class: "" %>
+    </div>
+</div>
+</div>
+</div>
+
+<%# <%= render "layouts/footer" %>
+
+
+
+
+
+</div>

@@ -1,0 +1,17 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+
+        <h2>Fiche du Budget</h2>
+
+        <%= simple_form_for @budget do |f| %>
+        <%= f.input :budget_title %>
+        <%= f.input :budget_type, collection:['Standard','Exceptionnel'] %>
+        <%= f.input :budget_status, collection:['Proposé','Validé','Rejeté'] %>
+        <%= f.input :budget_start_date %>
+        <%= f.input :budget_end_date %>
+        <%= f.input :budget_amount %>
+        <%= f.input :photo %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>

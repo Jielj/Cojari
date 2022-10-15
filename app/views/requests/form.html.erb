@@ -1,0 +1,14 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+
+        <h2>Fiche de Requête</h2>
+
+        <%= simple_form_for @request do |f| %>
+        <%= f.input :request_title %>
+        <%= f.input :request_status, collection:['Soumise','Traitée','En cours de Traitement','Rejetée'] %>
+        <%= f.input :request_date %>
+        <%= f.input :photo %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
