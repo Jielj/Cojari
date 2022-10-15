@@ -1,37 +1,14 @@
-<%= render "layouts/navbar" %>
-<div class="card pt-3">
-<div class="inline-container p-3">
-  <%#= cl_image_tag("fighter jet", width: 400, height: 300, crop: :fill) %>
+<h1>PROPERTIES</h1>
 
-  <div class="cards-container">
-    <div class="map-card barbarian btns search-form flex search-btns">
-      <div class="inline-container map-container"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="pk.eyJ1IjoiamloYW5lamlpaSIsImEiOiJjbDhnM2Q4eXowM2Y0M3BwMmM0cGV2a2YzIn0.q-DEG9fibQC0mzodxg2NNQ">
-      </div>
-      <div class="inline-container search-container ">
-        <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-          <%= f.input :owner, input_html: {value: ""}, class: "search-bar" %>
-          <%= f.input :property_number, input_html: {value: ""}, class: "search-bar" %>
-          <%= f.submit "Search", class: "search-btn search-btn-main" %>
-        <% end %>
-      </div>
-    </div>
+
+  <ul>
     <% @properties.each do |property| %>
-      <div class="slide-container">
-        <%# <div class="wrapper"> %>
-          <div class="clash-card barbarian btns">
-            <div class="clash-card__image clash-card__image--barbarian">
-              <img src="<%=property.photo %>" alt="barbarian" class="img-fluid" />
-            </div>
-                <%= property.owner.first_name %>
-                <%= property.owner.last_name %>
-                <%= property.property_number %>
-                <%= property.coproperty.name %>
-                <%= property.coproperty.address %>
-      </div>
+      <li><%= link_to property.property_number %> <%= link_to property.building %> <%= link_to property.total_property_area %> </li>
+
     <% end %>
-  </div>
-</div>
-<%= render "layouts/footer" %>
+  </ul>
+
+
+
+
+<%= button_to "Create new property", owner_properties_path, method: :get %>
