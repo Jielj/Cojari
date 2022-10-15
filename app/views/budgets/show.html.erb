@@ -1,0 +1,30 @@
+<%# <%= render "layouts/navbar" %>
+<div class="m-4 card-border">
+  <div class="container info-card card-dem">
+    <div class="row">
+      <%# <img src= <%=  "#{@budget.photo}" %>
+      <span class="info-top col">
+        <h1><%= @budget.budget_title %></h1>
+        <h3><%= @budget.budget_start_date %></h3>
+        <h3><%= @budget.budget_end_date %></h3>
+        <h3><%= @budget.budget_amount %></h3>
+        <h3><%= @budget.budget_type %></h3>
+        <div class="info-bottom col-8 search-btns">
+        </div>
+      </span>
+    </div>
+  </div>
+
+      <%= link_to "Update", edit_budget_path(@budget.id), class: "" %>
+    </div>
+</div>
+</div>
+</div>
+
+<%# <%= render "layouts/footer" %>
+
+
+
+
+
+</div>
