@@ -23,16 +23,12 @@
         <%# <div class="wrapper"> %>
           <div class="clash-card barbarian btns">
             <div class="clash-card__image clash-card__image--barbarian">
-              <img src="<%=owner.photo%>" alt="barbarian" />
+              <img src="<%=owner.photo %>" alt="barbarian" class="img-fluid" />
             </div>
-            <div class="clash-card__level clash-card__level--barbarian"><%= animal.specie %></div>
-            <div class="clash-card__unit-name"><%= animal.name %></div>
-            <div class="clash-card__unit-description">
-              <%= animal.bio %>
-            </div>
-            <%= link_to "More about", animal_path(animal.id), class: "bttn btn-main" %>
-          </div>
-        <%# </div> %>
+
+              <%= owner.coproperty.name %>
+
+
       </div>
     <% end %>
   </div>
