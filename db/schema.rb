@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_08_132552) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_15_073337) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_132552) do
     t.bigint "budget_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "expense_status"
     t.index ["budget_id"], name: "index_expenses_on_budget_id"
   end
 
@@ -92,6 +93,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_132552) do
     t.index ["owner_id"], name: "index_properties_on_owner_id"
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.string "request_title"
+    t.date "request_date"
+    t.string "request_status"
+    t.bigint "property_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_requests_on_property_id"
+  end
+
   create_table "syndics", force: :cascade do |t|
     t.string "syndic_name"
     t.date "creation_date"
@@ -121,5 +132,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_08_132552) do
   add_foreign_key "payments", "properties"
   add_foreign_key "properties", "coproperties"
   add_foreign_key "properties", "owners"
+  add_foreign_key "requests", "properties"
   add_foreign_key "syndics", "users"
 end
