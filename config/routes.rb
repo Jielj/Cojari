@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :syndics
   resources :coproperties
-  resources :properties, only: :create
+  resources :properties
   resources :owners
   resources :expenses
   resources :budgets
   resources :payments
   resources :users
+  resources :requests
 end
