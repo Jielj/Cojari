@@ -18,15 +18,10 @@ Rails.application.routes.draw do
     end
     resources :properties, only: :create
   end
-
-
-  # resources :coproperties, only: :destroy
-  # resources :properties, only: :destroy
-  # resources :owners
-  # ressources :properties, only: :show
-
+  
   resources :expenses
   resources :budgets
   resources :payments
   resources :users
+  resources :requests
 end
