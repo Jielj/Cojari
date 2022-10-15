@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   # resources :properties, only: :destroy
   # resources :owners
   # ressources :properties, only: :show
+
+  resources :owners
+  resources :expenses
+  resources :budgets
+  resources :payments
+  resources :users
 end
