@@ -39,6 +39,6 @@ private
   end
 
   def find_payment
-    @payment = payment.find(params[:id])
+    @payment = Payment.find(params[:id])
   end
 end

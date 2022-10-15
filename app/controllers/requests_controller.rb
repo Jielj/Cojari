@@ -44,6 +44,6 @@ private
   end
 
   def find_request
-    @request = request.find(params[:id])
+    @request = Request.find(params[:id])
   end
 end
