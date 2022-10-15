@@ -21,7 +21,7 @@ class SyndicsController < ApplicationController
   end
 
   def update
-    if @syndic.update_attributes(syndic_params)
+    if @syndic.update(syndic_params)
     redirect_to @syndic, :notice  => "Successfully updated coproperty."
     else
     render :action => 'edit'
@@ -35,8 +35,8 @@ class SyndicsController < ApplicationController
 
 private
 
-  def coproperty_params
-    params.require(:syndic).permit(:syndic_name; :creation_date; :user_id)
+  def syndic_params
+    params.require(:syndic).permit(:syndic_name, :creation_date, :user_id)
   end
 
   def find_syndic

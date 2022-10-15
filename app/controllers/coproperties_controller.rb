@@ -25,7 +25,7 @@ class CopropertiesController < ApplicationController
   end
 
   def update
-    if @coproperty.update_attributes(coproperty_params)
+    if @coproperty.update(coproperty_params)
     redirect_to @coproperty, :notice  => "Successfully updated coproperty."
     else
     render :action => 'edit'
