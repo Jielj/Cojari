@@ -9,7 +9,7 @@ class CreateCoproperties < ActiveRecord::Migration[7.0]
       t.integer :coprop_common_area
       t.integer :bank_account
       t.references :syndic, null: false, foreign_key: true
-
+      
       t.timestamps
     end
   end

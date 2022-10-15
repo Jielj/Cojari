@@ -9,8 +9,12 @@ Rails.application.routes.draw do
     resources :coproperties
     resources :properties, only: :create
   end
-  resources :coproperties, only: :destroy
-  resources :properties, only: :destroy
-  resources :owners
-  ressources :properties, only: :show
+  resources :coproperties do
+    resources :messages, only: :create
+  end
+
+  # resources :coproperties, only: :destroy
+  # resources :properties, only: :destroy
+  # resources :owners
+  # ressources :properties, only: :show
 end

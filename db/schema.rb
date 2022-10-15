@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_15_073337) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_15_133801) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_073337) do
     t.datetime "updated_at", null: false
     t.string "expense_status"
     t.index ["budget_id"], name: "index_expenses_on_budget_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "coproperty_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coproperty_id"], name: "index_messages_on_coproperty_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -127,6 +137,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_073337) do
   add_foreign_key "budgets", "coproperties"
   add_foreign_key "coproperties", "syndics"
   add_foreign_key "expenses", "budgets"
+  add_foreign_key "messages", "coproperties"
+  add_foreign_key "messages", "users"
   add_foreign_key "owners", "users"
   add_foreign_key "payments", "budgets"
   add_foreign_key "payments", "properties"

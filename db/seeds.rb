@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.create!(email: "test2@gmail.com", encrypted_password: "1234556686", password: "1234556686", password_confirmation: "1234556686")
+
+
+User.create!(email: "test3@gmail.com", encrypted_password: "1234556686", password: "1234556686", password_confirmation: "1234556686")
 puts 'User created'
 
 
@@ -18,3 +20,6 @@ Coproperty.create!(coproperty_name: "Copropiedad 2", number_properties: 10, addr
 Coproperty.create!(coproperty_name: "Copropiedad 3", number_properties: 20, address: "Calle 3", expense_method: "Mensual", coprop_private_area: 200, coprop_common_area: 2000, bank_account: "123456790", syndic_id: 1)
 Coproperty.create!(coproperty_name: "Copropiedad 4", number_properties: 30, address: "Calle 4", expense_method: "Mensual", coprop_private_area: 300, coprop_common_area: 3000, bank_account: "123456791", syndic_id: 1)
 puts 'Coproperties created'
+
+Chatroom.create!(name: "Chatroom 1")
+puts 'Chatroom created'
