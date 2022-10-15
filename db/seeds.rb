@@ -4,6 +4,10 @@ Property.destroy_all
 Owner.destroy_all
 Syndic.destroy_all
 User.destroy_all
+Request.destroy_all
+Payment.destroy_all
+Expense.destroy_all
+Budget.destroy_all
 
 user_syndic1 = User.create!(email: "test1@gmail.com", password: "1234556681", role: "Syndic")
 puts 'User syndic 1 created'
@@ -49,11 +53,15 @@ budget_1 = Budget.create!(budget_type: "Standard", budget_status: "Proposé", bu
 budget_2 = Budget.create!(budget_type: "Exceptionnel", budget_status: "Proposé", budget_start_date: "2023-08-11", budget_end_date: "2023-09-11", budget_amount: 9000, budget_title:"Budget Exceptionnel - Changement Complet Système Ascenseur",coproperty: coproperty_2)
 budget_3 = Budget.create!(budget_type: "Standard", budget_status: "Proposé", budget_start_date: "2023-01-01", budget_end_date: "2023-12-31", budget_amount: 8000, budget_title:"Budget Annuel 2023",coproperty: coproperty_1)
 budget_4 = Budget.create!(budget_type: "Exceptionnel", budget_status: "Proposé", budget_start_date: "2023-05-23", budget_end_date: "2023-06-02", budget_amount: 1000, budget_title:"Budget Exceptionnel - Changement des luminaires",coproperty: coproperty_1)
+puts 'Budgets created'
 
 expense_1 = Expense.create!(expense_name: "Frais Nettoyage - Janvier 2023", expense_type: "Nettoyage", expense_amount: 4000, expense_date: "2023-01-31", expense_status: "Proposé", budget: budget_1)
 expense_2 = Expense.create!(expense_name: "Frais Gardiennage - 1er Semestre 2023", expense_type: "Gardiennage", expense_amount: 9000, expense_date: "2023-06-30", expense_status: "Proposé", budget: budget_1)
+puts 'Expenses created'
 
 payment_1 = Payment.create!(payment_title: "Paiement Annuel 2023", payment_amount: "700", payment_date: "01-01-2023", payment_status: "Déclaré", property: property_3, budget: budget_1)
 payment_2 = Payment.create!(payment_title: "Paiement Annuel 2023", payment_amount: "1000", payment_date: "01-01-2023", payment_status: "Déclaré", property: property_4, budget: budget_1)
+puts 'Payments created'
 
 request_1 = Request.create!(request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
+puts 'Request created'
