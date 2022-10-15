@@ -54,6 +54,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_135139) do
     t.index ["budget_id"], name: "index_expenses_on_budget_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "coproperty_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coproperty_id"], name: "index_messages_on_coproperty_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "owners", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -130,6 +140,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_135139) do
   add_foreign_key "budgets", "coproperties"
   add_foreign_key "coproperties", "syndics"
   add_foreign_key "expenses", "budgets"
+  add_foreign_key "messages", "coproperties"
+  add_foreign_key "messages", "users"
   add_foreign_key "owners", "users"
   add_foreign_key "payments", "budgets"
   add_foreign_key "payments", "properties"
