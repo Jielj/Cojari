@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :properties, only: :create
   end
   resources :coproperties, only: :destroy
-  resources :coproperties, only: :destroy
+  resources :properties, only: :destroy
   resources :owners
+  ressources :properties, only: :show
 end
