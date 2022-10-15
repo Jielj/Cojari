@@ -12,6 +12,6 @@
         <%= f.input :budget_start_date %>
         <%= f.input :budget_end_date %>
         <%= f.input :budget_amount %>
-        <%# <%= f.input :photo %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>

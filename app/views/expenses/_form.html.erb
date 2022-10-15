@@ -11,6 +11,6 @@
         <%= f.input :expense_type, collection:['Nettoyage','Jardinage','Gardiennage','Eau / Electricité','Sécurité','Maintenance','Consommables','Frais Juridiques','Evénements','Autres Frais'] %>
         <%= f.input :expense_date %>
         <%= f.input :expense_amount %>
-        <%# <%= f.input :photo %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
