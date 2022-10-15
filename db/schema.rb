@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_15_073337) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_15_135139) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_073337) do
     t.bigint "syndic_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "building_type"
     t.index ["syndic_id"], name: "index_coproperties_on_syndic_id"
   end
 
@@ -82,13 +83,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_073337) do
 
   create_table "properties", force: :cascade do |t|
     t.string "building"
-    t.integer "propertie_number"
+    t.integer "property_number"
     t.integer "total_property_area"
     t.string "payment_frequency"
     t.bigint "owner_id", null: false
     t.bigint "coproperty_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "floor"
     t.index ["coproperty_id"], name: "index_properties_on_coproperty_id"
     t.index ["owner_id"], name: "index_properties_on_owner_id"
   end
@@ -115,6 +117,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_073337) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "role", default: "Owner", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
