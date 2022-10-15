@@ -39,6 +39,6 @@ private
   end
 
   def find_expense
-    @expense = expense.find(params[:id])
+    @expense = Expense.find(params[:id])
   end
 end

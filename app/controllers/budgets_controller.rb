@@ -39,6 +39,6 @@ private
   end
 
   def find_budget
-    @budget = budget.find(params[:id])
+    @budget = Budget.find(params[:id])
   end
 end
