@@ -35,7 +35,7 @@ class BudgetsController < ApplicationController
 private
 
   def budget_params
-    params.require(:budget).permit(:budget_type; :budget_status; :budget_start_date; :budget_end_date; :budget_amount; :budget_title; :coproperty_id)
+    params.require(:budget).permit(:budget_type, :budget_status, :budget_start_date, :budget_end_date, :budget_amount, :budget_title, :coproperty_id)
   end
 
   def find_budget
