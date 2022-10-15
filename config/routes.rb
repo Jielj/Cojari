@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :coproperties, only: :destroy
   resources :properties, only: :destroy
   resources :owners
-  ressources :properties, only: :show
+  resources :properties, only: :show
 end
