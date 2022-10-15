@@ -5,10 +5,26 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :syndics
-  resources :coproperties
-  resources :properties, only: :create
-  resources :owners
+  resources :syndics do
+    resources :coproperties do
+      resources :messages, only: [:create, :index]
+    end
+    resources :properties, only: :create
+  end
+
+  resources :owners do
+    resources :coproperties do
+      resources :messages, only: [:create, :index]
+    end
+    resources :properties, only: :create
+  end
+
+
+  # resources :coproperties, only: :destroy
+  # resources :properties, only: :destroy
+  # resources :owners
+  # ressources :properties, only: :show
+
   resources :expenses
   resources :budgets
   resources :payments
