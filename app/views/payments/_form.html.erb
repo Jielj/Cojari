@@ -3,13 +3,14 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
 
-        <h2>Fiche de Paiement</h2>
+        <h2>Paiement</h2>
 
         <%= simple_form_for @payment do |f| %>
-        <%= f.input :payment_title %>
-        <%= f.input :payment_status, collection:['Mensuelle','Trimestrielle','Annuelle'] %>
-        <%= f.input :payment_date %>
-        <%= f.input :payment_amount %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= f.input :payment_title, :label => 'Titre', :hint => 'Donnez un titre à ce Paiement'  %>
+        <%# <%= f.input :payment_status, collection:['Déclaré','Reçu'] !! ici par défaut c'est déclaré - ça ne doit pas être affiché%>
+        <%= f.input :payment_amount, :label => 'Montant', :hint => 'Montant du paiement en chiffres, dirham marocain',:placeholder => '700' %>
+        <%= f.input :payment_date, :label => 'Date de Paiement', :hint => 'Précisez quand le paiement a été effectué' %>
+        <%= f.input :photos, :label => 'Pièces Justificatives',:hint => 'Vous pouvez joindre des documents ou photos pour prouver votre paiement', as: :file, input_html: { multiple: true } %>
+        <%= f.submit 'Soumettre', class: "btn btn-default btn-primary" %>
+        <%# <%# <%= f.input :budget_id%  !!! le paiement doit être lié à un budget existant> %>
         <% end %>
