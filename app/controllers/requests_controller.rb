@@ -40,7 +40,7 @@ class RequestsController < ApplicationController
 private
 
   def request_params
-    params.require(:request).permit(:request_title, :request_date, :request_status, :property_id, :budget_id, photos: [])
+    params.require(:request).permit(:object, :request_title, :request_date, :request_status, :property_id, :budget_id, photos: [])
   end
 
   def find_request

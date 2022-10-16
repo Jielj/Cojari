@@ -63,5 +63,5 @@ payment_1 = Payment.create!(payment_title: "Paiement Annuel 2023", payment_amoun
 payment_2 = Payment.create!(payment_title: "Paiement Annuel 2023", payment_amount: "1000", payment_date: "01-01-2023", payment_status: "Déclaré", property: property_4, budget: budget_1)
 puts 'Payments created'
 
-request_1 = Request.create!(request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
+request_1 = Request.create!(object: "Problème Plomberie", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
 puts 'Request created'

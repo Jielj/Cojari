@@ -8,12 +8,12 @@
             <div class="clash-card__image clash-card__image--barbarian">
             </div>
             <div class="clash-card__level clash-card__level--barbarian"><%= payment.payment_title %></div>
-            <div class="clash-card__unit-name"><%= payment.payment_amount %></div>
-            <div class="clash-card__unit-name"><%= payment.payment_date %></div>
-            <div class="clash-card__unit-name"><%= payment.payment_status %></div>
+            <div class="clash-card__unit-name"> Montant : <%= payment.payment_amount.to_i %> MAD</div>
+            <div class="clash-card__unit-name">Date : <%= payment.payment_date %></div>
+            <div class="clash-card__unit-name">Statut : <%= payment.payment_status %></div>
             <div class="clash-card__unit-description">
             </div>
-            <%= link_to "More about", payment_path(payment.id), class: "bttn btn-main" %>
+            <%= link_to "Détails", payment_path(payment.id), class: "bttn btn-main" %>
           </div>
       </div>
     <% end %>

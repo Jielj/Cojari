@@ -5,17 +5,18 @@
       <div class="slide-container">
         <%# <div class="wrapper"> %>
           <div class="clash-card barbarian btns">
-            <div class="clash-card__image clash-card__image--barbarian">
+            <div class="clash-card__image cla sh-card__image--barbarian">
             </div>
+            <div class="clash-card__level clash-card__level--barbarian"><%= request.object %></div>
             <div class="clash-card__level clash-card__level--barbarian"><%= request.request_title %></div>
-            <div class="clash-card__unit-name"><%= request.request_date %></div>
-            <div class="clash-card__unit-name"><%= request.request_status %></div>
+            <div class="clash-card__unit-name">Date : <%= request.request_date %></div>
+            <div class="clash-card__unit-name">Statut : <%= request.request_status %></div>
+            <%# <%# <div class="clash-card__unit-name">ID Propriété : <%= request.property_id% - need to have the property_number> %>
             <div class="clash-card__unit-description">
             </div>
-            <%= link_to "More about", request_path(request.id), class: "bttn btn-main" %>
+            <%= link_to "Détails", request_path(request.id), class: "bttn btn-main" %>
           </div>
       </div>
     <% end %>
   </div>
 </div>
-
