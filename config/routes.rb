@@ -18,10 +18,13 @@ Rails.application.routes.draw do
     end
     resources :properties, only: :create
   end
-  
+
   resources :expenses
   resources :budgets
   resources :payments
   resources :users
   resources :requests
+
+  post '/expenses/:id/up_vote', to: 'expenses#up_vote', as: 'upvote_expense'
+  post '/expenses/:id/down_vote', to: 'expenses#down_vote', as: 'downvote_expense'
 end
