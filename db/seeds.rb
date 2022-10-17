@@ -9,23 +9,26 @@ Payment.destroy_all
 Expense.destroy_all
 Budget.destroy_all
 
-user_syndic1 = User.create!(email: "test1@gmail.com", password: "1234556681", role: "Syndic")
+user_syndic1 = User.create!(email: "test1@gmail.com", password: "1234556681", role: "Syndic", admin: false)
 puts 'User syndic 1 created'
 
-user_syndic2 = User.create!(email: "test2@gmail.com", password: "1234556682", role: "Syndic")
+user_syndic2 = User.create!(email: "test2@gmail.com", password: "1234556682", role: "Syndic", admin: false)
 puts 'User syndic 2 created'
 
-user_owner1 = User.create!(email: "test3@gmail.com", password: "1234556683", role: "Owner")
+user_owner1 = User.create!(email: "test3@gmail.com", password: "1234556683", role: "Owner", admin: false)
 puts 'User owner 1 created'
 
-user_owner2 = User.create!(email: "test4@gmail.com", password: "1234556684", role: "Owner")
+user_owner2 = User.create!(email: "test4@gmail.com", password: "1234556684", role: "Owner", admin: false)
 puts 'User owner 2 created'
 
-user_owner3 = User.create!(email: "test5@gmail.com", password: "1234556685", role: "Owner")
+user_owner3 = User.create!(email: "test5@gmail.com", password: "1234556685", role: "Owner", admin: false)
 puts 'User owner 3 created'
 
-user_owner4 = User.create!(email: "test6@gmail.com", password: "1234556686", role: "Owner")
+user_owner4 = User.create!(email: "test6@gmail.com", password: "1234556686", role: "Owner", admin: false)
 puts 'User owner 4 created'
+
+user_admin1 = User.create!(email: "testadmin@gmail.com", password: "admin1234556686", admin: true)
+puts 'Admin 1 created'
 
 syndic_1 = Syndic.create!(syndic_name: "Your Syndic Pro", creation_date: "2008-01-01", user: user_syndic1)
 puts 'Your Syndic Pro created'
