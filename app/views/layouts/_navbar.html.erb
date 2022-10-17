@@ -1,20 +1,58 @@
-<%# other navbar %>
-<section class="navigation">
-  <div class="nav-container">
-    <div class="brand">
-      <%= link_to "Cojari", root_path %>
-    </div>
-    <nav>
-      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-      <ul class="nav-list">
-        <li>
-          <%= link_to "Home", root_path %>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid mx-5">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <span><strong>COJARI</strong></span>
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0 fw-semibold">
+        <li class="nav-item">
+          <%# <a class="nav-link" href="#">Solution</a> %>
+          <%= link_to "Solution", root_path, class: "btn" %>
         </li>
-        <li>
-          <a href="#!">Profile</a>
+        <li class="nav-item">
+          <%# <a class="nav-link" href="#">Témoignages</a> %>
+          <%= link_to "Témoignages", root_path, class: "btn"%>
+
+        </li>
+        <li class="nav-item">
+          <%# <a class="nav-link" href="#">Plans & Pricing</a> %>
+          <%= link_to "Plans & Pricing", root_path, class: "btn" %>
+
+        </li>
+        <li class="nav-item">
+          <%# <a class="nav-link" href="#">Contact</a> %>
+          <%= link_to "Contact", root_path, class: "btn" %>
+
         </li>
       </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
 
-    </nav>
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <%= link_to "Créer un compte", new_user_registration_path, class: "btn fw-semibold" %>
+      <%= link_to "Accéder à mon espace", new_user_session_path, class: "btn btn-primary fw-semibold" %>
+    <!-- Right elements -->
   </div>
-</section>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
