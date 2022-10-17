@@ -7,7 +7,6 @@
 
         <%= simple_form_for @expense do |f| %>
         <%= f.input :expense_name, :label => 'Titre', :hint => 'Donnez un titre à ce frais' %>
-        <%# <%= f.input :expense_status, collection:['Proposé','Validé','Refusé','Payé'] !! pas défaut ici on doit avoir proposé uniquement %>
         <%= f.input :expense_type, collection:['Nettoyage','Jardinage','Gardiennage','Eau / Electricité','Sécurité','Maintenance','Consommables','Frais Juridiques','Evénements','Autres Frais'], :label => 'Type', :hint => 'Sélectionnez le type de frais à ajouter' %>
         <%= f.input :expense_amount, :label => 'Montant', :hint => 'Montant du frais en chiffres, dirham marocain',:placeholder => '2000' %>
         <%# <%= f.input :expense_date, :label => 'Date de Paiement', :hint => 'Précisez quand le paiement a été effectué' !! la date ne doit être considéré que pour les frais payés en mode date de paiement %>

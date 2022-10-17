@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_16_191434) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_17_205146) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -126,6 +126,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_16_191434) do
     t.index ["syndic_id"], name: "index_coproperties_on_syndic_id"
   end
 
+  create_table "expense_votes", force: :cascade do |t|
+    t.boolean "vote_up"
+    t.bigint "owner_id", null: false
+    t.bigint "expense_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expense_id"], name: "index_expense_votes_on_expense_id"
+    t.index ["owner_id"], name: "index_expense_votes_on_owner_id"
+  end
+
   create_table "expenses", force: :cascade do |t|
     t.string "expense_name"
     t.string "expense_type"
@@ -134,7 +144,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_16_191434) do
     t.bigint "budget_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "expense_status"
+    t.string "expense_status", default: "Proposé"
     t.index ["budget_id"], name: "index_expenses_on_budget_id"
   end
 
@@ -227,6 +237,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_16_191434) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "budgets", "coproperties"
   add_foreign_key "coproperties", "syndics"
+  add_foreign_key "expense_votes", "expenses"
+  add_foreign_key "expense_votes", "owners"
   add_foreign_key "expenses", "budgets"
   add_foreign_key "messages", "coproperties"
   add_foreign_key "messages", "users"

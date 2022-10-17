@@ -29,4 +29,7 @@ Rails.application.routes.draw do
   resources :payments
   resources :users
   resources :requests
+
+  post '/expenses/:id/up_vote', to: 'expenses#up_vote', as: 'upvote_expense'
+  post '/expenses/:id/down_vote', to: 'expenses#down_vote', as: 'downvote_expense'
 end
