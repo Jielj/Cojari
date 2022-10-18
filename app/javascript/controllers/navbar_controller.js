@@ -10,7 +10,6 @@ export default class extends Controller {
   }
 
   fixed() {
-    console.log('added fixed position class')
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
       this.containerTarget.classList.add("fixed-position");
     } else {
