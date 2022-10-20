@@ -9,14 +9,12 @@ Rails.application.routes.draw do
     resources :coproperties do
       resources :messages, only: [:create, :index]
     end
-    resources :properties, only: :create
   end
 
   resources :owners do
     resources :coproperties do
       resources :messages, only: [:create, :index]
     end
-    resources :properties, only: :create
   end
 
 
@@ -24,7 +22,7 @@ Rails.application.routes.draw do
   # resources :properties, only: :destroy
   # resources :owners
   # ressources :properties, only: :show
-
+  resources :properties
   resources :expenses
   resources :budgets
   resources :payments
