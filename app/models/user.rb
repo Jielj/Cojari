@@ -16,5 +16,14 @@ class User < ApplicationRecord
     end
   end
 
+  def is_syndic?
+    if !self.owner.nil? || !self.syndic.nil?
+      if self.owner.nil?
+        return true
+      else
+        return false
+      end
+    end
+  end
 
 end

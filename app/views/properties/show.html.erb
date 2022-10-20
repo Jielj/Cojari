@@ -1,0 +1,5 @@
+<% if current_user.is_syndic? %>
+  <%= render 'show_syndic' %>
+<% else %>
+  <%= render 'show_owner' %>
+<% end %>

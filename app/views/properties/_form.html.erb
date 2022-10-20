@@ -5,10 +5,11 @@
 
         <h2>Formulaire habitation à compléter</h2>
 
-        <%= simple_form_for @property do |f| %>
+        <%= simple_form_for [ @syndic, @property] do |f| %>
         <%= f.input :building %>
         <%= f.input :property_number %>
         <%= f.input :total_property_area %>
-        <%= f.input :payment_frequency:['Mensuelle','Trimestrielle', 'Annuelle']%>
+        <%= f.input :payment_frequency , collection: ['Mensuelle','Trimestrielle', 'Annuelle'] %>
         <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
+      </div>

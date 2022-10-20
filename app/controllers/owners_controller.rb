@@ -13,6 +13,7 @@ class OwnersController < ApplicationController
 
   def create
     @owner = Owner.new(owner_params)
+    @owner.user = current_user
     if @owner.save
       redirect_to @owner, :notice => "Successfully created owner."
     else
@@ -41,7 +42,7 @@ class OwnersController < ApplicationController
 private
 
   def owner_params
-    params.require(:books).permit(:first_name, :last_name, :gender, :card_number, :phone_number, :ownership_date, :birth_date, :user_id)
+    params.require(:owner).permit(:first_name, :last_name, :gender, :card_number, :phone_number, :ownership_date, :birth_date, :user_id)
   end
 
 end
