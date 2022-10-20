@@ -8,15 +8,15 @@
             <div class="clash-card__image clash-card__image--barbarian">
             </div>
             <div class="clash-card__level clash-card__level--barbarian"><%= expense.expense_name %></div>
-            <div class="clash-card__unit-name"><%= expense.expense_date %></div>
-            <div class="clash-card__unit-name"><%= expense.expense_type %></div>
-            <div class="clash-card__unit-name"><%= expense.expense_amount %></div>
-            <div class="clash-card__unit-name"><%= expense.expense_status %></div>
+            <div class="clash-card__unit-name">Type : <%= expense.expense_type %></div>
+            <div class="clash-card__unit-name">Montant :<%= expense.expense_amount.to_i %> MAD</div>
+            <%# <%# <div class="clash-card__unit-name"><%= expense.expense_status % !! à voir statut dans le edit> %>
             <div class="clash-card__unit-description">
             </div>
-            <%= link_to "More about", expense_path(expense.id), class: "bttn btn-main" %>
+            <%= link_to "Détails", expense_path(expense.id), class: "bttn btn-main" %>
           </div>
       </div>
     <% end %>
   </div>
+  <%= render "expenses/vote_form" %>
 </div>

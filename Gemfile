@@ -47,6 +47,10 @@ gem "sassc-rails"
 
 gem "cloudinary"
 
+gem "rails_admin", "~> 3.0"
+
+gem "blazer"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
@@ -57,8 +61,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "dotenv-rails", groups: [:development, :test]
-
+  gem "dotenv-rails"
 end
 
 group :development do
@@ -79,4 +82,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem "cssbundling-rails", "~> 1.1"
+gem "sassc-rails"
