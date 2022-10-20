@@ -7,6 +7,9 @@ import { application } from "./application"
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
+import ConditionalInputController from "./conditional_input_controller"
+application.register("conditional-input", ConditionalInputController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

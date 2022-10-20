@@ -3,7 +3,12 @@ class PaymentsController < ApplicationController
 
   def index
     @payments = Payment.all
-  end
+  #   if current_user.owner.nil?
+  #     render "payments/syndic_index"
+  #  else
+  #     render "payments/owner_index"
+  #   end
+   end
 
   def show
   end

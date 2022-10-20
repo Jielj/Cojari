@@ -32,6 +32,26 @@ class ExpensesController < ApplicationController
     end
   end
 
+# Test Votes
+
+  def up_vote
+    @expense = Expense.find(params[:id])
+    @vote = ExpenseVote.new
+    @vote.vote_up = true
+    @vote.owner = current_user.owner
+    @vote.expense = @expense
+    @vote.save
+  end
+
+  def down_vote
+    @expense = Expense.find(params[:id])
+    @vote = ExpenseVote.new
+    @vote.vote_up = false
+    @vote.owner = current_user.owner
+    @vote.expense = @expense
+    @vote.save
+  end
+
 private
 
   def expense_params
