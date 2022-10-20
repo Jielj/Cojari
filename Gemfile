@@ -83,3 +83,4 @@ group :test do
 end
 
 gem "sassc-rails"
+gem "sassc-rails"
