@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: "pages#home"
+
+  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   authenticate :user, ->(user) { user.admin? } do
@@ -21,7 +23,7 @@ Rails.application.routes.draw do
     resources :coproperties do
       resources :messages, only: [:create, :index]
     end
-    resources :properties, only: :create
+    resources :properties
   end
 
   resources :expenses

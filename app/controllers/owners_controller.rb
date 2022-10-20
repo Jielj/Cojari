@@ -1,5 +1,5 @@
 class OwnersController < ApplicationController
-  def list
+  def index
     @owners = Owner.all
   end
 

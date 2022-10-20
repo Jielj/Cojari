@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
-  
-  def list
+
+  def index
     @properties = Property.all
   end
 

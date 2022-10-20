@@ -1,0 +1,14 @@
+<h1>PROPERTIES</h1>
+
+
+  <ul>
+    <% @properties.each do |property| %>
+      <li><%= link_to property.property_number %> <%= link_to property.building %> <%= link_to property.total_property_area %> </li>
+
+    <% end %>
+  </ul>
+
+
+
+
+<%= button_to "Create new property", owner_properties_path, method: :get %>
