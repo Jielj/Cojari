@@ -1,0 +1,23 @@
+<%= render "layouts/navbar" %>
+<div class="card pt-3">
+<div class="inline-container p-3">
+    <h2>Budgets en Cours</h2>
+    <% @budgets.each do |budget| %>
+      <div class="slide-container">
+        <div class="wrapper">
+          <div class="clash-card barbarian btns">
+            <div class="clash-card__image clash-card__image--barbarian">
+            </div>
+            <div class="clash-card__level clash-card__level--barbarian"><%= budget.budget_title %></div>
+            <div class="clash-card__unit-name">Montant Initial : <%= budget.budget_amount.to_i %> MAD</div>
+            <div class="clash-card__unit-name">Statut : <%= budget.budget_status %></div>
+            <div class="clash-card__unit-description">
+            </div>
+            <%= link_to "Détails", budget_path(budget.id), class: "bttn btn-main" %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+    <h2>Budgets Expirés</h2>
+    <%# !!!!!if à définir %>
+</div>

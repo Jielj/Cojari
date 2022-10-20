@@ -1,0 +1,15 @@
+
+<h1>OWNERS</h1>
+
+
+  <ul>
+    <% @owners.each do |owner| %>
+      <li><%= link_to owner.first_name %>  <%= link_to owner.last_name %></li>
+
+    <% end %>
+  </ul>
+
+
+
+
+<%= button_to "Create new owner", new_owner_path, method: :get %>

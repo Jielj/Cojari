@@ -1,0 +1,33 @@
+<%# <%= render "layouts/navbar" %>
+<div class="m-4 card-border">
+  <div class="container info-card card-dem">
+    <div class="row">
+      <span class="info-top col">
+        <h1><%= @request.object %></h1>
+        <h3>Date : <%= @request.request_date %></h3>
+         <h3>Statut : <%= @request.request_status %></h3>
+         <h3><%= @request.request_title %></h3>
+        <div class="info-bottom col-8 search-btns">
+        </div>
+      </span>
+        <h2>Documents</h2>
+        <% @request.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, alt: "Pièce justificative de #{@request.object}"%>
+        <% end %>
+    </div>
+  </div>
+
+      <%= link_to "Update", edit_request_path(@request.id), class: "" %>
+      <%= link_to 'Back', root_path %>
+    </div>
+</div>
+</div>
+</div>
+
+<%# <%= render "layouts/footer" %>
+
+
+
+
+
+</div>

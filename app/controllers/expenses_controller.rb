@@ -32,13 +32,33 @@ class ExpensesController < ApplicationController
     end
   end
 
+# Test Votes
+
+  def up_vote
+    @expense = Expense.find(params[:id])
+    @vote = ExpenseVote.new
+    @vote.vote_up = true
+    @vote.owner = current_user.owner
+    @vote.expense = @expense
+    @vote.save
+  end
+
+  def down_vote
+    @expense = Expense.find(params[:id])
+    @vote = ExpenseVote.new
+    @vote.vote_up = false
+    @vote.owner = current_user.owner
+    @vote.expense = @expense
+    @vote.save
+  end
+
 private
 
   def expense_params
-    params.require(:expense).permit(:expense_name; :expense_type; :expense_amount; :expense_date; :expense_status; :budget_id)
+    params.require(:expense).permit(:expense_name, :expense_type, :expense_amount, :expense_date, :expense_status, :budget_id, photos: [])
   end
 
   def find_expense
-    @expense = expense.find(params[:id])
+    @expense = Expense.find(params[:id])
   end
 end

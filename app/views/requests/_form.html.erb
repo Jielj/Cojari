@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+
+        <h2>Requête</h2>
+
+        <%= simple_form_for @request do |f| %>
+        <%= f.input :object, :label => 'Objet', :hint => 'Définissez un objet pour la requête',:placeholder => 'Problème de Plomberie'  %>
+        <%= f.input :request_title, :label => 'Message', :hint => 'Décrivez votre requête', :input_html => { :maxlength => 600 }   %>
+        <%# <%= f.input :request_status, collection:['Soumise','Traitée','En cours de Traitement','Rejetée'] !!! uniquement statut admin par défaut ici c proposé %>
+        <%# <%= f.input :request_date % !! doit être gathered par défaut>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos, :label => 'Pièces Jointes',:hint => 'Vous pouvez joindre des documents ou photos pour préciser votre requête', as: :file, input_html: { multiple: true } %>
+        <%= f.submit 'Soumettre', class: "btn btn-default btn-primary" %>
+        <% end %>
