@@ -1,4 +1,3 @@
-<%= render "layouts/navbar" %>
 <div class="card pt-3">
 <div class="inline-container p-3">
 
@@ -20,20 +19,19 @@
     </div>
     <% @coproperties.each do |coproperty| %>
       <div class="slide-container">
-        <%# <div class="wrapper"> %>
-          <div class="clash-card barbarian btns">
-            <div class="clash-card__image clash-card__image--barbarian">
-              <img src="<%=coproperty.photo%>" alt="barbarian" />
-            </div>
-            <div class="clash-card__level clash-card__level--barbarian"><%= coproperty.coproperty_name %></div>
-            <div class="clash-card__unit-name"><%= coproperty.number_properties %></div>
-            <div class="clash-card__unit-name"><%= coproperty.address %></div>
-            <div class="clash-card__unit-description">
-            </div>
-            <%= link_to "More about", coproperty_path(coproperty.id), class: "bttn btn-main" %>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2><strong><%= coproperty.coproperty_name %></strong></h2>
+            <li><strong>Number of Properties: </strong><%= coproperty.number_properties %></li>
+            <li><strong>Address: </strong><%= coproperty.address %></li>
+          </div>
+        </div>
+      </div>
+      <br>
+            <%# <%= link_to "More about", coproperty_path(coproperty.id), class: "bttn btn-main" %>
           </div>
       </div>
     <% end %>
   </div>
 </div>
-<%= render "layouts/footer" %>

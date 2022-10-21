@@ -5,7 +5,7 @@ class CreateProperties < ActiveRecord::Migration[7.0]
       t.integer :propertie_number
       t.integer :total_property_area
       t.string :payment_frequency
-      t.references :owner, null: false, foreign_key: true
+      t.references :owner, null: true, foreign_key: true
       t.references :coproperty, null: false, foreign_key: true
 
       t.timestamps

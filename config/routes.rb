@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get 'link/show'
+    #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: "pages#home"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   authenticate :user, ->(user) { user.admin? } do
-  mount Blazer::Engine, at: "blazer"
+    #mount Blazer::Engine, at: "blazer"
   end
 
   # Defines the root path route ("/")
@@ -15,22 +16,26 @@ Rails.application.routes.draw do
     resources :coproperties do
       resources :messages, only: [:create, :index]
     end
-    resources :properties, only: :create
-  end
+    resources :properties
+   end
 
   resources :owners do
     resources :coproperties do
       resources :messages, only: [:create, :index]
     end
-    resources :properties
+    resources :properties, only: :show
   end
 
   resources :expenses
   resources :budgets
   resources :payments
-  resources :users
+  resources :users do
+    resources :owners
+  end
   resources :requests
 
   post '/expenses/:id/up_vote', to: 'expenses#up_vote', as: 'upvote_expense'
   post '/expenses/:id/down_vote', to: 'expenses#down_vote', as: 'downvote_expense'
+
+ get '/links/:id', to: 'links#show', as: 'link'
 end

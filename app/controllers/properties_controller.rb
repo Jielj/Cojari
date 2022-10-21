@@ -10,12 +10,15 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    @syndic = current_user.syndic
   end
 
   def create
     @property = Property.new(property_params)
+    @property.coproperty_id = current_user.syndic.coproperties.first.id
     if @property.save
-      redirect_to @property, :notice => "Successfully created property."
+      Link.create(property_id: @property.id)
+      redirect_to syndic_property_path(current_user.syndic, @property), :notice => "Successfully created property."
     else
       render :action => 'new'
     end
@@ -42,7 +45,9 @@ class PropertiesController < ApplicationController
 private
 
   def property_params
-    params.require(:books).permit(:owner_id, :address, :building, :floor, :property_number, :total_property_area, :payment_frequency, :coproperty_id)
+
+    params.require(:property).permit(:owner_id, :address, :building, :floor, :property_number, :total_property_area, :payment_frequency, :coproperty_id)
+
   end
 
 end
