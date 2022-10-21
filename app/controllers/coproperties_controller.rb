@@ -46,5 +46,5 @@ private
   def find_coproperty
     @coproperty = Coproperty.find(params[:id])
   end
-end
 
+end

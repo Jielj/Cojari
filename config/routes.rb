@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:create, :index]
     end
     resources :properties
-  end
+   end
 
   resources :owners do
     resources :coproperties do

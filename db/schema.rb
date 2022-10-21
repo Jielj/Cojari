@@ -144,7 +144,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_185326) do
     t.bigint "budget_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "expense_status", default: "Proposé"
+    t.string "expense_status"
     t.index ["budget_id"], name: "index_expenses_on_budget_id"
   end
 

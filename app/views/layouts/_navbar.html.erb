@@ -51,7 +51,7 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <%= link_to "Créer un compte", new_user_registration_path, class: "btn fw-semibold" %>
-      <%= link_to "Accéder à mon espace", new_user_session_path, class: "btn btn-primary fw-semibold" %>
+      <%= link_to "Accéder à mon espace", syndic_coproperties_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
     <!-- Right elements -->
   </div>
   <!-- Container wrapper -->
