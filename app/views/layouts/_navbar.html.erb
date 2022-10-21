@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light py-3"
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 blur"
     data-navbar-target="container">
   <!-- Container wrapper -->
   <div class="container-fluid mx-5">
@@ -17,11 +17,12 @@
     </button>
 
     <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0" href="#">
-        <span><strong>COJARI</strong></span>
+        <%# <span><strong>COJARI</strong></span> %>
+        <%= link_to "COJARI", root_path, class: "navbar-brand mt-2 mt-lg-0 fw-bold" %>
       </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Left links -->
       <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0 fw-semibold">
         <li class="nav-item">
@@ -44,14 +45,15 @@
 
         </li>
       </ul>
+      <%= link_to "Créer un compte", new_user_registration_path, class: "btn fw-semibold" %>
+      <%= link_to "Accéder à mon espace", syndic_coproperties_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
       <!-- Left links -->
     </div>
     <!-- Collapsible wrapper -->
 
     <!-- Right elements -->
-    <div class="d-flex align-items-center">
-      <%= link_to "Créer un compte", new_user_registration_path, class: "btn fw-semibold" %>
-      <%= link_to "Accéder à mon espace", syndic_coproperties_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
+    <%# <div class="d-flex align-items-center">
+    </div> %>
     <!-- Right elements -->
   </div>
   <!-- Container wrapper -->
