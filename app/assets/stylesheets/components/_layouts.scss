@@ -25,7 +25,17 @@
 }
 .description {
   width: 50%;
+  margin-left: 10%;
+  margin-right: 10%;
+
 }
 .row-rev {
   flex-direction: row-reverse;
+}
+.rev-header {
+  text-align: right;
+}
+
+.feature-img {
+  width: 15rem;
 }

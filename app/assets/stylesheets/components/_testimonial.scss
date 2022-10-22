@@ -6,6 +6,10 @@
     radial-gradient(100% 148.07% at 0% 0%, #ccff00 0%, #51d500 100%);
   background-blend-mode: screen, color-dodge, overlay, difference, normal;
 }
+.gradient-custom-bar {
+  background: rgb(104,18,157);
+background: linear-gradient(52deg, rgba(104,18,157,1) 13%, rgba(39,170,212,1) 61%, rgba(0,212,255,1) 100%);
+}
 .carousel-indicators {
   border-radius: 50%;
   width: 10px;

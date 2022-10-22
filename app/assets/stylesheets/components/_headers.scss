@@ -6,3 +6,25 @@ body {
 .moto {
   color: $dark-purple;
 }
+
+.features-h {
+  color: #5511c3;
+}
+.features-p {
+  color: #21074b;
+}
+.main-txt {
+  color: #330d72;
+}
+
+.footer-txt {
+  color: rgb(208, 206, 222);
+  text-decoration: none;
+}
+.center-txt {
+  text-align: center;
+}
+.purple-bg {
+  background-color: $primary;
+  color: $primary-bg;
+}
