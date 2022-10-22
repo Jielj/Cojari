@@ -1,37 +1,55 @@
-<div class="card pt-3">
-<div class="inline-container p-3">
 
-  <div class="cards-container">
-    <div class="map-card barbarian btns search-form flex search-btns">
-      <div class="inline-container map-container"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="pk.eyJ1IjoiamloYW5lamlpaSIsImEiOiJjbDhnM2Q4eXowM2Y0M3BwMmM0cGV2a2YzIn0.q-DEG9fibQC0mzodxg2NNQ">
-      </div>
-      <div class="inline-container search-container ">
-        <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-          <%= f.input :name, input_html: {value: ""}, class: "search-bar" %>
-          <%= f.input :category, input_html: {value: ""}, class: "search-bar" %>
-          <%= f.input :specie,input_html: {value: ""}, class: "search-bar" %>
-          <%= f.submit "Search", class: "search-btn search-btn-main" %>
-        <% end %>
-      </div>
+
+<div class="container map-container"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="pk.eyJ1IjoiamloYW5lamlpaSIsImEiOiJjbDhnM2Q4eXowM2Y0M3BwMmM0cGV2a2YzIn0.q-DEG9fibQC0mzodxg2NNQ">
+</div>
+<div class="inline-container search-container d-flex flex-row-reverse ">
+  <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+    <div class="search-bar">
+      <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+      <input id="search" type="text" placeholder="rechercher">
     </div>
+  <% end %>
+</div>
+
+<div class="container p-0 rounded red-border">
+  <div class="flex-tabs cop-card-section"
+        >
+   <div class="flex-tab">
     <% @coproperties.each do |coproperty| %>
-      <div class="slide-container">
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <h2><strong><%= coproperty.coproperty_name %></strong></h2>
-            <li><strong>Number of Properties: </strong><%= coproperty.number_properties %></li>
-            <li><strong>Address: </strong><%= coproperty.address %></li>
+          <div class="row p-2 border cop-card"
+          data-controller="coproperty-info"
+                data-coproperty-info-cop-id-value="<%= coproperty.id %>">
+
+            <div class="col-md-3 mt-1 cop-img"
+
+                data-action="click->coproperty-info#selected"
+            ><img class="img-fluid img-responsive rounded product-image" src="https://img.freepik.com/free-vector/city-skyline-concept-illustration_114360-8923.jpg?w=2000"></div>
+            <div class="col-md-6 mt-1">
+              <h5><strong><%= coproperty.coproperty_name %></strong></h5>
+              <div class="d-flex flex-row">
+                <%# maybe used later %>
+              </div>
+              <div class="mx-1 spec-1"><strong>Number of Properties: </strong><%= coproperty.number_properties %></div>
+              <div class="mx-1 spec-1"><strong>Number of Properties: </strong><%= coproperty.number_properties %></div>
+              <p class="text-justify text-truncate para mb-0">Address: </strong><%= coproperty.address %><br><br></p>
+            </div>
+            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+              <div class="d-flex flex-row align-items-center">
+                <h6 class="mr-1">Area: <%= coproperty.coprop_private_area + coproperty.coprop_common_area %>m²</h6>
+              </div>
+              <h6 class="text-success">paid</h6>
+              <div class="d-flex flex-column mt-4"><button class="btn btn-outline-primary btn-sm mt-2" type="button">access details</button></div>
+            </div>
           </div>
-        </div>
-      </div>
-      <br>
-            <%# <%= link_to "More about", coproperty_path(coproperty.id), class: "bttn btn-main" %>
-          </div>
-      </div>
+
     <% end %>
+   </div>
+
+   <div class="flex-tab cop-inf-section">
+      <%= render "layouts/property_info",coproperty_info:  Coproperty.first  %>
+   </div>
   </div>
 </div>

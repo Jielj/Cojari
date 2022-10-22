@@ -1,0 +1,28 @@
+    <h3><strong><%= coproperty_info.coproperty_name %> </strong></h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">property</th>
+          <th scope="col">floor</th>
+          <th scope="col">owner</th>
+          <th scope="col">status</th>
+          <th scope="col">frequency</th>
+
+        </tr>
+      </thead>
+      <%# laoding properties %>
+      <tbody>
+      <% coproperty_info.properties.each do |property| %>
+        <tr>
+          <th scope="row"><%= property.id %></th>
+          <td> <%= property.property_number %> </td>
+          <td> <%= property.floor %> </td>
+          <td><%= property.owner.last_name %> </td>
+          <td>paid</td>
+          <td><%= property.payment_frequency %> </td>
+
+        </tr>
+      <% end %>
+      </tbody>
+    </table>

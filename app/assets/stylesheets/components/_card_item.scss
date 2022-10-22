@@ -1,32 +1,46 @@
-.card-product {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
+// coproperties card
+.card {
+  // max-height: 8rem;
+  margin-bottom: 2rem;
+}
+// .cop-img {
+//   object-fit: cover;
+//   height: 236px !important;
+//   width: 236px !important;
+// }
+.cop-card {
+  max-width: 100%;
+  margin: 0 !important;
 }
 
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
-
-.card-product h2 {
+.ratings i {
   font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+  color: red;
 }
-
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+.strike-text {
+  color: red;
+  text-decoration: line-through;
 }
-
-.card-product .card-product-infos {
-  padding: 16px;
+.product-image {
+  width: 100%;
+}
+.dot {
+  height: 7px;
+  width: 7px;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-top: 3px;
+  background-color: blue;
+  border-radius: 50%;
+  display: inline-block;
+}
+.spec-1 {
+  color: #938787;
+  font-size: 15px;
+}
+h5 {
+  font-weight: 400;
+}
+.para {
+  font-size: 16px;
 }
