@@ -15,15 +15,17 @@ Rails.application.routes.draw do
   resources :syndics do
     resources :coproperties do
       resources :messages, only: [:create, :index]
+      resources :properties, except: [:index] 
     end
-    resources :properties
-   end
+  end
 
-  resources :owners do
-    resources :coproperties do
+  resources :owners, except: [:index] do
+    resources :coproperties, only: [:show,:index] do
       resources :messages, only: [:create, :index]
+      resources :properties, only: [:show, :index] do
+        resources :requests
+      end
     end
-    resources :properties, only: :show
   end
 
   resources :expenses
@@ -32,7 +34,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :owners
   end
-  resources :requests
+
 
   post '/expenses/:id/up_vote', to: 'expenses#up_vote', as: 'upvote_expense'
   post '/expenses/:id/down_vote', to: 'expenses#down_vote', as: 'downvote_expense'

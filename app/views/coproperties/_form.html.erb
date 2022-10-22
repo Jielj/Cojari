@@ -5,15 +5,14 @@
 
         <h2>Fiche de la Copropriété</h2>
 
-        <%= simple_form_for @coproperty do |f| %>
+        <%= simple_form_for [current_user.syndic, @coproperty] do |f| %>
         <%= f.input :coproperty_name %>
         <%= f.input :expense_method, collection:['Fixe par Habitant','Variable au Tantième'] %>
         <%= f.input :number_properties %>
         <%= f.input :address %>
         <%= f.input :coprop_private_area %>
         <%= f.input :coprop_common_area %>
-        <%= f.input :coprop_private_area %>
         <%= f.input :bank_account %>
-        <%= f.input :photo %>
+        <%# <%= f.input :photo %>
         <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>

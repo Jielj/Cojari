@@ -1,5 +1,13 @@
+<div class="slide-container">
+  <h1>Propriété N°: </strong><%= @property.property_number %></h1>
+      <li><strong>Building : </strong><%= @property.building %></li>
+      <li><strong>Etage: </strong><%= @property.floor %></li>
+      <li><strong>Superficie: </strong><%= @property.total_property_area %></li>
+      <li><strong>Fréquence de paiement: </strong><%= @property.payment_frequency %></li>
+</div>
+
 <% if current_user.is_syndic? %>
-  <%= render 'show_syndic' %>
+  <%= render "show_syndic" %>
 <% else %>
-  <%= render 'show_owner' %>
+  <%= render "show_owner" %>
 <% end %>

@@ -1,0 +1,24 @@
+<div class="m-4 card-border">
+  <div class="container info-card card-dem">
+    <div class="row">
+      <%# <img src= <%=  "#{@syndic.photo}" %>
+      <span class="info-top col">
+        <li>Sexe: <%= @owner.gender %></li>
+        <li>Prénom: <%= @owner.first_name %></li>
+        <li>Nom de famille: <%= @owner.last_name %></li>
+        <li>Age: <%= @owner.birth_date %></li>
+        <li>CIN: <%= @owner.card_number %></li>
+        <li>GSM: <%= @owner.phone_number %></li>
+        <li>Propriétaire depuis: <%= @owner.ownership_date %></li>
+        <div class="info-bottom col-8 search-btns">
+        </div>
+      </span>
+    </div>
+  </div>
+
+      <%= link_to "Delete", owner_path(@owner.id), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "" %>
+      <%= link_to "Update", edit_owner_path(@owner.id), class: "" %>
+    </div>
+</div>
+</div>
+</div>
