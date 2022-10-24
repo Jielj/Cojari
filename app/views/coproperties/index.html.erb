@@ -1,4 +1,6 @@
-
+<br>
+<br>
+<br>
 Bonjour <%= current_user.syndic.syndic_name %> !
 <div class="container map-container">
       <%= link_to "Ajouter une copropriété", new_syndic_coproperty_path, class: "btn btn-primary" %>
@@ -54,6 +56,6 @@ Bonjour <%= current_user.syndic.syndic_name %> !
   </div>
 </div>
 
- <%= link_to destroy_user_session_path, class: "nav_link",  data: {turbo_method: :delete} do %>
-        <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Déconnexion</span>
-        <% end %>
+<div class="mt-3" id="coproperty-index">
+        <%= render "dashboard2", coproperty: @coproperty %>
+      </div>
