@@ -1,0 +1,21 @@
+
+.simple_form {
+  width: 30%;
+
+}
+.search-bar {
+  border-radius: 8px;
+  border: 1px solid $search-color;
+  background-color: $search-color;
+  margin: 19px 32px;
+  padding: 2px;
+  i {
+    margin: 0 8px;
+  }
+  input, input:focus, input:active, input:focus-visible {
+    border: 0;
+    background-color: $search-color;
+    outline: 0;
+    width: 82%;
+  }
+}

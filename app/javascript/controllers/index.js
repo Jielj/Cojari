@@ -10,6 +10,9 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import ConditionalInputController from "./conditional_input_controller"
 application.register("conditional-input", ConditionalInputController)
 
+import CopropertyInfoController from "./coproperty_info_controller"
+application.register("coproperty-info", CopropertyInfoController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
