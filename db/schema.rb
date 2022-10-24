@@ -198,7 +198,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_185326) do
     t.integer "property_number"
     t.integer "total_property_area"
     t.string "payment_frequency"
-    t.bigint "owner_id", null: false
+    t.bigint "owner_id"
     t.bigint "coproperty_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -212,6 +212,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_185326) do
     t.date "request_date"
     t.string "request_status"
     t.bigint "property_id", null: false
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "object"

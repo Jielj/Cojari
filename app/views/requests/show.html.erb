@@ -3,10 +3,10 @@
   <div class="container info-card card-dem">
     <div class="row">
       <span class="info-top col">
-        <h1><%= @request.object %></h1>
-        <h3>Date : <%= @request.request_date %></h3>
-         <h3>Statut : <%= @request.request_status %></h3>
-         <h3><%= @request.request_title %></h3>
+        <h1><%= @request.request_title %></h1>
+        <p>Date : <%= @request.request_date %></p>
+        <p>Message : <%= @request.message %></p>
+         <p>Statut : <%= @request.request_status %></p>
         <div class="info-bottom col-8 search-btns">
         </div>
       </span>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-      <%= link_to "Update", edit_request_path(@request.id), class: "" %>
+      <%= link_to "Update", edit_owner_coproperty_property_request(current_user.owner, @coproperty, @property,@request), class: "" %>
       <%= link_to 'Back', root_path %>
     </div>
 </div>

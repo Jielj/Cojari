@@ -10,25 +10,32 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+    @owner = current_user.owner
+    @property = Property.find(params[:property_id])
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def create
     @request = Request.new(request_params)
+    @request.property = Property.find(params[:property_id])
     if @request.save
-    redirect_to @request, :notice => "Successfully created request."
+    redirect_to owner_coproperty_property_path(current_user.owner,Coproperty.find(params[:coproperty_id]),Property.find(params[:property_id])), :notice => "Successfully created request."
     else
     render :action => 'new'
     end
   end
 
   def edit
+    @owner = current_user.owner
+    @property = Property.find(params[:property_id])
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def update
     if @request.update(request_params)
-    redirect_to @request, :notice  => "Successfully updated request."
+      redirect_to owner_coproperty_property_path(current_user.owner,Coproperty.find(params[:coproperty_id]),Property.find(params[:property_id])), :notice => "Successfully created request."
     else
-    render :action => 'edit'
+      render :action => 'edit'
     end
   end
 
@@ -40,7 +47,7 @@ class RequestsController < ApplicationController
 private
 
   def request_params
-    params.require(:request).permit(:object, :request_title, :request_date, :request_status, :property_id, :budget_id, photos: [])
+    params.require(:request).permit(:request_title, :request_date, :request_status, :message, :property_id, :budget_id, photos: [])
   end
 
   def find_request

@@ -4,6 +4,7 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="pk.eyJ1IjoiamloYW5lamlpaSIsImEiOiJjbDhnM2Q4eXowM2Y0M3BwMmM0cGV2a2YzIn0.q-DEG9fibQC0mzodxg2NNQ">
+      <%= link_to "New Coproperty", new_syndic_coproperty_path, class: "btn btn-primary" %>
 </div>
 <div class="inline-container search-container d-flex flex-row-reverse ">
   <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
@@ -11,6 +12,7 @@
       <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
       <input id="search" type="text" placeholder="rechercher">
     </div>
+<<<<<<< HEAD
   <% end %>
 </div>
 
@@ -44,8 +46,14 @@
               </div>
               <h6 class="text-success">paid</h6>
               <div class="d-flex flex-column mt-4"><button class="btn btn-outline-primary btn-sm mt-2" type="button">access details</button></div>
+              <% if current_user.is_syndic? %>
+                <%= link_to "Edit", edit_syndic_coproperty_path(current_user.syndic, coproperty), class: "btn btn-primary" %>
+                <%= link_to "Delete", syndic_coproperty_path(current_user.syndic, coproperty), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+                <%= link_to "Open", syndic_coproperty_path(current_user.syndic, coproperty.id), class: "btn btn-success"  %>
+              <% else %>
+                <%= link_to "Open", owner_coproperty_path(current_user.owner, coproperty.id), class: "btn btn-primary"  %>
+              <% end %>
             </div>
-          </div>
 
     <% end %>
    </div>
