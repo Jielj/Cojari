@@ -1,0 +1,8 @@
+<div class="inline-container search-container d-flex flex-row-reverse ">
+  <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+    <div class="search-bar">
+      <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+      <input id="search" type="text" placeholder="rechercher">
+    </div>
+  <% end %>
+</div>
