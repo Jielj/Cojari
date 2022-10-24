@@ -3,11 +3,11 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
 
-        <h2>Complete syndic form</h2>
+        <h2>Nouveau Syndic</h2>
 
         <%= simple_form_for @syndic do |f| %>
-        <%= f.input :syndic_name %>
-        <%= f.input :creation_date %>
+        <%= f.input :syndic_name, :label => 'Nom'%>
+        <%= f.input :creation_date, :label => 'Date de Création' %>
         <%# <%= f.input :photo %>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= f.submit 'Créer', class: "btn btn-default btn-primary"%>
         <% end %>

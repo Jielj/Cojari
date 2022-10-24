@@ -8,16 +8,15 @@
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="pk.eyJ1IjoiamloYW5lamlpaSIsImEiOiJjbDhnM2Q4eXowM2Y0M3BwMmM0cGV2a2YzIn0.q-DEG9fibQC0mzodxg2NNQ">
       </div>
-      <div class="inline-container search-container ">
+      <div class="form-inline-container search-container ">
+
         <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-          <%= f.input :name, input_html: {value: ""}, class: "search-bar" %>
-          <%= f.input :category, input_html: {value: ""}, class: "search-bar" %>
-          <%= f.input :specie,input_html: {value: ""}, class: "search-bar" %>
-          <%= f.submit "Search", class: "search-btn search-btn-main" %>
+          <%= f.input :name, :label => 'Nom de copropriété', input_html: {value: ""}, class: "search-bar"%>
+          <%= f.submit "Chercher", class: "search-btn search-btn-main" %>
         <% end %>
-      </div>
+       </div>
     </div>
-      <%= link_to "New Property", new_syndic_coproperty_property_path(current_user.syndic, @coproperty), class: "btn btn-primary" if current_user.is_syndic? %>
+      <%= link_to "Ajouter une Propriété", new_syndic_coproperty_property_path(current_user.syndic, @coproperty), class: "btn btn-primary" if current_user.is_syndic? %>
 
 
     <% @coproperty.properties.each do |property| %>
@@ -29,6 +28,7 @@
             <li><strong>Building N°/Name: </strong><%= property.building %></li>
             <li><strong>Area: </strong><%= property.total_property_area %></li>
             <li><strong>Owner: </strong><%= property.owner_id %></li>
+            <%= cl_image_tag @coproperty.photo.key, height: 300, width: 400, crop: :fill %>
             <% if !current_user.is_syndic? && property.owner_id == current_user.owner.id %>
               <%= link_to "Open", owner_coproperty_property_path(current_user.owner, property.id), class: "btn btn-primary" %>
             <% end %>

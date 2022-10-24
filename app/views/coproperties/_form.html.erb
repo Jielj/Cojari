@@ -6,13 +6,13 @@
         <h2>Fiche de la Copropriété</h2>
 
         <%= simple_form_for [current_user.syndic, @coproperty] do |f| %>
-        <%= f.input :coproperty_name %>
-        <%= f.input :expense_method, collection:['Fixe par Habitant','Variable au Tantième'] %>
-        <%= f.input :number_properties %>
-        <%= f.input :address %>
-        <%= f.input :coprop_private_area %>
-        <%= f.input :coprop_common_area %>
-        <%= f.input :bank_account %>
-        <%# <%= f.input :photo %>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= f.input :coproperty_name, :label => 'Nom' %>
+        <%= f.input :expense_method, :label => 'Méthode de Facturation', collection:['Fixe par Habitant','Variable au Tantième'], :hint => 'Choisissez la méthode de facturation des habitants pour cette copropriété'  %>
+        <%= f.input :number_properties, :label => 'Nombre de Propriétés' %>
+        <%= f.input :address, :label => 'Adresse' %>
+        <%= f.input :coprop_private_area, :label => 'Surface Privée Totale', :hint => 'Somme des surfaces privées de toutes les propriétés, en m²' %>
+        <%= f.input :coprop_common_area, :label => 'Surface Commune Totale', :hint => 'Somme de la surface commune de la copropriété, en m²' %>
+        <%= f.input :bank_account, :label => 'Numéro de Compte Bancaire' %>
+        <%= f.input :photo, :label => 'Photo',:hint => 'Ajoutez une photo de la copropriété', as: :file %>
+        <%= f.submit 'Soumettre', class: "btn btn-default btn-primary" %>
         <% end %>
