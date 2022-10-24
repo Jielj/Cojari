@@ -15,11 +15,11 @@
 </div>
 
 <div class="container p-0 rounded red-border">
-  <div class="flex-tabs cop-card-section"
-      data-controller="coproperty-info">
+  <div class="flex-tabs cop-card-section">
    <div class="flex-tab">
     <% @coproperties.each do |coproperty| %>
           <div class="row p-2 border cop-card"
+                data-controller="coproperty-info"
                 data-coproperty-info-cop-id-value="<%= coproperty.id %>"
                 <%# data-coproperty-info-target="copInfo" %>
                 data-action="click->coproperty-info#selected"
@@ -33,6 +33,7 @@
               <div class="d-flex flex-row">
                 <%# maybe used later %>
               </div>
+              <div class="mx-1 spec-1"><strong>coroperties id: </strong><%= coproperty.id %></div>
               <div class="mx-1 spec-1"><strong>Number of Properties: </strong><%= coproperty.number_properties %></div>
               <div class="mx-1 spec-1"><strong>Number of Properties: </strong><%= coproperty.number_properties %></div>
               <p class="text-justify text-truncate para mb-0">Address: </strong><%= coproperty.address %><br><br></p>

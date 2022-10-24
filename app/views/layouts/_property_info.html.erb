@@ -1,7 +1,7 @@
 
     <% @coproperties.each do |coproperty| %>
-      <div  class="d-none"
-            data-coproperty-info-target="cop_info_section">
+      <div  class="propertiesList d-none"
+            data-cop-id="<%= coproperty.id %>">
         <h3><strong><%= coproperty.coproperty_name %> </strong></h3>
         <table class="table">
           <thead>
