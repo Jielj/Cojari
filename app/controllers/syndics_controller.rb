@@ -10,8 +10,9 @@ class SyndicsController < ApplicationController
 
   def create
     @syndic = Syndic.new(syndic_params)
+    @syndic.user = current_user
     if @syndic.save
-    redirect_to syndic_coproperties_path(@syndic.id), :notice => "Successfully created coproperty."
+    redirect_to syndic_coproperties_path(@syndic.id), :notice => "Successfully created Syndic."
     else
     render :action => 'new'
     end
@@ -36,7 +37,7 @@ class SyndicsController < ApplicationController
 private
 
   def syndic_params
-    params.require(:syndic).permit(:syndic_name, :creation_date, :user_id)
+    params.require(:syndic).permit(:syndic_name, :creation_date)
   end
 
   def find_syndic

@@ -11,6 +11,7 @@
           <%= f.input :phone_number %>
           <%= f.input :ownership_date %>
           <%= f.input :birth_date %>
+          <input type="hidden" name="owner[property_id]" value="<%= @property.id %>">
           <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
       </div>

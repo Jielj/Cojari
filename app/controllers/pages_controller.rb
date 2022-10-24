@@ -3,7 +3,15 @@ class PagesController < ApplicationController
 
   def home
     if user_signed_in?
-      redirect_to syndic_coproperties_path(current_user.syndic)
+      if current_user.syndic.nil? && current_user.owner.nil?
+        redirect_to new_syndic_path
+      else
+        if current_user.is_syndic?
+          redirect_to syndic_coproperties_path(current_user.syndic)
+        else
+          redirect_to owner_coproperties_path(current_user.owner)
+        end
+      end
     end
   end
 end

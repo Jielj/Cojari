@@ -14,7 +14,10 @@ class OwnersController < ApplicationController
   def create
     @owner = Owner.new(owner_params)
     @owner.user = current_user
+    @property = Property.find(params[:owner][:property_id])
     if @owner.save
+      @property.owner = @owner
+      @property.save
       redirect_to @owner, :notice => "Successfully created owner."
     else
       render :action => 'new'
