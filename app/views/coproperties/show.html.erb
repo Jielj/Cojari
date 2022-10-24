@@ -1,48 +1,6 @@
-<div class="card pt-3">
-<div class="inline-container p-3">
-
-  <div class="cards-container">
-    <div class="map-card barbarian btns search-form flex search-btns">
-      <div class="inline-container map-container"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="pk.eyJ1IjoiamloYW5lamlpaSIsImEiOiJjbDhnM2Q4eXowM2Y0M3BwMmM0cGV2a2YzIn0.q-DEG9fibQC0mzodxg2NNQ">
+  <div class="container">
+    <h1>Créer votre Copropriété</h1>
+      <div class="mt-3">
+        <%= render "dashboard", coproperty: @coproperty %>
       </div>
-      <div class="form-inline-container search-container ">
-
-        <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-          <%= f.input :name, :label => 'Nom de copropriété', input_html: {value: ""}, class: "search-bar"%>
-          <%= f.submit "Chercher", class: "search-btn search-btn-main" %>
-        <% end %>
-       </div>
-    </div>
-      <%= link_to "Ajouter une Propriété", new_syndic_coproperty_property_path(current_user.syndic, @coproperty), class: "btn btn-primary" if current_user.is_syndic? %>
-
-
-    <% @coproperty.properties.each do |property| %>
-      <div class="slide-container">
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <h2><strong>Property N°: </strong><%= property.property_number %></h2>
-            <li><strong>Building N°/Name: </strong><%= property.building %></li>
-            <li><strong>Area: </strong><%= property.total_property_area %></li>
-            <li><strong>Owner: </strong><%= property.owner_id %></li>
-            <%= cl_image_tag @coproperty.photo.key, height: 300, width: 400, crop: :fill %>
-            <% if !current_user.is_syndic? && property.owner_id == current_user.owner.id %>
-              <%= link_to "Open", owner_coproperty_property_path(current_user.owner, property.id), class: "btn btn-primary" %>
-            <% end %>
-
-             <% if current_user.is_syndic? %>
-              <%= link_to "Open",  syndic_coproperty_property_path(current_user.syndic,@coproperty, property.id), class: "btn btn-primary" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <br>
-            <%# <%= link_to "More about", coproperty_path(coproperty.id), class: "bttn btn-main" %>
-          </div>
-      </div>
-    <% end %>
   </div>
-</div>

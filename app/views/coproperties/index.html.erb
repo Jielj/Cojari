@@ -1,3 +1,5 @@
+
+
 <div class="card pt-3">
 <div class="inline-container p-3">
 
@@ -13,9 +15,9 @@
     <% @coproperties.each do |coproperty| %>
       <div class="slide-container">
         <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+          <%= cl_image_tag coproperty.photo.key, height: 300, width: 400, crop: :fill %>
           <div class="card-product-infos">
-          <%# <%= cl_image_tag @coproperty.photo.key, height: 300, width: 400, crop: :fill %>
             <h2><strong><%= coproperty.coproperty_name %></strong></h2>
             <li><strong>Nombre de Propriétés: </strong><%= coproperty.number_properties %></li>
             <li><strong>Adresse: </strong><%= coproperty.address %></li>
