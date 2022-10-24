@@ -1,4 +1,4 @@
-
+Bonjour <%= current_user.syndic.syndic_name %> !
 
 <div class="card pt-3">
 <div class="inline-container p-3">
@@ -38,3 +38,7 @@
     <% end %>
   </div>
 </div>
+
+ <%= link_to destroy_user_session_path, class: "nav_link",  data: {turbo_method: :delete} do %>
+        <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Déconnexion</span>
+        <% end %>
