@@ -16,16 +16,17 @@
 
 <div class="container p-0 rounded red-border">
   <div class="flex-tabs cop-card-section"
-        >
+      data-controller="coproperty-info">
    <div class="flex-tab">
     <% @coproperties.each do |coproperty| %>
           <div class="row p-2 border cop-card"
-          data-controller="coproperty-info"
-                data-coproperty-info-cop-id-value="<%= coproperty.id %>">
+                data-coproperty-info-cop-id-value="<%= coproperty.id %>"
+                <%# data-coproperty-info-target="copInfo" %>
+                data-action="click->coproperty-info#selected"
+                >
 
             <div class="col-md-3 mt-1 cop-img"
 
-                data-action="click->coproperty-info#selected"
             ><img class="img-fluid img-responsive rounded product-image" src="https://img.freepik.com/free-vector/city-skyline-concept-illustration_114360-8923.jpg?w=2000"></div>
             <div class="col-md-6 mt-1">
               <h5><strong><%= coproperty.coproperty_name %></strong></h5>
@@ -49,7 +50,7 @@
    </div>
 
    <div class="flex-tab cop-inf-section">
-      <%= render "layouts/property_info",coproperty_info:  Coproperty.first  %>
+      <%= render "layouts/property_info" %>
    </div>
   </div>
 </div>
