@@ -5,7 +5,7 @@ class CreateRequests < ActiveRecord::Migration[7.0]
       t.date :request_date
       t.string :request_status
       t.references :property, null: false, foreign_key: true
-
+      t.text :message
       t.timestamps
     end
   end

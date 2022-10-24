@@ -2,7 +2,11 @@ class CopropertiesController < ApplicationController
   before_action :find_coproperty, only: [:show, :edit, :update, :destroy]
 
   def index
-    @coproperties = Coproperty.all
+    if current_user.is_syndic?
+      @coproperties = current_user.syndic.coproperties
+    else
+      @coproperties = current_user.owner.coproperties
+    end
   end
 
   def show
@@ -14,8 +18,9 @@ class CopropertiesController < ApplicationController
 
   def create
     @coproperty = Coproperty.new(coproperty_params)
+    @coproperty.syndic = current_user.syndic
     if @coproperty.save
-    redirect_to @coproperty, :notice => "Successfully created coproperty."
+    redirect_to syndic_coproperties_path, :notice => "Successfully created coproperty."
     else
     render :action => 'new'
     end
@@ -34,7 +39,7 @@ class CopropertiesController < ApplicationController
 
   def destroy
     @coproperty.destroy
-    redirect_to coproperties_url, :notice => "Successfully destroyed coproperty."
+    redirect_to syndic_coproperties_path, :notice => "Successfully destroyed coproperty."
   end
 
 private
@@ -46,5 +51,5 @@ private
   def find_coproperty
     @coproperty = Coproperty.find(params[:id])
   end
-end
 
+end

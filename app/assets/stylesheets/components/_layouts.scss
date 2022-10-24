@@ -1,0 +1,41 @@
+// Home page
+// features
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: normal;
+  align-items: normal;
+  align-content: normal;
+}
+.flex-item {
+  display: flex;
+  // flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: normal;
+  align-content: normal;
+}
+.row-flow {
+  flex-direction: row;
+}
+.pic {
+  width: 11rem;
+  height: 11rem;
+}
+.description {
+  width: 50%;
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+.row-rev {
+  flex-direction: row-reverse;
+}
+.rev-header {
+  text-align: right;
+}
+
+.feature-img {
+  width: 15rem;
+}

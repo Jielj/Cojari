@@ -1,0 +1,3 @@
+  <% if @property.owner.nil? %>
+  <p> lien à envoyer au proprietaire:  <%=  link_path(@property.links.last) %></p>
+  <% end %>
