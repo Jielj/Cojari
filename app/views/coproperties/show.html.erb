@@ -17,6 +17,9 @@
         <% end %>
       </div>
     </div>
+      <%= link_to "New Property", new_syndic_coproperty_property_path(current_user.syndic, @coproperty), class: "btn btn-primary" if current_user.is_syndic? %>
+
+
     <% @coproperty.properties.each do |property| %>
       <div class="slide-container">
         <div class="card-product">
@@ -26,6 +29,13 @@
             <li><strong>Building N°/Name: </strong><%= property.building %></li>
             <li><strong>Area: </strong><%= property.total_property_area %></li>
             <li><strong>Owner: </strong><%= property.owner_id %></li>
+            <% if !current_user.is_syndic? && property.owner_id == current_user.owner.id %>
+              <%= link_to "Open", owner_coproperty_property_path(current_user.owner, property.id), class: "btn btn-primary" %>
+            <% end %>
+
+             <% if current_user.is_syndic? %>
+              <%= link_to "Open",  syndic_coproperty_property_path(current_user.syndic,@coproperty, property.id), class: "btn btn-primary" %>
+            <% end %>
           </div>
         </div>
       </div>

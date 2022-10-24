@@ -17,6 +17,7 @@
         <% end %>
       </div>
     </div>
+      <%= link_to "New Coproperty", new_syndic_coproperty_path, class: "btn btn-primary" %>
     <% @coproperties.each do |coproperty| %>
       <div class="slide-container">
         <div class="card-product">
@@ -25,7 +26,14 @@
             <h2><strong><%= coproperty.coproperty_name %></strong></h2>
             <li><strong>Number of Properties: </strong><%= coproperty.number_properties %></li>
             <li><strong>Address: </strong><%= coproperty.address %></li>
-          </div>
+              <% if current_user.is_syndic? %>
+                <%= link_to "Edit", edit_syndic_coproperty_path(current_user.syndic, coproperty), class: "btn btn-primary" %>
+                <%= link_to "Delete", syndic_coproperty_path(current_user.syndic, coproperty), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+                <%= link_to "Open", syndic_coproperty_path(current_user.syndic, coproperty.id), class: "btn btn-success"  %>
+              <% else %>
+                <%= link_to "Open", owner_coproperty_path(current_user.owner, coproperty.id), class: "btn btn-primary"  %>
+              <% end %>
+            </div>
         </div>
       </div>
       <br>
