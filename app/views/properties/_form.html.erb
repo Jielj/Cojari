@@ -3,13 +3,14 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
 
-        <h2>Formulaire habitation à compléter</h2>
+        <h2>Propriété</h2>
 
         <%= simple_form_for [ @syndic, @coproperty, @property] do |f| %>
-        <%= f.input :building %>
-        <%= f.input :property_number %>
-        <%= f.input :total_property_area %>
-        <%= f.input :payment_frequency , collection: ['Mensuelle','Trimestrielle', 'Annuelle'] %>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= f.input :property_number, :label => 'Numéro de propriété' %>
+        <%# conditionner par type de copro multi-immeuble %>
+        <%= f.input :building, :label => 'Immeuble' %>
+        <%= f.input :total_property_area, :label => 'Surface Totale', :hint => 'Surface Totale de la propriété (incluant parking et box titrés), en m²' %>
+        <%= f.input :payment_frequency , collection: ['Mensuelle','Trimestrielle', 'Annuelle'], :label => 'Fréquence de Paiement', :hint => 'Fréquence de Paiement des frais de copropriété' %>
+        <%= f.submit 'Créer', class: "btn btn-default btn-primary" %>
         <% end %>
       </div>

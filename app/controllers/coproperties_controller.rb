@@ -45,7 +45,7 @@ class CopropertiesController < ApplicationController
 private
 
   def coproperty_params
-    params.require(:coproperty).permit(:coproperty_name, :number_properties, :address, :expense_method, :coprop_private_area, :coprop_common_area, :bank_account, :syndic_id)
+    params.require(:coproperty).permit(:coproperty_name, :number_properties, :address, :expense_method, :coprop_private_area, :coprop_common_area, :photo, :bank_account, :syndic_id)
   end
 
   def find_coproperty

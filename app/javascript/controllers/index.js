@@ -16,5 +16,11 @@ application.register("coproperty-info", CopropertyInfoController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+// import JihaneController from "./jihane_controller"
+// application.register("jihane", JihaneController)
+
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+import SidebarController from "./sidebar_controller"
+application.register("sidebar", SidebarController)
