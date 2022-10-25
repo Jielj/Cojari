@@ -1,0 +1,60 @@
+<body id="body-pd" data-controller="sidebar">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav_logo">
+                    <i class='bx bx-layer nav_logo-icon'></i>
+                    <span class="nav_logo-name">Cojari</span>
+                </a>
+                <div class="nav_list">
+
+              <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown link
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+                </div>
+
+
+
+                    <a href="#" class="nav_link active">
+                        <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">Tableau de Bord</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-user nav_icon'></i>
+                        <span class="nav_name">Mes Propriétés</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-message-square-detail nav_icon'></i>
+                        <span class="nav_name">Communication</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-folder nav_icon'></i>
+                        <span class="nav_name">Mes Finances</span>
+                    </a>
+                </div>
+            </div> <a href="#" class="nav_link">
+        <%= link_to destroy_user_session_path, class: "nav_link",  data: {turbo_method: :delete} do %>
+        <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Déconnexion</span> </a>
+        <% end %>
+        </nav>
+    </div>
+
+    <!--Container Main start-->
+
+    <%# <h1><i class="fa-solid fa-house"></i> Bienvenue, <%= @coproperty.coproperty_name%>
+    <%# <div class="height-100 bg-light">
+        <h4>Main Components</h4>
+    </div> %>
+
+    <!--Container Main end-->

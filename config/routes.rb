@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :syndics do
     resources :coproperties do
       resources :messages, only: [:create, :index]
-      resources :properties, except: [:index] 
+      resources :properties, except: [:index]
     end
   end
 
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :expenses
   resources :budgets
   resources :payments
+  
   resources :users do
     resources :owners
   end
