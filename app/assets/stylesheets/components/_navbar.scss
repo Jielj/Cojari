@@ -85,3 +85,12 @@
   transition: 0s;
   transform: translate(0, 5%);
 }
+
+.navbar-brand {
+  img {
+    object-fit: contain;
+    height: 40px;
+    margin: 0 10px;
+    }
+
+}

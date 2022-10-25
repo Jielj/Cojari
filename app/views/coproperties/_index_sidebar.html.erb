@@ -1,0 +1,29 @@
+   <div class="menu-btn">
+     <i class="fas fa-bars"></i>
+   </div>
+   <div class="side-bar">
+     <header>
+     <div class="close-btn">
+       <i class="fas fa-times"></i>
+     </div>
+     <%= image_tag "logowhite.png" %>
+        </header>
+     <div class="menu">
+        <div class="item">
+          <%= link_to syndic_path(current_user.syndic) do %>
+            <i class="fa-solid fa-user"></i>Mon Profil
+          <% end %>
+        </div>
+        <div class="item">
+          <%= link_to syndic_coproperties_path(current_user.syndic) do %>
+            <i <i class="fa-solid fa-house"></i>Mes Copropriétés</a>
+          <% end %>
+        </div>
+
+        <div class="item">
+          <%= link_to destroy_user_session_path, class: "nav_link",  data: {turbo_method: :delete} do %>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Déconnexion </a>
+          <% end %>
+        </div>
+     </div>
+   </div>
