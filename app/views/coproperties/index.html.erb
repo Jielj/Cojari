@@ -33,18 +33,18 @@
                 </div>
                 <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                   <div class="d-flex flex-row align-items-center">
-                    <h6 class="mr-1">Area: <%= coproperty.coprop_private_area + coproperty.coprop_common_area %>m²</h6>
+                    <h6 class="mr-1">Surface Totale: <%= coproperty.coprop_private_area + coproperty.coprop_common_area %>m²</h6>
                   </div>
                   <h6 class="text-success">paid</h6>
                   <div class="d-flex flex-column mt-4">
-                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">access details</button>
+                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Aperçu</button>
                   </div>
                   <% if current_user.is_syndic? %>
-                    <%= link_to "Edit", edit_syndic_coproperty_path(current_user.syndic, coproperty), class: "btn btn-primary" %>
-                    <%= link_to "Delete", syndic_coproperty_path(current_user.syndic, coproperty), data: {turbo_method: :delete, turbo_confirm: 'êtes-vous sur de vouloir supprimer cette copropriété?'}, class: "btn btn-danger" %>
-                    <%= link_to "Open", syndic_coproperty_path(current_user.syndic, coproperty.id), class: "btn btn-success"  %>
+                    <%= link_to "Modifier", edit_syndic_coproperty_path(current_user.syndic, coproperty), class: "btn btn-primary" %>
+                    <%= link_to "Supprimer", syndic_coproperty_path(current_user.syndic, coproperty), data: {turbo_method: :delete, turbo_confirm: 'êtes-vous sur de vouloir supprimer cette copropriété?'}, class: "btn btn-danger" %>
+                    <%= link_to "Ouvrir", syndic_coproperty_path(current_user.syndic, coproperty.id), class: "btn btn-success"  %>
                   <% else %>
-                    <%= link_to "Open", owner_coproperty_path(current_user.owner, coproperty.id), class: "btn btn-primary"  %>
+                    <%= link_to "Ouvrir", owner_coproperty_path(current_user.owner, coproperty.id), class: "btn btn-primary"  %>
                   <% end %>
                 </div>
               </div>
