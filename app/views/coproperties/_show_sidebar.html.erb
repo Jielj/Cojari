@@ -1,0 +1,41 @@
+   <div class="menu-btn">
+     <i class="fas fa-bars"></i>
+   </div>
+   <div class="side-bar">
+     <header>
+     <div class="close-btn">
+       <i class="fas fa-times"></i>
+     </div>
+     <%= image_tag "logowhite.png" %>
+        </header>
+     <div class="menu">
+       <div class="item"><a href="#"><i class="fas fa-desktop"></i>Tableau de Bord</a></div>
+       <div class="item">
+         <a class="sub-btn"><i class="fa-solid fa-house"></i>Ma Copropriété<i class="fas fa-angle-right dropdown"></i></a>
+         <div class="sub-menu">
+           <a href="#" class="sub-item">Mes Propriétés</a>
+           <a href="#" class="sub-item">Mes Résidents</a>
+           <a href="#" class="sub-item">Mes Préférences</a>
+         </div>
+       </div>
+       <div class="item">
+         <a class="sub-btn"><i class="fa-solid fa-message"></i>Communication<i class="fas fa-angle-right dropdown"></i></a>
+         <div class="sub-menu">
+           <a href="#" class="sub-item">Mes Requêtes</a>
+           <a href="#" class="sub-item">Chatroom</a>
+         </div>
+       </div>
+       <div class="item">
+         <a class="sub-btn"><i class="fa-solid fa-coins"></i>Mes Finances<i class="fas fa-angle-right dropdown"></i></a>
+         <div class="sub-menu">
+           <a href="#" class="sub-item">Mes Budgets</a>
+           <a href="#" class="sub-item">Mes Frais</a>
+           <a href="#" class="sub-item">Mes Paiements</a>
+         </div>
+       </div>
+       <div class="item">
+          <%= link_to destroy_user_session_path, class: "nav_link",  data: {turbo_method: :delete} do %>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Déconnexion </a>
+          <% end %>
+        </div>
+   </div>

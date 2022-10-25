@@ -1,6 +1,5 @@
-  <div id="show-coproperty" class="container ">
-    <h1>Créer votre Copropriété</h1>
-      <div class="mt-3">
-        <%= render "dashboard", coproperty: @coproperty %>
-      </div>
-  </div>
+<div id="show-coproperty" data-controller="sidebar">
+  <%= render "show_sidebar", coproperty: @coproperty %>
+</div>
+<div class="container content-view">
+</div>
