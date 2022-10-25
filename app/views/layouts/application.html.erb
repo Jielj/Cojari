@@ -17,8 +17,24 @@
   </head>
 
   <body>
-  <%# <%= render "layouts/navbar" %>
-  <%= render "shared/flashes" %>
+  <% if current_page?(root_path) ||
+    current_page?(new_user_registration_path) ||
+    current_page?(new_user_session_path)
+    %>
+    <div data-controller="navbar" data-action="scroll@window->navbar#fixed">
+    <%= render "layouts/navbar" %>
+    </div>
+  <% elsif current_page?(syndic_coproperties_path)%>
+    <div id="index-coproperty" data-controller="sidebar">
+    <%= render "coproperties/index_sidebar" %>
+    </div>
+  <% else %>
+    <div id="show-coproperty" data-controller="sidebar">
+    <%= render "coproperties/show_sidebar", coproperty: Coproperty.find(params[:id]) %>
+    </div>
+  <% end %>
+
+    <%= render "shared/flashes" %>
 
     <%= yield %>
 
