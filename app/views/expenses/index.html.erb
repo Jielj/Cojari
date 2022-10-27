@@ -16,6 +16,9 @@
           </div>
       </div>
     <% end %>
+
   </div>
-  <%= render "expenses/vote_form" %>
+<%= render "expenses/vote_form" %>
+<%= link_to "Nouveau", new_syndic_coproperty_expense_path(current_user.syndic, @coproperty) %>
+
 </div>

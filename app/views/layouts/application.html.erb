@@ -30,10 +30,12 @@
     <div id="index-coproperty" data-controller="sidebar">
     <%= render "coproperties/index_sidebar" %>
     </div>
-  <% else %>
+  <% elsif current_user.is_syndic? %>
     <div id="show-coproperty" data-controller="sidebar">
     <%= render "coproperties/show_sidebar", coproperty: current_user.syndic.coproperties.first %>
     </div>
+  <% elsif !current_user.is_syndic? %>
+   <%= render "owners/navbar_owner", coproperty: current_user.owner.coproperties.first %>
   <% end %>
 
     <%= render "shared/flashes" %>
