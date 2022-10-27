@@ -2,6 +2,7 @@ class PropertiesController < ApplicationController
 
   def index
     @properties = Property.all
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def show

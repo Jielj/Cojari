@@ -2,7 +2,7 @@
 <div class="container main">
   Bonjour <%= current_user.syndic.syndic_name %> !
   <div class="container map-container">
-        <%= link_to "Ajouter une copropriété", new_syndic_coproperty_path, class: "btn btn-primary" %>
+        <%= link_to "Ajouter une copropriété", new_syndic_coproperty_path(current_user.syndic), class: "btn btn-primary" %>
   </div>
 
   <div class="container p-0 rounded red-border">

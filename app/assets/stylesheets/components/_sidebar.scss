@@ -12,6 +12,7 @@
         overflow-y: auto;
         transition: 0.6s ease;
         transition-property: left;
+        z-index: 999;
     }
     .side-bar::-webkit-scrollbar {
         width: 0px;
@@ -80,6 +81,7 @@
         font-size: 35px;
         margin: 25px;
         cursor: pointer;
+        z-index: 999;
     }
     .main {
         height: 100vh;

@@ -24,13 +24,15 @@
     <div data-controller="navbar" data-action="scroll@window->navbar#fixed">
     <%= render "layouts/navbar" %>
     </div>
-  <% elsif current_page?(syndic_coproperties_path)%>
+  <% elsif current_user.is_syndic? &&
+    (current_page?(syndic_coproperties_path(current_user.syndic)) ||
+    current_page?(syndic_path(current_user.syndic)))%>
     <div id="index-coproperty" data-controller="sidebar">
     <%= render "coproperties/index_sidebar" %>
     </div>
   <% else %>
     <div id="show-coproperty" data-controller="sidebar">
-    <%= render "coproperties/show_sidebar", coproperty: Coproperty.find(params[:id]) %>
+    <%= render "coproperties/show_sidebar", coproperty: current_user.syndic.coproperties.first %>
     </div>
   <% end %>
 

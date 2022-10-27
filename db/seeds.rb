@@ -7,7 +7,7 @@ Budget.destroy_all
 user_syndic1 = User.create!(email: "test1@gmail.com", password: "1234556681", role: "Syndic", admin: false)
 puts 'User syndic 1 created'
 
-user_syndic2 = User.create!(email: "test2@gmail.com", password: "1234556682", role: "Syndic", admin: false)
+user_syndic2 = User.create!(email: "c", password: "1234556682", role: "Syndic", admin: false)
 puts 'User syndic 2 created'
 
 user_owner1 = User.create!(email: "test3@gmail.com", password: "1234556683", role: "Owner", admin: false)

@@ -1,4 +1,3 @@
-<%= render "layouts/navbar" %>
 <div class="card pt-3">
 <div class="inline-container p-3">
     <% @payments.each do |payment| %>
@@ -13,9 +12,10 @@
             <div class="clash-card__unit-name">Statut : <%= payment.payment_status %></div>
             <div class="clash-card__unit-description">
             </div>
-            <%= link_to "Détails", payment_path(payment.id), class: "bttn btn-main" %>
+            <%= link_to "Détails", syndic_coproperty_payment_path(current_user.syndic, payment.budget.coproperty,payment.id), class: "bttn btn-main" %>
           </div>
       </div>
     <% end %>
   </div>
+  <%= link_to "Nouveau", new_syndic_coproperty_payment_path(current_user.syndic, @coproperty) %>
 </div>

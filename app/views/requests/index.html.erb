@@ -1,4 +1,3 @@
-<%= render "layouts/navbar" %>
 <div class="card pt-3">
 <div class="inline-container p-3">
     <% @requests.each do |request| %>
@@ -14,7 +13,7 @@
             <%# <%# <div class="clash-card__unit-name">ID Propriété : <%= request.property_id% - need to have the property_number> %>
             <div class="clash-card__unit-description">
             </div>
-            <%= link_to "Détails", request_path(request.id), class: "bttn btn-main" %>
+            <%= link_to "Détails", syndic_coproperty_request_path(current_user.syndic,request.property.coproperty,request.id), class: "bttn btn-main" %>
           </div>
       </div>
     <% end %>
