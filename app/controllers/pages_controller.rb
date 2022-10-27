@@ -14,4 +14,8 @@ class PagesController < ApplicationController
       end
     end
   end
+
+  def dashboard
+    @coproperty = Coproperty.find(params[:coproperty_id])
+  end
 end

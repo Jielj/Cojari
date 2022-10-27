@@ -11,31 +11,36 @@ Rails.application.routes.draw do
   end
 
   # Defines the root path route ("/")
-  # root "articles#index"
+
   resources :syndics do
     resources :coproperties do
-      resources :messages, only: [:create, :index]
-      resources :properties, except: [:index]
+      resources :owners
+      resources :budgets
+      resources :expenses
+      resources :payments, except: [:create]
+      resources :messages, only: [:create, :index, :delete]
+      resources :properties
+      resources :requests, except: [:create, :delete]
     end
   end
 
   resources :owners, except: [:index] do
-    resources :coproperties, only: [:show,:index] do
+    resources :coproperties, only: [:show] do
+      resources :budgets, only: [:show, :index]
+      resources :expenses, only: [:show, :index]
+      resources :payments, only: [:create, :show, :index]
       resources :messages, only: [:create, :index]
       resources :properties, only: [:show, :index] do
-        resources :requests
+        resources :requests, only: [:create, :show, :index]
       end
     end
   end
 
-  resources :expenses
-  resources :budgets
-  resources :payments
-  
-  resources :users do
-    resources :owners
-  end
+  # resources :users do
+  #   resources :owners
+  # end
 
+  get '/syndics/:syndic_id/coproperties/:coproperty_id/dashboard', to: 'pages#dashboard', as: 'dashboard'
 
   post '/expenses/:id/up_vote', to: 'expenses#up_vote', as: 'upvote_expense'
   post '/expenses/:id/down_vote', to: 'expenses#down_vote', as: 'downvote_expense'
