@@ -36,11 +36,13 @@ Rails.application.routes.draw do
     end
   end
 
-  # resources :users do
-  #   resources :owners
-  # end
+  resources :users do
+    resources :owners
+  end
 
-  get '/syndics/:syndic_id/coproperties/:coproperty_id/dashboard', to: 'pages#dashboard', as: 'dashboard'
+  get '/syndics/:syndic_id/coproperties/:coproperty_id/dashboard', to: 'pages#syndic_dashboard', as: 'syndic_dashboard'
+  get '/owners/:owner_id/coproperties/:coproperty_id/dashboard', to: 'pages#owner_dashboard', as: 'owner_dashboard'
+
 
   post '/expenses/:id/up_vote', to: 'expenses#up_vote', as: 'upvote_expense'
   post '/expenses/:id/down_vote', to: 'expenses#down_vote', as: 'downvote_expense'

@@ -11,8 +11,9 @@
      <%= image_tag "logowhite.png" %>
         </header>
      <div class="menu">
+     
        <div class="item">
-       <%= link_to syndic_dashboard_path(current_user.syndic,coproperty) do %>
+       <%= link_to owner_dashboard_path(current_user.owner,coproperty) do %>
        <i class="fas fa-desktop"></i>
        Tableau de Bord
        <% end %>
@@ -21,11 +22,11 @@
        <div class="item">
          <a class="sub-btn"><i class="fa-solid fa-house"></i>Ma Copropriété<i class="fas fa-angle-right dropdown"></i></a>
          <div class="sub-menu">
-          <%= link_to syndic_coproperty_properties_path(current_user.syndic,coproperty), class: "sub-item" do %>
+          <%= link_to owner_coproperty_properties_path(current_user.owner,coproperty), class: "sub-item" do %>
             Mes Propriétés
           <% end %>
 
-          <%= link_to syndic_coproperty_owners_path(current_user.syndic,coproperty), class: "sub-item" do %>
+          <%= link_to owner_coproperty_owners_path(current_user.owner,coproperty), class: "sub-item" do %>
             Mes Résidents
           <% end %>
 
@@ -34,10 +35,10 @@
        <div class="item">
          <a class="sub-btn"><i class="fa-solid fa-message"></i>Communication<i class="fas fa-angle-right dropdown"></i></a>
          <div class="sub-menu">
-          <%= link_to syndic_coproperty_requests_path(current_user.syndic,coproperty), class: "sub-item" do %>
+          <%= link_to owner_coproperty_requests_path(current_user.owner,coproperty), class: "sub-item" do %>
             Mes Requêtes
           <% end %>
-           <%= link_to syndic_coproperty_messages_path(current_user.syndic,coproperty), class: "sub-item" do %>
+           <%= link_to owner_coproperty_messages_path(current_user.owner,coproperty), class: "sub-item" do %>
             Chatroom
           <% end %>
          </div>
@@ -45,13 +46,13 @@
        <div class="item">
          <a class="sub-btn"><i class="fa-solid fa-coins"></i>Mes Finances<i class="fas fa-angle-right dropdown"></i></a>
          <div class="sub-menu">
-           <%= link_to syndic_coproperty_budgets_path(current_user.syndic,coproperty), class: "sub-item" do %>
+           <%= link_to owner_coproperty_budgets_path(current_user.owner,coproperty), class: "sub-item" do %>
             Mes Budgets
           <% end %>
-           <%= link_to syndic_coproperty_expenses_path(current_user.syndic,coproperty), class: "sub-item" do %>
+           <%= link_to owner_coproperty_expenses_path(current_user.owner,coproperty), class: "sub-item" do %>
             Mes Frais
           <% end %>
-           <%= link_to syndic_coproperty_payments_path(current_user.syndic,coproperty), class: "sub-item" do %>
+           <%= link_to owner_coproperty_payments_path(current_user.owner,coproperty), class: "sub-item" do %>
             Mes Paiements
           <% end %>
          </div>

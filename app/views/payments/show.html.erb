@@ -6,6 +6,8 @@
         <h3>Date : <%= @payment.payment_date %></h3>
         <h3>Montant : <%= @payment.payment_amount.to_i %> MAD</h3>
         <h3>Statut : <%= @payment.payment_status %></h3>
+        <h3>Numéro de Propriété : <%= @payment.property.property_number %></h3>
+        <h3>Nom de l'habitant : <%= @payment.property.owner.full_name %></h3>
         <div class="info-bottom col-8 search-btns">
         </div>
         <h2>Justificatifs</h2>
@@ -16,8 +18,8 @@
     </div>
   </div>
 
-      <%= link_to "Update", edit_payment_path(@payment.id), class: "" %>
-      <%= link_to 'Back', root_path %>
+      <%= link_to "Modifier", edit_syndic_coproperty_payment_path(@payment.id), class: "" %>
+      <%= link_to 'Précédent', syndic_coproperty_payments_path %>
     </div>
 </div>
 </div>
