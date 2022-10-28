@@ -3,7 +3,7 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white-trans blur rounded p-4 shadow">
+      <div class="bg-white-trans-low blur rounded p-4 shadow">
         <h5 class="center-txt features-h fw-bold">Connecter vous</h5>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
           <div class="form-inputs">
@@ -17,11 +17,11 @@
             <%= f.input :remember_me, :label => 'Se rappeler de moi', as: :boolean if devise_mapping.rememberable? %>
           </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Connexion", class: "btn btn-default btn-primary" %>
+          <%= render "devise/shared/links", class: "d-inline-block" %>
+          <div class="form-actions d-inline-block">
+            <%= f.button :submit, "Connexion", class: "btn btn-default btn-primary ms-5" %>
           </div>
         <% end %>
-        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
