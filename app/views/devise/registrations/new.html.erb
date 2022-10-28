@@ -2,10 +2,10 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+      <div class="bg-white rounded p-4 shadow">
 
-      <h2>S'inscrire</h2>
-      <h6 style="color:grey; font-family:verdana;">En tant que Syndic. Si vous êtes un habitant, veuillez contacter votre syndic pour créer un compte.</h6>
+      <h5 class="center-txt features-h fw-bold pb-3">S'inscrire</h5>
+      <h6 class="text-muted h8"><em>En tant que Syndic. Si vous êtes un habitant, veuillez contacter votre syndic pour créer un compte.</em></h6>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
