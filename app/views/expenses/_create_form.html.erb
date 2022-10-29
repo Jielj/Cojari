@@ -5,10 +5,11 @@
 
         <h2>Frais</h2>
 
-        <%= simple_form_for @expense do |f| %>
+        <%= simple_form_for [current_user.syndic, @coproperty, @expense] do |f| %>
         <%= f.input :expense_name, :label => 'Titre', :hint => 'Donnez un titre à ce frais' %>
         <%= f.input :expense_type, collection:['Nettoyage','Jardinage','Gardiennage','Eau / Electricité','Sécurité','Maintenance','Consommables','Frais Juridiques','Evénements','Autres Frais'], :label => 'Type', :hint => 'Sélectionnez le type de frais à ajouter' %>
         <%= f.input :expense_amount, :label => 'Montant', :hint => 'Montant du frais en chiffres, dirham marocain',:placeholder => '2000' %>
-        <%= f.input :photos, :label => 'Pièces Justificatives',:hint => 'Vous pouvez joindre des documents ou photos pour justifier ce frais', as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos,:label => 'Pièces Justificatives',:hint => 'Vous pouvez joindre des documents ou photos pour justifier ce frais', as: :file, input_html: { multiple: true } %>
+        <%= f.association :budget,:label => 'Budget Rattaché', as: :select, :label_method => lambda { |budget| "#{budget.budget_title}" } , :hint => 'Sélectionnez le budget rattaché à ce frais' %>
         <%= f.submit 'Soumettre', class: "btn btn-default btn-primary" %>
         <% end %>

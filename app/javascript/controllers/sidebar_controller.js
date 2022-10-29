@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="sidebar"
 export default class extends Controller {
   connect() {
-     $(document).ready(function(){
+    //  $(document).ready(function(){
      //jquery for toggle sub menus
      $('.sub-btn').click(function(){
        $(this).next('.sub-menu').slideToggle();
@@ -20,6 +20,5 @@ export default class extends Controller {
        $('.side-bar').removeClass('active');
        $('.menu-btn').css("visibility", "visible");
      });
-   });
   }
 }

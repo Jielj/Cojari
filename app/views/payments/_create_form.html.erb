@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+
+        <h2>Paiement</h2>
+
+        <%= simple_form_for [current_user.syndic, @coproperty, @payment] do |f| %>
+        <%= f.input :payment_title, :label => 'Titre', :hint => 'Donnez un titre à ce Paiement'  %>
+        <%= f.input :payment_status, as: :hidden, :input_html => { :value => "Déclaré" } %>
+        <%= f.input :payment_amount, :label => 'Montant', :hint => 'Montant du paiement en chiffres, dirham marocain',:placeholder => '700' %>
+        <%= f.input :payment_date, :label => 'Date de Paiement', :hint => 'Précisez quand le paiement a été effectué' %>
+        <%= f.input :photos, :label => 'Pièces Justificatives',:hint => 'Vous pouvez joindre des documents ou photos pour prouver votre paiement', as: :file, input_html: { multiple: true } %>
+        <%= f.association :budget,:label => 'Budget Rattaché', as: :select, :label_method => lambda { |budget| "#{budget.budget_title}" } , :hint => 'Sélectionnez le budget rattaché à ce paiement' %>
+        <%= f.submit 'Soumettre', class: "btn btn-default btn-primary" %>
+        <% end %>

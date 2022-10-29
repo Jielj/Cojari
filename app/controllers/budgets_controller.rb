@@ -3,6 +3,7 @@ class BudgetsController < ApplicationController
 
   def index
     @budgets = Budget.all
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def show
@@ -10,18 +11,22 @@ class BudgetsController < ApplicationController
 
   def new
     @budget = Budget.new
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def create
     @budget = Budget.new(budget_params)
+    @coproperty = Coproperty.find(params[:coproperty_id])
+    @budget.coproperty = @coproperty
     if @budget.save
-    redirect_to @budget, :notice => "Successfully created budget."
+    redirect_to syndic_coproperty_budgets_path, :notice => "Successfully created budget."
     else
     render :action => 'new'
     end
   end
 
   def edit
+     @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def update

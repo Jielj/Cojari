@@ -3,6 +3,7 @@ class PaymentsController < ApplicationController
 
   def index
     @payments = Payment.all
+    @coproperty = Coproperty.find(params[:coproperty_id])
   #   if current_user.owner.nil?
   #     render "payments/syndic_index"
   #  else
@@ -15,23 +16,26 @@ class PaymentsController < ApplicationController
 
   def new
     @payment = Payment.new
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def create
-    @payment = Payment.new(payment_params)
-    if @payment.save
-    redirect_to @payment, :notice => "Successfully created payment."
-    else
-    render :action => 'new'
+      @payment = Payment.new(payment_params)
+      if @payment.save
+      redirect_to @payment, :notice => "Successfully created payment."
+      else
+      render :action => 'new'
+      end
     end
-  end
+
 
   def edit
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def update
     if @payment.update(payment_params)
-    redirect_to @payment, :notice  => "Successfully updated payment."
+    redirect_to syndic_coproperty_payment_path, :notice  => "Successfully updated payment."
     else
     render :action => 'edit'
     end

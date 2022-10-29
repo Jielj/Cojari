@@ -2,6 +2,7 @@ class PropertiesController < ApplicationController
 
   def index
     @properties = Property.all
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def show
@@ -20,7 +21,7 @@ class PropertiesController < ApplicationController
     @property.coproperty_id = current_user.syndic.coproperties.first.id
     if @property.save
       Link.create(property_id: @property.id)
-      redirect_to syndic_coproperty_path(current_user.syndic, Coproperty.find(params[:coproperty_id]), @property), :notice => "Successfully created property."
+      redirect_to syndic_coproperty_property_path(current_user.syndic, Coproperty.find(params[:coproperty_id]), @property), :notice => "Successfully created property."
     else
       render :action => 'new'
     end

@@ -3,6 +3,7 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = Expense.all
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def show
@@ -10,23 +11,25 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def create
     @expense = Expense.new(expense_params)
     if @expense.save
-    redirect_to @expense, :notice => "Successfully created expense."
+    redirect_to  syndic_coproperty_expenses_path, :notice => "Successfully created expense."
     else
     render :action => 'new'
     end
   end
 
   def edit
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def update
     if @expense.update(expense_params)
-    redirect_to @expense, :notice  => "Successfully updated expense."
+    redirect_to syndic_coproperty_expense_path, :notice  => "Successfully updated expense."
     else
     render :action => 'edit'
     end

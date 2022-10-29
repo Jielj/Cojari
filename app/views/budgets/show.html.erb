@@ -1,4 +1,3 @@
-<%# <%= render "layouts/navbar" %>
 <div class="m-4 card-border">
   <div class="container info-card card-dem">
     <div class="row">
@@ -18,8 +17,8 @@
       </span>
     </div>
   </div>
-      <%= link_to "Modifier", edit_budget_path(@budget.id), class: "" %>
-      <%= link_to 'Back', root_path %>
+      <%= link_to "Modifier",  edit_syndic_coproperty_budget_path(@budget), class: "" %>
+      <%= link_to 'Précédent', syndic_coproperty_budgets_path %>
     </div>
 </div>
 </div>
