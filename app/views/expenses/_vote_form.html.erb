@@ -1,13 +1,18 @@
-<% @expenses.each do |e| %>
-  <%= e.expense_name%>
-
-  <%= link_to upvote_expense_path(e), data:{"turbo-method": :post}, confirm: 'Vote ?', class: 'link-vote-up', 'data-message' => 'Are you sure?', :remote => true do %>
+<% if !current_user.is_syndic? %>
+  <%= expense.expense_name %>
+  <%= link_to upvote_expense_path(expense), data:{"turbo-method": :post}, confirm: 'Vote ?', class: 'link-vote-up', 'data-message' => 'Are you sure?', :remote => true do %>
     <i class="fa-solid fa-thumbs-up"></i>
-		<%= e.expense_votes.nil? ? 0 : e.expense_votes.pluck(:vote_up).count(true) %>
+    <%= expense.expense_votes.nil? ? 0 : expense.expense_votes.pluck(:vote_up).count(true) %>
   <% end %>
 
-  <%= link_to downvote_expense_path(e), data:{"turbo-method": :post}, confirm: 'Vote ?', class: 'link-vote-up', 'data-message' => 'Are you sure?', :remote => true do %>
+  <%= link_to downvote_expense_path(expense), data:{"turbo-method": :post}, confirm: 'Vote ?', class: 'link-vote-up', 'data-message' => 'Are you sure?', :remote => true do %>
     <i class="fa-solid fa-thumbs-down"></i>
-		<%= e.expense_votes.nil? ? 0 : e.expense_votes.pluck(:vote_up).count(false) %>
+    <%= expense.expense_votes.nil? ? 0 : expense.expense_votes.pluck(:vote_up).count(false) %>
   <% end %>
+<% else %>
+  <%= expense.expense_name %>
+  <br>
+  votes pour : <%= expense.expense_votes.nil? ? 0 : expense.expense_votes.pluck(:vote_up).count(true) %>
+  <br>
+  votes contre : <%= expense.expense_votes.nil? ? 0 : expense.expense_votes.pluck(:vote_up).count(false) %>
 <% end %>

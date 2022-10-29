@@ -13,9 +13,9 @@
             <%# <%# <div class="clash-card__unit-name">ID Propriété : <%= request.property_id% - need to have the property_number> %>
             <div class="clash-card__unit-description">
             </div>
-            <%= link_to "Détails", syndic_coproperty_request_path(current_user.syndic,request.property.coproperty,request.id), class: "bttn btn-main" %>
           </div>
       </div>
     <% end %>
   </div>
+  <%= link_to "Nouveau",  new_owner_coproperty_request_path(current_user.owner, @coproperty) %>
 </div>

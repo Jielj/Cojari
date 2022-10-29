@@ -1,8 +1,12 @@
 class PropertiesController < ApplicationController
 
   def index
-    @properties = Property.all
-    @coproperty = Coproperty.find(params[:coproperty_id])
+    if current_user.is_syndic?
+      @properties = current_user.syndic.coproperties.first.properties
+      @coproperty = Coproperty.find(params[:coproperty_id])
+    else
+      @properties = current_user.owner.properties
+    end
   end
 
   def show
