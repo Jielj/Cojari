@@ -31,7 +31,7 @@ class CopropertiesController < ApplicationController
 
   def update
     if @coproperty.update(coproperty_params)
-    redirect_to @coproperty, :notice  => "Successfully updated coproperty."
+    redirect_to syndic_coproperty_path(current_user.syndic, @coproperty), :notice  => "Successfully updated coproperty."
     else
     render :action => 'edit'
     end

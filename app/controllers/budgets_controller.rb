@@ -31,7 +31,7 @@ class BudgetsController < ApplicationController
 
   def update
     if @budget.update(budget_params)
-    redirect_to @budget, :notice  => "Successfully updated budget."
+    redirect_to syndic_coproperty_budgets_path, :notice  => "Successfully updated budget."
     else
     render :action => 'edit'
     end

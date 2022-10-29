@@ -24,15 +24,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :owners, except: [:index] do
+  resources :owners do
     resources :coproperties, only: [:show] do
       resources :budgets, only: [:show, :index]
       resources :expenses, only: [:show, :index]
-      resources :payments, only: [:create, :show, :index]
+      resources :payments, only: [:new, :create, :show, :index]
       resources :messages, only: [:create, :index]
-      resources :properties, only: [:show, :index] do
-        resources :requests, only: [:create, :show, :index]
-      end
+      resources :properties, only: [:show, :index]
+      resources :requests, only: [:new, :create, :show, :index]
     end
   end
 

@@ -1,6 +1,6 @@
 <div class="card pt-3">
 <div class="inline-container p-3">
-    <h2>Budgets en Cours</h2>
+    <h2>Budgets</h2>
     <% @budgets.each do |budget| %>
       <div class="slide-container">
         <div class="wrapper">
@@ -19,7 +19,4 @@
   </div>
 
   <%= link_to "Nouveau", new_syndic_coproperty_budget_path(current_user.syndic, @coproperty) %>
-
-    <h2>Budgets Expirés</h2>
-    <%# !!!!!if à définir %>
 </div>

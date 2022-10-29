@@ -1,15 +1,39 @@
 
 <h1>OWNERS</h1>
 
-
-  <ul>
     <% @owners.each do |owner| %>
-      <li><%= link_to owner.first_name %>  <%= link_to owner.last_name %></li>
+      <div class="m-4 card-border">
+  <div class="container info-card card-dem">
+    <div class="row">
+      <%# <img src= <%=  "#{@syndic.photo}" %>
+      <span class="info-top col">
+        <li>Sexe: <%= owner.gender %></li>
+        <li>Prénom: <%= owner.first_name %></li>
+        <li>Nom de famille: <%= owner.last_name %></li>
+        <li>Age: <%= owner.birth_date %></li>
+        <li>CIN: <%= owner.card_number %></li>
+        <li>GSM: <%= owner.phone_number %></li>
+        <li>Propriétaire depuis: <%= owner.ownership_date %></li>
+        <% if !owner.photo.key.nil? %>
+          <%= cl_image_tag owner.photo.key, class: "img-fluid img-responsive rounded product-image" %>
+        <% else %>
+          <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" %>
+        <% end %>
+        <div class="info-bottom col-8 search-btns">
+        </div>
+      </span>
+    </div>
+  </div>
+      <%= link_to "Update", edit_owner_path(owner.id), class: ""  if current_user.is_syndic? %>
+    </div>
+</div>
+</div>
+</div>
 
     <% end %>
-  </ul>
 
 
 
 
-<%= button_to "Create new owner", new_owner_path, method: :get %>
+
+<%# <%= button_to "Create new owner", new_owner_path, method: :get %>
