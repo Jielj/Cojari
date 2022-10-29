@@ -16,12 +16,16 @@ class PaymentsController < ApplicationController
 
   def new
     @payment = Payment.new
+    @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def create
     @payment = Payment.new(payment_params)
-    if @payment.save
-    redirect_to @payment, :notice => "Successfully created payment."
+    @coproperty = Coproperty.find(params[:coproperty_id])
+    @coproperty.syndic = current_user.syndic
+    raise
+    if @payment.save!
+    redirect_to syndic_coproperties_payment_path, :notice => "Successfully created payment."
     else
     render :action => 'new'
     end
