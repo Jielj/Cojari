@@ -7,10 +7,10 @@
 
         <%= simple_form_for [current_user.syndic, @coproperty, @payment] do |f| %>
         <%= f.input :payment_title, :label => 'Titre', :hint => 'Donnez un titre à ce Paiement'  %>
-        <%# <%= f.input :payment_status, collection:['Déclaré','Reçu'] !! ici par défaut c'est déclaré - ça ne doit pas être affiché%>
+        <%= f.input :payment_status, collection:['Déclaré','Reçu'] %>
         <%= f.input :payment_amount, :label => 'Montant', :hint => 'Montant du paiement en chiffres, dirham marocain',:placeholder => '700' %>
         <%= f.input :payment_date, :label => 'Date de Paiement', :hint => 'Précisez quand le paiement a été effectué' %>
         <%= f.input :photos, :label => 'Pièces Justificatives',:hint => 'Vous pouvez joindre des documents ou photos pour prouver votre paiement', as: :file, input_html: { multiple: true } %>
+        <%= f.association :budget,:label => 'Budget Rattaché', as: :select, :label_method => lambda { |budget| "#{budget.budget_title}" } , :hint => 'Sélectionnez le budget rattaché à ce paiement' %>
         <%= f.submit 'Soumettre', class: "btn btn-default btn-primary" %>
-        <%# <%# <%= f.input :budget_id%  !!! le paiement doit être lié à un budget existant> %>
         <% end %>

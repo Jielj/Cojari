@@ -5,7 +5,7 @@
 
         <h2>Frais</h2>
 
-        <%= simple_form_for @expense do |f| %>
+        <%= simple_form_for [current_user.syndic, @coproperty, @expense] do |f| %>
         <%= f.input :expense_name, :label => 'Titre', :hint => 'Donnez un titre à ce frais' %>
         <%= f.input :expense_type, collection:['Nettoyage','Jardinage','Gardiennage','Eau / Electricité','Sécurité','Maintenance','Consommables','Frais Juridiques','Evénements','Autres Frais'], :label => 'Type', :hint => 'Sélectionnez le type de frais à ajouter' %>
         <%= f.input :expense_amount, :label => 'Montant', :hint => 'Montant du frais en chiffres, dirham marocain',:placeholder => '2000' %>
@@ -16,4 +16,5 @@
         wrapper_html:{"data-conditional-input-target":"date", class: "d-none"})%>
         <%= f.input :photos, :label => 'Pièces Justificatives',:hint => 'Vous pouvez joindre des documents ou photos pour justifier ce frais', as: :file, input_html: { multiple: true } %>
         <%= f.submit 'Soumettre', class: "btn btn-default btn-primary" %>
+        <%= link_to 'Précédent',  syndic_coproperty_expense_path %>
         <% end %>

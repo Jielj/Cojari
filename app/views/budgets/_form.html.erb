@@ -5,7 +5,7 @@
 
         <h2>Budget</h2>
 
-        <%= simple_form_for @budget do |f| %>
+        <%= simple_form_for [current_user.syndic, @coproperty, @budget] do |f| %>
         <%= f.input :budget_title, :label => 'Titre', :hint => 'Donnez un titre à ce budget' %>
         <%= f.input :budget_amount, :label => 'Montant', :hint => 'Montant du budget en chiffres, dirham marocain',:placeholder => '4000'%>
         <%= f.input :budget_type, :label => 'Type', collection:['Courant','Exceptionnel'], :hint => 'Sélectionnez si le budget est de type courant ou exceptionnel' %>

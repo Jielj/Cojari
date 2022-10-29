@@ -10,7 +10,7 @@
         <%# conditionner par type de copro multi-immeuble %>
         <%= f.input :building, :label => 'Immeuble' %>
         <%= f.input :total_property_area, :label => 'Surface Totale', :hint => 'Surface Totale de la propriété (incluant parking et box titrés), en m²' %>
-        <%= f.input :payment_frequency , collection: ['Mensuelle','Trimestrielle', 'Annuelle'], :label => 'Fréquence de Paiement', :hint => 'Fréquence de Paiement des frais de copropriété' %>
+        <%# <%= f.input :payment_frequency , collection: ['Mensuelle','Trimestrielle', 'Annuelle'], :label => 'Fréquence de Paiement', :hint => 'Fréquence de Paiement des frais de copropriété' %>
         <%= f.submit 'Créer', class: "btn btn-default btn-primary" %>
         <% end %>
       </div>
