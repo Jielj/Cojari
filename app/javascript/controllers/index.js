@@ -24,3 +24,16 @@ application.register("navbar", NavbarController)
 
 import SidebarController from "./sidebar_controller"
 application.register("sidebar", SidebarController)
+
+// chartjs
+
+import Chart from 'stimulus-chartjs'
+application.register('chart', Chart)
+
+import Doughnut from 'stimulus-chartjs'
+application.register('doughnut', Doughnut)
+
+const config = {
+  type: 'doughnut',
+  data: data,
+};

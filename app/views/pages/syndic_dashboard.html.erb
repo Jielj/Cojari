@@ -1,1 +1,40 @@
 MY DASHBOARD
+<div class="container">
+<div class="row">
+  <div class="col-lg-4">
+  <%=
+    const data = {
+  labels: [
+    'Red',
+    'Blue',
+    'Yellow'
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [300, 50, 100],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+  };
+    # <%# data-controller="doughnut" %>
+    # <%# data-chart-data-value='{ "labels": ["Paiements received", "Remainder"], "datasets": [{ "label": "xx", "backgroundColor": ["rgb(255, 99, 132)", "rgb(255, 99, 189)"],"data": [120, 150] }], "hoverOffset": "4", }' %>
+  %>
+  </div>
+  <div class="col-lg-4">
+  <canvas
+    data-controller="chart"
+    data-chart-data-value='{ "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] }'
+  ></canvas>
+  </div>
+  <div class="col-lg-4">
+  <canvas
+    data-controller="chart"
+    data-chart-data-value='{ "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] }'
+  ></canvas>
+  </div>
+  </div>
+</div>
