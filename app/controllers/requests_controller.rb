@@ -2,7 +2,14 @@ class RequestsController < ApplicationController
   before_action :find_request, only: [:show, :edit, :update, :destroy]
 
   def index
-    @requests = Request.all
+    if current_user.is_syndic?
+      @requests = Request.all
+      render 'syndic_index'
+    else
+      @coproperty = Coproperty.find(params[:coproperty_id])
+      @requests = Request.where(property_id: current_user.owner.properties.pluck(:id))
+      render 'owner_index'
+    end
   end
 
   def show
@@ -11,15 +18,13 @@ class RequestsController < ApplicationController
   def new
     @request = Request.new
     @owner = current_user.owner
-    @property = Property.find(params[:property_id])
     @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def create
     @request = Request.new(request_params)
-    @request.property = Property.find(params[:property_id])
-    if @request.save
-    redirect_to owner_coproperty_property_path(current_user.owner,Coproperty.find(params[:coproperty_id]),Property.find(params[:property_id])), :notice => "Successfully created request."
+    if @request.save!
+    redirect_to owner_coproperty_requests_path(current_user.owner, @request.property.coproperty), :notice => "Successfully created request."
     else
     render :action => 'new'
     end
@@ -27,13 +32,14 @@ class RequestsController < ApplicationController
 
   def edit
     @owner = current_user.owner
-    @property = Property.find(params[:property_id])
+    # @property = Property.find(params[:property_id])
     @coproperty = Coproperty.find(params[:coproperty_id])
   end
 
   def update
+    @coproperty = Coproperty.find(params[:coproperty_id])
     if @request.update(request_params)
-      redirect_to owner_coproperty_property_path(current_user.owner,Coproperty.find(params[:coproperty_id]),Property.find(params[:property_id])), :notice => "Successfully created request."
+      redirect_to syndic_coproperty_requests_path(current_user.syndic, @coproperty), :notice => "Successfully created request."
     else
       render :action => 'edit'
     end

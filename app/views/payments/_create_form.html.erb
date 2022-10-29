@@ -5,7 +5,7 @@
 
         <h2>Paiement</h2>
 
-        <%= simple_form_for [current_user.syndic, @coproperty, @payment] do |f| %>
+        <%= simple_form_for [current_user.owner, @coproperty, @payment] do |f| %>
         <%= f.input :payment_title, :label => 'Titre', :hint => 'Donnez un titre à ce Paiement'  %>
         <%= f.input :payment_status, as: :hidden, :input_html => { :value => "Déclaré" } %>
         <%= f.input :payment_amount, :label => 'Montant', :hint => 'Montant du paiement en chiffres, dirham marocain',:placeholder => '700' %>

@@ -9,10 +9,14 @@
         <%= f.input :request_title, :label => 'Objet', :hint => 'Définissez un objet pour la requête',:placeholder => 'Problème de Plomberie'  %>
         <%= f.input :message, :label => 'Message', :hint => 'Décrivez votre requête' %>
         <%= f.input :request_date, :label => 'Date de la requête' %>
-        <%= f.input :request_status, collection:['Soumise','Traitée','En cours de Traitement','Rejetée']  %>
+        <%= f.input :request_status, as: :hidden, :input_html => { :value => "Soumise" } %>
+        <%= f.association :property, collection: @owner.properties, :label => 'Propriété Rattachée', as: :select, :label_method => lambda { |property| "#{property.property_number}" } , :hint => 'Sélectionnez la propriété rattachée à cette requête' %>
         <%= f.input :photos, :label => 'Pièces Jointes',:hint => 'Vous pouvez joindre des documents ou photos pour préciser votre requête', as: :file, input_html: { multiple: true } %>
         <%= f.submit 'Soumettre', class: "btn btn-default btn-primary" %>
         <% end %>
+      </div>
+      </div>
+      </div>
       </div>
 
 

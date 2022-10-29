@@ -42,7 +42,7 @@
        <div class="item">
          <a class="sub-btn"><i class="fa-solid fa-message"></i>Communication<i class="fas fa-angle-right dropdown"></i></a>
          <div class="sub-menu">
-          <%= link_to owner_coproperty_property_requests_path(current_user.owner,coproperty), class: "sub-item" do %>
+          <%= link_to owner_coproperty_requests_path(current_user.owner,coproperty), class: "sub-item" do %>
             Mes Requêtes
           <% end %>
            <%= link_to owner_coproperty_messages_path(current_user.owner,coproperty), class: "sub-item" do %>

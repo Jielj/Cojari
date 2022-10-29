@@ -18,8 +18,12 @@
     </div>
   </div>
 
-      <%= link_to "Modifier", edit_syndic_coproperty_payment_path(@payment.id), class: "" %>
-      <%= link_to 'Précédent', syndic_coproperty_payments_path %>
+      <% if current_user.is_syndic? %>
+        <%= link_to "Modifier", edit_syndic_coproperty_payment_path(@payment.id), class: "" %>
+        <%= link_to 'Précédent', syndic_coproperty_payments_path %>
+      <% else %>
+      <%= link_to 'Précédent', owner_coproperty_payments_path %>
+      <% end %>
     </div>
 </div>
 </div>
