@@ -16,6 +16,9 @@ application.register("coproperty-card", CopropertyCardController)
 import CopropertyInfoController from "./coproperty_info_controller"
 application.register("coproperty-info", CopropertyInfoController)
 
+import DropdownMenusController from "./dropdown_menus_controller"
+application.register("dropdown-menus", DropdownMenusController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
