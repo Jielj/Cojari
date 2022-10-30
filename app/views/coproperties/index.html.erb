@@ -1,57 +1,58 @@
 
 <div class="container main">
-  Bonjour <%= current_user.syndic.syndic_name %> !
-  <div class="container map-container">
-        <%= link_to "Ajouter une copropriété", new_syndic_coproperty_path(current_user.syndic), class: "btn btn-primary" %>
+  <div class="container map-container mx-2 my-4 d-flex justify-content-between align-items-center ">
+    <span class="fw-regular">Bonjour <%= current_user.syndic.syndic_name %> !</span>
+    <%= link_to "Ajouter une copropriété", new_syndic_coproperty_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
   </div>
 
-  <div class="container p-0 rounded red-border">
-    <div class="flex-tabs cop-card-section">
-    <div class="flex-tab">
+  <div class="container m-2 rounded red-border">
+    <div class="flex-tabs gap-4 cop-card-section">
         <% @coproperties.each do |coproperty| %>
-              <div class="row p-2 border cop-card"
-                    data-controller="coproperty-info"
+              <div class="cop-card p-relative"
+                    data-controller="coproperty-card"
                     data-coproperty-info-cop-id-value="<%= coproperty.id %>"
-                    <%# data-coproperty-info-target="copInfo" %>
-                    data-action="click->coproperty-info#selected"
                     >
 
-                <div class="col-md-3 mt-1 cop-img">
-                  <%= cl_image_tag coproperty.photo.key, class: "img-fluid img-responsive rounded product-image" %>
-                </div>
-                <div class="col-md-6 mt-1">
+                  <%= cl_image_tag coproperty.photo.key, class: "w-100 product-image", src: "https://source.unsplash.com/random/?productivity,city" %>
+                <div class="m-3">
                   <h5><strong><%= coproperty.coproperty_name %></strong></h5>
                   <div class="d-flex flex-row">
                     <%# maybe used later %>
-                  </div>
-                  <div class="mx-1 spec-1"><strong>coproperties id: </strong><%= coproperty.id %></div>
-                  <div class="mx-1 spec-1"><strong>Nombre de Propriétés: </strong><%= coproperty.number_properties %></div>
-                  <p class="text-justify text-truncate para mb-0">Adresse: <%= coproperty.address %><br><br></p>
-                </div>
-                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                  <div class="d-flex flex-row align-items-center">
-                    <h6 class="mr-1">Area: <%= coproperty.coprop_private_area + coproperty.coprop_common_area %>m²</h6>
-                  </div>
-                  <h6 class="text-success">paid</h6>
-                  <div class="d-flex flex-column mt-4">
-                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">access details</button>
-                  </div>
+                  </div class="">
+                  <div class="mx-1"><i class="fa-solid fa-house"></i>&nbsp;<%= coproperty.number_properties %>&nbsp;propriétés</div>
+                  <div class="mx-1 text-justify text-truncate para mb-0"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= coproperty.address %></div>
+                  <div class="mx-1"><i class="fa-solid fa-map"></i>&nbsp;<%= coproperty.coprop_private_area + coproperty.coprop_common_area %>m²</div>
+                  <h6 class="mx-1 text-success">paid</h6>
+                <div class="d-flex justify-content-end w-100">
                   <% if current_user.is_syndic? %>
-                    <%= link_to "Edit", edit_syndic_coproperty_path(current_user.syndic, coproperty), class: "btn btn-primary" %>
-                    <%= link_to "Delete", syndic_coproperty_path(current_user.syndic, coproperty), data: {turbo_method: :delete, turbo_confirm: 'êtes-vous sur de vouloir supprimer cette copropriété?'}, class: "btn btn-danger" %>
-                    <%= link_to "Open", syndic_coproperty_path(current_user.syndic, coproperty.id), class: "btn btn-success"  %>
+                    <%= link_to "Open", syndic_coproperty_path(current_user.syndic, coproperty.id), class: "btn btn-outline-primary btn-sm mt-2"  %>
                   <% else %>
-                    <%= link_to "Open", owner_coproperty_path(current_user.owner, coproperty.id), class: "btn btn-primary"  %>
+                    <%= link_to "Open", owner_coproperty_path(current_user.owner, coproperty.id), class: "btn btn-outline-primary btn-sm mt-2"  %>
                   <% end %>
                 </div>
+                </div>
+                <%# invisible box for toggle %>
+                <div class="p-absolute dynamic-box"
+                      data-action="mousein->coproperty-card#showMenu mouseout->coproperty-card#hideMenu">
+                </div>
+                <%# dropdown menu %>
+                <div class="p-absolute dots-menu blur d-none"
+                      data-coproperty-card-target="dropDown"
+                      >
+                  <% if current_user.is_syndic? %>
+                    <%= link_to "Edit", edit_syndic_coproperty_path(current_user.syndic, coproperty), class: "dropdown-item dropdown-button fw-semibold" %>
+                    <%= link_to "Delete", syndic_coproperty_path(current_user.syndic, coproperty), data: {turbo_method: :delete, turbo_confirm: 'êtes-vous sur de vouloir supprimer cette copropriété?'}, class: "dropdown-item dropdown-button fw-semibold" %>
+                  <% end %>
+                </div>
+                <%# three dots %>
+                <div class="p-absolute three-dots blur" data-action="click->coproperty-card#toggleMenu">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
               </div>
-
         <% end %>
-    </div>
 
-    <div class="flex-tab cop-inf-section">
-        <%= render "layouts/property_info" %>
-    </div>
+
+
     </div>
   </div>
 </div>

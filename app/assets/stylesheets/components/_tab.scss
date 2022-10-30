@@ -1,28 +1,27 @@
 .flex-tabs {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: normal;
-  align-items: normal;
-  align-content: normal;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content: space-between;
 }
 
-.flex-tab:nth-child(1) {
-  display: block;
-  width: 50%;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
-}
+// .flex-tab:nth-child(1) {
+//   display: block;
+//   // width: 50%;
+//   flex-grow: 0;
+//   flex-shrink: 1;
+//   flex-basis: auto;
+//   align-self: auto;
+//   order: 0;
+// }
 
-.flex-tab:nth-child(2) {
-  display: block;
-  width: 50%;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
-}
+// .flex-tab:nth-child(2) {
+//   display: block;
+//   width: 50%;
+//   flex-grow: 0;
+//   flex-shrink: 1;
+//   flex-basis: auto;
+//   align-self: auto;
+//   order: 0;
+// }

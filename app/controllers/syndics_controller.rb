@@ -2,6 +2,7 @@ class SyndicsController < ApplicationController
   before_action :find_syndic, only: [:show, :edit, :update, :destroy]
 
   def show
+    @coproperties = Coproperty.all
   end
 
   def new

@@ -2,7 +2,9 @@
 #show-coproperty,
 #index-coproperty {
     .side-bar {
-        background: #4723D9;
+        backdrop-filter: blur(11.5px);
+        -webkit-backdrop-filter: blur(11.5px);
+        background: $blue-trans;
         backdrop-filter: blur(15px);
         width: 250px;
         height: 100vh;
@@ -45,7 +47,7 @@
         line-height: 60px;
     }
     .side-bar .menu .item a:hover {
-        background: #9ca2a8;
+        background: $dark-blue;
         transition: 0.3s ease;
     }
     .side-bar .menu .item i {
@@ -58,7 +60,7 @@
         transition: 0.3s ease;
     }
     .side-bar .menu .item .sub-menu {
-        background: #4723D9;
+        background: $dark-gray;
         display: none;
     }
     .side-bar .menu .item .sub-menu a {
@@ -77,11 +79,22 @@
     }
     .menu-btn {
         position: absolute;
-        color: rgb(0, 0, 0);
-        font-size: 35px;
-        margin: 25px;
+        color: $gray;
+        font-size: 18px;
+        margin-left: 25px;
         cursor: pointer;
         z-index: 999;
+        height: 40px;
+        width: 40px;
+        /* background-color: blue; */
+        border-radius: 6px;
+        border: 2px solid $light-gray;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        // &:hover {
+
+        // }
     }
     .main {
         height: 100vh;
@@ -107,10 +120,6 @@
         margin-top: 15px;
         margin-left: 20px;
     }
-    header {
-        background: #4723D9;
-    }
-
     .log-out {
       position: fixed; bottom: 0;
     }
