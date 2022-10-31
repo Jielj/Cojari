@@ -1,4 +1,3 @@
-
 <div class="container" data-controller="dropdown_menus">
   <div class="blur co-shadow syn-profile">
     <div class="p-4 d-flex justify-content-start align-items-center">
@@ -20,16 +19,13 @@
           <span><%= @syndic.creation_date %></span>
           <%= link_to "Déconnexion", destroy_user_session_path %>
         </div>
-        <div class="p-absolute dots-menu blur d-none"
-                    data-dropdown_menus-target="editMenu"
-                    >
+        <div class="p-absolute dots-menu blur d-none" data-dropdown_menus-target="editMenu">
           <%= link_to "Update", edit_syndic_path(@syndic.id), class: "" %>
-          <%= link_to "Delete", syndic_path(@syndic.id), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "" %>
+          <%= link_to "Delete", syndic_path(@syndic.id), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}%>
         </div>
         <div class="p-absolute three-dots blur" data-action="click->dropdown_menus#toggleMenuTwo">
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </div>
-
       </div>
     </div>
   </div>
