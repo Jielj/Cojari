@@ -1,8 +1,24 @@
 
-<div class="container main">
+<div class="container main"
+      data-controller="profile-popup">
+  <%# profile container %>
+  <div class="p-absolute profile-popup d-none"
+        data-profile-popup-target="profileContainer">
+    <% @syndic = current_user.syndic %>
+    <%= render "syndics/show" %>
+  </div>
+  <%# top container %>
   <div class="container map-container mx-2 my-4 d-flex justify-content-between align-items-center ">
+
+
     <span class="fw-regular">Bonjour <%= current_user.syndic.syndic_name %> !</span>
+    <div class="profile-div ">
     <%= link_to "Ajouter une copropriété", new_syndic_coproperty_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
+    <div class=" w-auto m-4 "
+          data-action="click->profile-popup#toggleProfile">
+      <img src="https://images.unsplash.com/photo-1635812233312-984aa05cdf06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1960&q=80" class="rounded-circle shadow-1-strong small-profile" width="150" height="150" />
+    </div>
+    </div>
   </div>
 
   <div class="container m-2 rounded red-border">
