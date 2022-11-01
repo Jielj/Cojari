@@ -5,7 +5,7 @@
     .side-bar {
         backdrop-filter: blur(11.5px);
         -webkit-backdrop-filter: blur(11.5px);
-        background: $blue-trans;
+        background: #5335C0;
         backdrop-filter: blur(15px);
         width: 250px;
         height: 100vh;
@@ -61,11 +61,12 @@
         transition: 0.3s ease;
     }
     .side-bar .menu .item .sub-menu {
-        background: $dark-gray;
+        background: #5335C0;
         display: none;
     }
     .side-bar .menu .item .sub-menu a {
         padding-left: 80px;
+        line-height: 40px;
     }
     .rotate {
         transform: rotate(90deg);
@@ -123,6 +124,9 @@
         margin-left: 20px;
     }
     .log-out {
-      position: fixed; bottom: 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 999;
     }
 }

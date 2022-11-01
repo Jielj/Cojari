@@ -39,6 +39,10 @@ Rails.application.routes.draw do
     resources :owners
   end
 
+  resources :coproperties do
+    resources :owners, only: [:index]
+  end
+
   get '/syndics/:syndic_id/coproperties/:coproperty_id/dashboard', to: 'pages#syndic_dashboard', as: 'syndic_dashboard'
   get '/owners/:owner_id/coproperties/:coproperty_id/dashboard', to: 'pages#owner_dashboard', as: 'owner_dashboard'
 

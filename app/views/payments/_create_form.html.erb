@@ -10,7 +10,8 @@
         <%= f.input :payment_status, as: :hidden, :input_html => { :value => "Déclaré" } %>
         <%= f.input :payment_amount, :label => 'Montant', :hint => 'Montant du paiement en chiffres, dirham marocain',:placeholder => '700' %>
         <%= f.input :payment_date, :label => 'Date de Paiement', :hint => 'Précisez quand le paiement a été effectué' %>
-        <%= f.input :photos, :label => 'Pièces Justificatives',:hint => 'Vous pouvez joindre des documents ou photos pour prouver votre paiement', as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos, :label => 'Pièces Justificatives', :hint => 'Vous pouvez joindre des documents ou photos pour prouver votre paiement', as: :file, input_html: { multiple: true } %>
         <%= f.association :budget,:label => 'Budget Rattaché', as: :select, :label_method => lambda { |budget| "#{budget.budget_title}" } , :hint => 'Sélectionnez le budget rattaché à ce paiement' %>
+        <%= f.association :property, collection: current_user.owner.properties, :label => 'Propriété Rattachée', as: :select, :label_method => lambda { |property| "#{property.property_number}" } , :hint => 'Sélectionnez la propriété rattachée à ce paiement' %>
         <%= f.submit 'Soumettre', class: "btn btn-default btn-primary" %>
         <% end %>

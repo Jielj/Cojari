@@ -5,4 +5,9 @@ class Property < ApplicationRecord
   has_many :budgets, through: :payments
   has_many :links, dependent: :destroy
   has_many :requests, dependent: :destroy
+
+  def paid
+    self.payments && self.payments.where("payment_status = 'Reçu'").count != 0
+    # self.payments.where(payment_status: "Reçu").sum(:amount)
+  end
 end

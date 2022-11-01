@@ -4,6 +4,9 @@
       <li><strong>Etage: </strong><%= @property.floor %></li>
       <li><strong>Superficie: </strong><%= @property.total_property_area %></li>
       <li><strong>Fréquence de paiement: </strong><%= @property.payment_frequency %></li>
+      <% if !@property.owner.nil? %>
+      <li><strong>Owner: </strong><%= @property.owner.full_name %> </li>
+      <% end %>
 </div>
 
 <% if current_user.is_syndic? %>

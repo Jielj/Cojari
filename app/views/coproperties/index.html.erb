@@ -16,7 +16,7 @@
     <%= link_to "Ajouter une copropriété", new_syndic_coproperty_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
     <div class=" w-auto m-4 "
           data-action="click->profile-popup#toggleProfile">
-      <img src="https://images.unsplash.com/photo-1635812233312-984aa05cdf06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1960&q=80" class="rounded-circle shadow-1-strong small-profile" width="150" height="150" />
+      <%= image_tag 'syndic', class: "rounded-circle shadow-1-strong small-profile", width:"150", height:"150" %>
     </div>
     </div>
   </div>
@@ -28,8 +28,11 @@
                     data-controller="coproperty-card"
                     data-coproperty-info-cop-id-value="<%= coproperty.id %>"
                     data-action="mouseover->coproperty-card#showThreeDots mouseout->coproperty-card#hideThreeDots">
-
-                  <%= cl_image_tag coproperty.photo.key, class: "w-100 product-image", src: "https://source.unsplash.com/random/?building" %>
+                  <% if coproperty.photo.key %>
+                    <%= cl_image_tag coproperty.photo.key, class: "w-100 product-image" %>
+                  <% else %>
+                    <%= image_tag 'residence.jpg', class: "w-100 product-image" %>
+                  <% end %>
                 <div class="m-3">
                   <h5><strong><%= coproperty.coproperty_name %></strong></h5>
                   <div class="d-flex flex-row">
@@ -38,12 +41,13 @@
                   <div class="mx-1"><i class="fa-solid fa-house"></i>&nbsp;<%= coproperty.number_properties %>&nbsp;propriétés</div>
                   <div class="mx-1 text-justify text-truncate para mb-0"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= coproperty.address %></div>
                   <div class="mx-1"><i class="fa-solid fa-map"></i>&nbsp;<%= coproperty.coprop_private_area + coproperty.coprop_common_area %>m²</div>
-                  <h6 class="mx-1 text-success">paid</h6>
+                  <%# to be calculated %>
+                  <h6 class="mx-1 text-success">  <%= coproperty.properties.map{ |property| property.paid }.count(true) %> / <%= coproperty.properties.count %> propriétés payées</h6>
                 <div class="d-flex justify-content-end w-100">
                   <% if current_user.is_syndic? %>
-                    <%= link_to "Open", syndic_coproperty_path(current_user.syndic, coproperty.id), class: "btn btn-outline-primary btn-sm mt-2"  %>
+                    <%= link_to "Accéder", syndic_dashboard_path(current_user.syndic, coproperty.id), class: "btn btn-outline-primary btn-sm mt-2"  %>
                   <% else %>
-                    <%= link_to "Open", owner_coproperty_path(current_user.owner, coproperty.id), class: "btn btn-outline-primary btn-sm mt-2"  %>
+                    <%= link_to "Accéder", owner_dashboard_path(current_user.owner, coproperty.id), class: "btn btn-outline-primary btn-sm mt-2"  %>
                   <% end %>
                 </div>
                 </div>
@@ -75,4 +79,3 @@
     </div>
   </div>
 </div>
-
