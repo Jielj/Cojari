@@ -27,7 +27,7 @@
               <div class="cop-card p-relative"
                     data-controller="coproperty-card"
                     data-coproperty-info-cop-id-value="<%= coproperty.id %>"
-                    >
+                    data-action="mouseover->coproperty-card#showThreeDots mouseout->coproperty-card#hideThreeDots">
 
                   <%= cl_image_tag coproperty.photo.key, class: "w-100 product-image", src: "https://source.unsplash.com/random/?productivity,city" %>
                 <div class="m-3">
@@ -61,7 +61,9 @@
                   <% end %>
                 </div>
                 <%# three dots %>
-                <div class="p-absolute three-dots blur" data-action="click->coproperty-card#toggleMenu">
+                <div class="p-absolute three-dots blur d-none"
+                      data-action="click->coproperty-card#toggleMenu"
+                      data-coproperty-card-target="dots">
                   <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
               </div>
