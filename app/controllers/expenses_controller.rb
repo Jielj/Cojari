@@ -43,7 +43,7 @@ class ExpensesController < ApplicationController
     @vote.vote_up = true
     @vote.owner = current_user.owner
     @vote.expense = @expense
-    @vote.save
+    @vote.save!
   end
 
   def down_vote
@@ -52,7 +52,7 @@ class ExpensesController < ApplicationController
     @vote.vote_up = false
     @vote.owner = current_user.owner
     @vote.expense = @expense
-    @vote.save
+    @vote.save!
   end
 
 private

@@ -9,7 +9,7 @@ class PagesController < ApplicationController
         if current_user.is_syndic?
           redirect_to syndic_coproperties_path(current_user.syndic)
         else
-          redirect_to owner_coproperties_path(current_user.owner)
+          redirect_to owner_coproperty_path(current_user.owner, current_user.owner.coproperties.first)
         end
       end
     end

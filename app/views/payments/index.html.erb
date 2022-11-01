@@ -1,4 +1,4 @@
-<div class="card pt-3">
+<div class="px-5 card pt-3">
 <div class="inline-container p-3">
     <% @payments.each do |payment| %>
       <div class="slide-container">
@@ -10,11 +10,17 @@
             <div class="clash-card__unit-name"> Montant : <%= payment.payment_amount.to_i %> MAD</div>
             <div class="clash-card__unit-name">Date : <%= payment.payment_date %></div>
             <div class="clash-card__unit-name">Statut : <%= payment.payment_status %></div>
+            <div class="clash-card__unit-name">Property : <%= payment.property.property_number %>, par <%= payment.property.owner.full_name %> </div>
             <div class="clash-card__unit-description">
             </div>
-            <%= link_to "Détails", syndic_coproperty_payment_path(current_user.syndic, payment.budget.coproperty,payment.id), class: "bttn btn-main" %>
+            <% if current_user.is_syndic? %>
+              <%= link_to "Détails", syndic_coproperty_payment_path(current_user.syndic, payment.budget.coproperty,payment.id), class: "bttn btn-main" %>
+            <% else %>
+             <%= link_to "Détails", owner_coproperty_payment_path(current_user.owner, payment.budget.coproperty,payment.id), class: "bttn btn-main" %>
+            <% end %>
           </div>
       </div>
     <% end %>
+     <%= link_to "Nouveau", new_owner_coproperty_payment_path(current_user.owner, current_user.owner.coproperties.first), class: "bttn btn-main" if !current_user.is_syndic? %>
   </div>
 </div>

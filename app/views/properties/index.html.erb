@@ -1,4 +1,11 @@
 <%# à laisser vide %>
-TEST PROPERTY
+<div class="px-5">
+  <% @properties.each do |p| %>
+  Numéro de propriété : <%= p.property_number %> <br>
+  Etage : <%= p.floor %> <br>
+  Surface totale : <%= p.total_property_area %>
+  <% end %>
 
-<%= link_to "Nouveau", new_syndic_coproperty_property_path(current_user.syndic, @coproperty) %>
+  <%= link_to "Nouveau", new_syndic_coproperty_property_path(current_user.syndic, @coproperty) if current_user.is_syndic? %>
+
+</div>

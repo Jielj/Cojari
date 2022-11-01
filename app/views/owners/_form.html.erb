@@ -12,6 +12,7 @@
             <%= f.input :phone_number %>
             <%= f.input :ownership_date %>
             <%= f.input :birth_date %>
+            <%= f.input :photo, :label => 'Photo',:hint => 'Ajoutez une photo', as: :file %>
             <%= f.button :submit, class: "btn btn-primary" %>
           <% end %>
       </div>

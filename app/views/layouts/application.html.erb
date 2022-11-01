@@ -15,22 +15,30 @@
   </head>
 
   <body>
-  <% if current_page?(root_path)%>
+  <% if current_page?(root_path) ||
+    current_page?(new_user_registration_path) ||
+    current_page?(new_user_session_path) ||
+    (params["id"] && current_page?(link_path(params["id"]))) ||
+    current_page?(new_syndic_path)
+    %>
     <div data-controller="navbar" data-action="scroll@window->navbar#fixed">
     <%= render "layouts/navbar" %>
     </div>
   <% elsif current_user && current_user.is_syndic? &&
     (current_page?(syndic_coproperties_path(current_user.syndic)) ||
+    current_page?(new_syndic_coproperty_path(current_user.syndic)) ||
     current_page?(syndic_path(current_user.syndic)))%>
     <div id="index-coproperty" data-controller="sidebar">
-    <%= render "coproperties/index_sidebar" %>
+      <%= render "coproperties/index_sidebar" %>
     </div>
   <% elsif current_user && current_user.is_syndic? %>
     <div id="show-coproperty" data-controller="sidebar">
-    <%= render "coproperties/show_sidebar", coproperty: current_user.syndic.coproperties.first %>
+      <%= render "coproperties/show_sidebar", coproperty: current_user.syndic.coproperties.first %>
     </div>
   <% elsif current_user && !current_user.is_syndic? %>
-   <%= render "owners/navbar_owner", coproperty: current_user.owner.coproperties.first %>
+    <div id="show-owner" data-controller="sidebar">
+      <%= render "owners/navbar_owner", coproperty: current_user.owner.coproperties.first %>
+    </div>
   <% end %>
 
     <%= render "shared/flashes" %>
