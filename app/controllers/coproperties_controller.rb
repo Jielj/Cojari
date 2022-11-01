@@ -10,6 +10,10 @@ class CopropertiesController < ApplicationController
   end
 
   def show
+    @budget = Budget.find(params[:id])
+    @expenses = Expense.find(@budget.id)
+    @properties = Property.find(params[:id])
+    # @requests = Request.find(@coproperty.property_ids)
   end
 
   def new
