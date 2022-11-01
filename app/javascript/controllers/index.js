@@ -31,5 +31,8 @@ application.register("hello", HelloController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import ProfilePopupController from "./profile_popup_controller"
+application.register("profile-popup", ProfilePopupController)
+
 import SidebarController from "./sidebar_controller"
 application.register("sidebar", SidebarController)
