@@ -54,6 +54,7 @@
                 <%# dropdown menu %>
                 <div class="p-absolute dots-menu blur d-none"
                       data-coproperty-card-target="dropDown"
+                      data-action="mouseout->coproperty-card#toggleMenu"
                       >
                   <% if current_user.is_syndic? %>
                     <%= link_to "Edit", edit_syndic_coproperty_path(current_user.syndic, coproperty), class: "dropdown-item dropdown-button fw-semibold" %>

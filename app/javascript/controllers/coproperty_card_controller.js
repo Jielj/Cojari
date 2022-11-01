@@ -10,12 +10,12 @@ export default class extends Controller {
   toggleMenu() {
     this.dropDownTarget.classList.toggle("d-none");
   }
-  hideMenu() {
-    this.dropDownTarget.classList.add("d-none");
-  }
-  showMenu() {
-    this.dropDownTarget.classList.remove("d-none");
-  }
+  // hideMenu() {
+  //   this.dropDownTarget.classList.add("d-none");
+  // }
+  // showMenu() {
+  //   this.dropDownTarget.classList.remove("d-none");
+  // }
   showThreeDots() {
     console.log("mouseover");
     this.dotsTarget.classList.remove("d-none");
@@ -23,5 +23,6 @@ export default class extends Controller {
   hideThreeDots() {
     console.log("mouseout");
     this.dotsTarget.classList.add("d-none");
+    // this.dropDownTarget.classList.add("d-none");
   }
 }
