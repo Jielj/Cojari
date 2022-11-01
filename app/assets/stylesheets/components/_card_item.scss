@@ -3,14 +3,71 @@
   // max-height: 8rem;
   margin-bottom: 2rem;
 }
-// .cop-img {
-//   object-fit: cover;
-//   height: 236px !important;
-//   width: 236px !important;
-// }
+.tes-img {
+  object-fit: cover;
+}
+.three-dots {
+  top: 4px;
+  right: 4px;
+  background-color: rgba(245, 245, 245, 0.753);
+  color: rgb(56, 52, 56);
+  text-shadow: whitesmoke;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  text-align: center;
+  display: block;
+  margin: 5px;
+  padding: 1px;
+  &:hover {
+    background-color: whitesmoke;
+    cursor: pointer;
+  }
+}
+.dots-menu {
+  background-color: rgba(245, 245, 245, 0.715);
+  top: 40px;
+  right: 11px;
+  border-radius: 12px 1px 12px 12px;
+  padding: 11px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+  outline: 1px solid #cbd5e1ad;
+  font-size: small;
+  color: $dark-gray;
+  // font-weight: 800;
+  text-shadow: #938787;
+}
+.dropdown-button {
+  margin: -1px;
+  padding: 5px 7px;
+  &:hover {
+    background-color: rgba(245, 245, 245, 0.89) !important;
+    cursor: pointer;
+    border-radius: 8px !important;
+  }
+}
+.dynamic-box {
+  top: 9px;
+  right: 7px;
+  width: 95px;
+  height: 123px;
+}
+
 .cop-card {
-  max-width: 100%;
+  width: 31.5%;
   margin: 0 !important;
+  outline: 1px solid #cbd5e1;
+  background-color: #fff;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  img {
+    height: 200px;
+    object-fit: cover;
+  }
 }
 
 .ratings i {

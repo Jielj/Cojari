@@ -1,17 +1,17 @@
-body {
-  font-family: 'Raleway', sans-serif;
-  // font-weight: 800;
-}
 
 .moto {
   color: $dark-purple;
+  margin-bottom: 16px;
+  line-height: 60px !important;
 }
 
 .features-h {
   color: #5511c3;
+  margin: 0 4rem;
 }
 .features-p {
   color: #21074b;
+  line-height: 32px;
 }
 .main-txt {
   color: #330d72;
