@@ -1,0 +1,17 @@
+<div class="px-5 variable d-none"
+      data-dashboard-target="request">
+  <div class="inline-container card p-4">
+    <h3>Requêtes</h3>
+    <% @requests.each do |request| %>
+      <div class="container card border-0 shadow   radius-0 m-1 p-2">
+        <div class="card-body">
+          <div class="clash-card__unit-name mb-3"><i class="fa-solid fa-user"></i>&nbsp; <%= request.property.owner.full_name %></div>
+          <h4 class="card-title mb-3"><%= request.object %></h4>
+          <p class="card-text fw-regular"><%= request.request_title %></p>
+          <h6 class="card-subtitle mb-1 text-muted mb-2"><i class="fa-regular fa-calendar-days"></i>&nbsp;  <%= request.request_date %>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-building"></i>&nbsp;n°<%= request.property.property_number %>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-file"></i>&nbsp; <%= request.request_status %></h6>
+          <%= link_to "Traiter", edit_syndic_coproperty_request_path(current_user.syndic,request.property.coproperty,request.id), class: "btn btn-outline-primary btn-sm mt-3" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

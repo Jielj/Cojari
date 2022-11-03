@@ -9,7 +9,7 @@
         <%= f.input :budget_title, :label => 'Titre', :hint => 'Donnez un titre à ce budget' %>
         <%= f.input :budget_amount, :label => 'Montant', :hint => 'Montant du budget en chiffres, dirham marocain',:placeholder => '4000'%>
         <%= f.input :budget_type, :label => 'Type', collection:['Courant','Exceptionnel'], :hint => 'Sélectionnez si le budget est de type courant ou exceptionnel' %>
-        <%# <%# <%= f.input :budget_status, collection:['Proposé','Validé','Rejeté'] , :disabled => true %  !! ici par défaut c'est déclaré - ça ne doit pas être affiché> %>
+        <%= f.input :budget_status, collection:['Proposé','Validé','Rejeté'] %>
         <%= f.input :budget_start_date, :label => 'Date de Début du Budget' %>
         <%= f.input :budget_end_date, :label => 'Date de Fin du Budget' %>
         <%= f.input :photos, :label => 'Pièces Jointes', :hint => 'Vous pouvez joindre des documents ou photos', as: :file, input_html: { multiple: true}, :required => false  %>

@@ -2,17 +2,18 @@
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
-        <h2>Formulaire proprietaire à compléter</h2>
+        <h2>Formulaire propriétaire à compléter</h2>
 
         <%= simple_form_for [@user, @owner] do |f| %>
-          <%= f.input :first_name %>
-          <%= f.input :last_name %>
-          <%= f.input :gender, collection:['homme','femme']%>²
-          <%= f.input :phone_number %>
-          <%= f.input :ownership_date %>
-          <%= f.input :birth_date %>
+          <%= f.input :first_name, :label => 'Prénom' %>
+          <%= f.input :last_name, :label => 'Nom' %>
+          <%= f.input :gender, :label => 'Genre', collection:['Homme','Femme']%>
+          <%= f.input :phone_number, :label => 'Numéro de Téléphone', :hint => 'Précisez votre numéro de téléphone incluant un identifiant pays', placeholder: '+212613010101' %>
+          <%= f.input :ownership_date, :label => 'Date achat de la propriété' %>
+          <%= f.input :birth_date, :label => 'Date de Naissance' %>
+          <%= f.input :photo, :label => 'Photo',:hint => 'Ajoutez une photo', as: :file %>
           <input type="hidden" name="owner[property_id]" value="<%= @property.id %>">
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.submit 'Créer', class: "btn btn-default btn-primary" %>
         <% end %>
       </div>
     </div>

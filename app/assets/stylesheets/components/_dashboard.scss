@@ -1,0 +1,50 @@
+.fade-font {
+  color: rgb(29, 36, 36);
+}
+
+.var-hover {
+  transition: 100ms;
+  &:hover {
+    outline: 2px solid $blue;
+  }
+}
+
+.property-title {
+  text-align: left !important;
+}
+
+.budget {
+  background-color: rgb(39, 236, 138) !important;
+}
+
+.expenses {
+  background-color: rgb(32, 101, 230);
+}
+
+.messages {
+  background-color: rgb(166, 14, 236);
+}
+
+.properties {
+  background-color: rgb(243, 144, 14);
+}
+
+.dashboard-var {
+  width: 25%;
+}
+
+.variable {
+  position: absolute !important;
+  top: 35%;
+  z-index: 999999999;
+}
+
+.wall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(26, 17, 28, 0.623);
+  z-index: 99999999;
+}

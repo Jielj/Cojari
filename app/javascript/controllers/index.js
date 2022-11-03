@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ChartsController from "./charts_controller"
+application.register("charts", ChartsController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
@@ -18,6 +21,9 @@ application.register("coproperty-info", CopropertyInfoController)
 
 import CopropertyNewController from "./coproperty_new_controller"
 application.register("coproperty-new", CopropertyNewController)
+
+import DashboardController from "./dashboard_controller"
+application.register("dashboard", DashboardController)
 
 import DropDownMenuController from "./drop_down_menu_controller"
 application.register("drop-down-menu", DropDownMenuController)

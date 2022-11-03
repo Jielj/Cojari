@@ -62,4 +62,8 @@ payment_2 = Payment.create!(payment_title: "Paiement Annuel 2023", payment_amoun
 puts 'Payments created'
 
 request_1 = Request.create!(object: "Problème Plomberie", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
+request_1 = Request.create!(object: "Problème Plomberie 2", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
+request_1 = Request.create!(object: "Problème Plomberie 3", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
+request_1 = Request.create!(object: "Problème Plomberie 4", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
+
 puts 'Request created'

@@ -8,3 +8,21 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+// coproperty creation forum http://localhost:3000/syndics/1/coproperties/new
+.cop-new {
+  margin-top: 2.5rem;
+}
+.coproperty_coproperty_name, .coproperty_bank_account {
+  flex-grow: 1;
+}
+.coproperty_number_properties, .coproperty_expense_method {
+  margin-left: 1rem;
+  width: 41%;
+}
+.coproperty_coprop_private_area, .coproperty_coprop_common_area {
+  width: 48%;
+}
+.coproperty_coprop_common_area  {
+  margin-left: 1rem;
+}

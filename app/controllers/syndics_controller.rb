@@ -3,6 +3,8 @@ class SyndicsController < ApplicationController
 
   def show
     @coproperties = Coproperty.all
+    @requests = Request.where(property_id: params[:id])
+
   end
 
   def new
