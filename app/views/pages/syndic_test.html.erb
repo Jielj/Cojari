@@ -1,24 +1,4 @@
-
-<div class="container content-view mt-5"
-      data-controller="charts-js">
-  <h1 class="fw-semibold text-left fade-font property-title">
-    <%= @coproperty.coproperty_name %>
-  </h1>
-  <h6 class="font-bolder text-muted"><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;<%= @coproperty.address %></h6>
-  <h6 class="font-bolder text-muted  mb-4"><i class="fa-solid fa-chart-area"></i>&nbsp;&nbsp;<%= @coproperty.coprop_private_area + @coproperty.coprop_private_area %>&nbsp;m²</h6>
-
-  <%# ChartJS %>
-  <div  class="d-flex justify-content-start">
-
-    <div class="card bar shadow border-0 p-3 p-relative">
-      <canvas class="chart" id="barChart"></canvas>
-    </div>
-
-    <div class="card pie shadow border-0 ms-3 p-3 p-relative">
-      <canvas class="chart" id="pieChart"></canvas>
-    </div>
-  </div>
-  <%# /ChartJS %>
+<%# /ChartJS %>
 
   <div class="d-flex "
         data-controller="dashboard">
@@ -30,7 +10,10 @@
           <div class="row">
               <div class="col">
                 <span class="h5 font-bolder text-muted text-sm d-block mb-2">Budget</span>
-                <h3 class="h3 font-bold mb-5 fade-font">$<%= @budget ? @budget.budget_amount : 0 %></h3>
+                <span class="h3 font-bold mb-5 fade-font">$<%= @budget ? @budget.budget_amount : 0 %></span>
+                <span class="h6 font-semibold text-muted text-sm d-block my-2">Statut:&nbsp;<%= @budget ? @budget.budget_status : "RAS"%></span>
+                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Type:&nbsp;<%= @budget ? @budget.budget_type : "RAS"%></span>
+
             </div>
             <div class="col-auto">
                 <div class="icon icon-shape budget text-white text-lg rounded-circle">
@@ -118,10 +101,3 @@
       </div>
     </div>
     <%# /Properties %>
-  </div>
-  <div class="blur wall d-none"
-        data-dashboard-target="blur"></div>
-  <% @requests = Request.where(property_id: params[:id]) %>
-  <%= render "requests/syndic_index" %>
-
-</div>

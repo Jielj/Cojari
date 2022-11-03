@@ -45,9 +45,9 @@
                   <h6 class="mx-1 text-success">  <%= coproperty.properties.map{ |property| property.paid }.count(true) %> / <%= coproperty.properties.count %> propriétés payées</h6>
                 <div class="d-flex justify-content-end w-100">
                   <% if current_user.is_syndic? %>
-                    <%= link_to "Accéder", syndic_dashboard_path(current_user.syndic, coproperty.id), class: "btn btn-primary fw-semibold"  %>
+                    <%= link_to "Accéder", syndic_coproperty_path(current_user.syndic, coproperty.id), class: "btn btn-primary fw-semibold"  %>
                   <% else %>
-                    <%= link_to "Accéder", owner_dashboard_path(current_user.owner, coproperty.id), class: "btn btn-outline-primary btn-sm mt-2"  %>
+                    <%= link_to "Accéder", owner_coproperty_path(current_user.owner, coproperty.id), class: "btn btn-outline-primary btn-sm mt-2"  %>
                   <% end %>
                 </div>
                 </div>
@@ -61,8 +61,8 @@
                       data-action="mouseout->coproperty-card#toggleMenu"
                       >
                   <% if current_user.is_syndic? %>
-                    <%= link_to "Edit", edit_syndic_coproperty_path(current_user.syndic, coproperty), class: "dropdown-item dropdown-button fw-semibold" %>
-                    <%= link_to "Delete", syndic_coproperty_path(current_user.syndic, coproperty), data: {turbo_method: :delete, turbo_confirm: 'êtes-vous sur de vouloir supprimer cette copropriété?'}, class: "dropdown-item dropdown-button fw-semibold" %>
+                    <%= link_to "Modifier", edit_syndic_coproperty_path(current_user.syndic, coproperty), class: "dropdown-item dropdown-button fw-semibold" %>
+                    <%= link_to "Supprimer", syndic_coproperty_path(current_user.syndic, coproperty), data: {turbo_method: :delete, turbo_confirm: 'êtes-vous sur de vouloir supprimer cette copropriété?'}, class: "dropdown-item dropdown-button fw-semibold" %>
                   <% end %>
                 </div>
                 <%# three dots %>
