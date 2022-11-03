@@ -11,7 +11,7 @@
   <div class="container map-container mx-2 my-4 d-flex justify-content-between align-items-center ">
 
 
-    <span class="fw-regular">Bonjour <%= current_user.syndic.syndic_name %> !</span>
+    <span class="fw-regular"> <h1>Bonjour, <%= current_user.syndic.syndic_name %> !</h1></span>
     <div class="profile-div ">
     <%= link_to "Ajouter une copropriété", new_syndic_coproperty_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
     <div class=" w-auto m-4 "
@@ -45,7 +45,7 @@
                   <h6 class="mx-1 text-success">  <%= coproperty.properties.map{ |property| property.paid }.count(true) %> / <%= coproperty.properties.count %> propriétés payées</h6>
                 <div class="d-flex justify-content-end w-100">
                   <% if current_user.is_syndic? %>
-                    <%= link_to "Accéder", syndic_dashboard_path(current_user.syndic, coproperty.id), class: ""  %>
+                    <%= link_to "Accéder", syndic_dashboard_path(current_user.syndic, coproperty.id), class: "btn btn-primary fw-semibold"  %>
                   <% else %>
                     <%= link_to "Accéder", owner_dashboard_path(current_user.owner, coproperty.id), class: "btn btn-outline-primary btn-sm mt-2"  %>
                   <% end %>
