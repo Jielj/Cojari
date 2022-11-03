@@ -1,10 +1,11 @@
-import { Application } from "@hotwired/stimulus"
+// import { Application } from "@hotwired/stimulus"
 
-const application = Application.start()
+// const application = Application.start()
 
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
-window.$ = window.jQuery = jQuery;
+// // Configure Stimulus development experience
+// application.debug = false
+// window.Stimulus   = application
+// window.$ = window.jQuery = jQuery;
 
-export { application }
+// export { application }
+

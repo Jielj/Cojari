@@ -308,6 +308,7 @@ DEPENDENCIES
   blazer
   bootsnap
   capybara
+  chartkick
   cloudinary
   debug
   devise
