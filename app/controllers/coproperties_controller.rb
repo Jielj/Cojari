@@ -10,10 +10,11 @@ class CopropertiesController < ApplicationController
   end
 
   def show
-    @budget = Budget.first
-    @expenses = Expense.first
-    @properties = Property.first
-    @requests = Request.first
+    @budget = Budget.find(params[:id])
+    # @expenses = Expense.find(params[:id])
+    @properties = Property.find(params[:id])
+    # @requests = Request.where(:property_id => 3)
+
     if current_user.is_syndic?
       render "pages/syndic_dashboard"
     else

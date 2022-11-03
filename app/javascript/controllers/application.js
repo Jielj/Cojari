@@ -8,3 +8,4 @@ window.Stimulus   = application
 window.$ = window.jQuery = jQuery;
 
 export { application }
+//
