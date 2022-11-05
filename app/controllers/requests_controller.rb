@@ -3,11 +3,12 @@ class RequestsController < ApplicationController
 
   def index
     if current_user.is_syndic?
-      @requests = Request.all
+      @coproperty = Coproperty.find(params[:coproperty_id])
+      @requests = Request.where(property_id: @coproperty.properties.ids)
       render 'syndic_index'
     else
       @coproperty = Coproperty.find(params[:coproperty_id])
-      @requests = Request.where(property_id: current_user.owner.properties.pluck(:id))
+      @requests = Request.where(property_id: current_user.owner.properties.ids)
       render 'owner_index'
     end
   end
