@@ -3,17 +3,17 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
 
-        <h2>Formulaire proprietaire à compléter</h2>
+        <h3>Fiche propriétaire</h3>
 
            <%= simple_form_for [@owner] do |f| %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :gender, collection:['homme','femme']%>²
-            <%= f.input :phone_number %>
-            <%= f.input :ownership_date %>
-            <%= f.input :birth_date %>
-            <%= f.input :photo, :label => 'Photo',:hint => 'Ajoutez une photo', as: :file %>
-            <%= f.button :submit, class: "btn btn-primary" %>
+            <%= f.input :first_name, :label => 'Nom' %>
+            <%= f.input :last_name, :label => 'Prénom'%>
+            <%= f.input :gender, collection:['homme','femme'], :label => 'Genre'%>
+            <%= f.input :phone_number, :label => 'Numéro de téléphone'%>
+            <%= f.input :ownership_date, :label => "Date d'achat"%>
+            <%= f.input :birth_date, :label => 'Date de naissance'%>
+            <%= f.input :photo, :label => 'Photo', :hint => 'Ajoutez une photo', as: :file %>
+            <%= f.submit 'Soumettre',class: "btn btn-primary w-100 " %>
           <% end %>
       </div>
     </div>

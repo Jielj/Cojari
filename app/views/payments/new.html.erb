@@ -1,7 +1,16 @@
-  <div class="container">
-    <h1>Ajout Nouveau Paiement</h1>
-      <div class="mt-3">
-        <%= render "create_form", payment: @payment %>
+
+<div class="container" data-controller="coproperty-new">
+    <div class="container">
+    <div class="bg-img-l" >
+      <%= image_tag "coproperty-creation.svg" %>
+    </div>
+    <div class="bg-img-r">
+      <%= image_tag "man-with-paper.svg" %>
+    </div>
+    <h2>Ajout Nouveau Paiement</h2>
+      <div class="mt-3" style="z-index: 99;">
+         <%= render "create_form", payment: @payment %>
+     <%= link_to 'Précédent', owner_coproperty_payments_path %>
       </div>
-      <%= link_to 'Précédent', owner_coproperty_payments_path %>
+
   </div>
