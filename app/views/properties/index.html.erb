@@ -1,14 +1,25 @@
 
-<div class="container map-container mx-2 my-4 d-flex justify-content-between align-items-center ">
+<div class="container mt-2">
+  <%# top bar %>
+  <div data-controller="profile-popup">
+    <%# profile container %>
+  <div class="p-absolute profile-popup d-none"
+        data-profile-popup-target="profileContainer">
+    <% @syndic = current_user.syndic %>
+    <% @coproperties = current_user.syndic.coproperties %>
+    <%= render "syndics/show" %>
+  </div>
+  <%# top container %>
+  <div class="container map-container mx-2 my-4 d-flex justify-content-between align-items-center ">
+    <div>
+      <h1 class="fw-semibold text-left fade-font property-title">
+        <%= @coproperty.coproperty_name %>
+      </h1>
+      <span class="h6 font-bolder text-muted"><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;<%= @coproperty.address %></span>
+      <span class="h6 font-bolder text-muted  mb-4">&nbsp;&nbsp;<i class="fa-solid fa-chart-area"></i>&nbsp;&nbsp;<%= @coproperty.coprop_private_area + @coproperty.coprop_private_area %>&nbsp;m²</span>
 
-    <span class="fw-regular"> <h1>Bonjour,
-    <% if current_user.is_syndic? %>
-      <%= current_user.syndic.syndic_name %>
-    <% else  %>
-      <%= current_user.owner.full_name %>
-    <% end %>
-    </h1>
-    </span>
+
+    </div>
     <div class="profile-div ">
 
      <% if current_user.is_syndic? %>
@@ -16,22 +27,61 @@
     <% end %>
     <div class=" w-auto m-4 "
           data-action="click->profile-popup#toggleProfile">
-      <%= image_tag 'syndic', class: "rounded-circle shadow-1-strong small-profile", width:"150", height:"150" %>
+      <%= image_tag 'syndic', class: "rounded-circle shadow-1-strong small-profile mt-0", width:"150", height:"150" %>
     </div>
     </div>
   </div>
+  </div>
+<div class="container map-container mx-2 my-4 d-flex justify-content-start align-items-center ">
 
 
      <% @properties.each do |p| %>
-      <div class="m-3">
-      <div class="mx-1"><i class="fa-solid fa-house"></i>&nbsp;Numéro de propriété :&nbsp;<%=p.property_number%></div>
-      <div class="mx-1 text-justify text-truncate para mb-0"><i class="fa-solid fa-location-dot"></i>&nbsp;Etage :&nbsp;<%= p.floor %></div>
-      <div class="mx-1"><i class="fa-solid fa-map"></i> &nbsp;Surface totale :&nbsp;<%=p.total_property_area%>m²</div>
-      <% if p.paid %>
-        <%= "Payé" %>
-      <% else %>
-        <%= "Non Payé" %>
-      <% end %>
-      </div>
+      <div class="cop-card p-relative shadow prop-index-card"
+            data-controller="popup-window"
+            data-popup-window-prop-value="<%= p.id %>"
+            data-action="click->popup-window#showPopup">
+            <div class="row no-gutters">
+                <div class="col-sm-5 frame">
+                  <%= image_tag "https://source.unsplash.com/random/?door", class: "product-image img" %>
+                </div>
+                <div class="info d-flex flex-row">
+                    <div class="card-body">
+                      <div class="m-3">
+                        <div class="mx-1">
+                          <i class="fa-solid fa-house"></i>&nbsp;Numéro de propriété :&nbsp;<%=p.property_number%>
+                        </div>
+                        <div class="mx-1 text-justify text-truncate para mb-0">
+                          <i class="fa-solid fa-location-dot"></i>&nbsp;Etage :&nbsp;<%= p.floor %>
+                        </div>
+                        <div class="mx-1">
+                          <i class="fa-solid fa-map"></i> &nbsp;Surface totale :&nbsp;<%=p.total_property_area%>m²
+                        </div>
+                        <% if p.paid %>
+                          <p class="text-success mx-1">
+                            <i class="fa-solid fa-receipt"></i>&nbsp;&nbsp;<%= "Payé" %>
+                          </p>
+                        <% else %>
+                          <p class="text-warning mx-1">
+                            <i class="fa-solid fa-receipt"></i>&nbsp;&nbsp;<%= "Non Payé" %>
+                          </p>
+                        <% end %>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          <div class="blur wall d-none"
+                data-popup-window-target="popup">
+
+            <% @property = p%>
+            <%= render "properties/show" %>
+
+          </div>
+        </div>
     <% end %>
+
+
+
+
+</div>
+
 </div>

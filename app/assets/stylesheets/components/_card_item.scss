@@ -107,7 +107,7 @@ h5 {
   height: 214px !important;
   max-width: 900px !important;
   .img {
-    height: 213px !important;
+    height: 212px !important;
     margin: 0 !important;
     border-radius: 6px 0 0 6px;
   }
@@ -118,6 +118,18 @@ h5 {
       padding: 0 !important;
       margin-top: 1rem !important;
     }
+  }
+}
+
+.prop-index-card {
+  margin-right: 1.5rem !important;
+  .frame {
+    width: 100% !important;
+  }
+  .img {
+    margin: 0 !important;
+    border-radius: 6px 6px 0 0;
+    width: 100% !important;
   }
 }
 
