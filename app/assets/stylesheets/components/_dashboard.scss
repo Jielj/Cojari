@@ -38,6 +38,9 @@
   top: 35%;
   z-index: 999999999;
 }
+.var-body {
+  height: 100px;
+}
 
 .wall {
   position: absolute;
@@ -53,12 +56,12 @@
   height: fit-content !important;
 }
 .bar {
-  width: 61% !important;
-  height: 400px;
+  width: 65% !important;
+  height: 482px;
 }
 .pie {
-  width: 393px !important;
-  height: 400px;
+  width: 430px !important;
+  height: 482px;
 
 }
 .grow {
