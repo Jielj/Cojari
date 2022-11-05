@@ -1,23 +1,26 @@
-<div class="container chatroom"
+<div class="container-center chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
-  <h1>#<%= @chatroom.coproperty_name %></h1>
+  <div class="container">
+  <h1></h1>
+    <h1><strong style="font-family:'Raleway', sans-serif; font-size:36px; color:#5335C0" >Chatroom <%= @chatroom.coproperty_name %></strong></h1>
+      <div class="messages" data-chatroom-subscription-target="messages">
+        <% @chatroom.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+        <% end %>
+      </div>
 
-  <div class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
+      <%= simple_form_for [@user, @chatroom, @message],
+        html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"}} do |f|
+      %>
+      <%= f.input :content,
+          label: false,
+          placeholder: "Message ##{@chatroom.coproperty_name}",
+          wrapper_html: {class: "flex-grow-1"}
+      %>
+      <%= f.submit "Envoyer",   class: "btn btn-primary mb-3", :html => {:class => 'form-inline'} %>
+      <% end %>
+
   </div>
-
-  <%= simple_form_for [@user, @chatroom, @message],
-    html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"}, class: "d-flex"} do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message ##{@chatroom.coproperty_name}",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
 </div>
