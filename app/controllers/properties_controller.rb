@@ -11,7 +11,7 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
-    @request = Request.find
+    @requests = @property.requests
   end
 
   def new

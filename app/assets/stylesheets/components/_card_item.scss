@@ -102,3 +102,34 @@ h5 {
 .para {
   font-size: 16px;
 }
+
+.property-card {
+  height: 214px !important;
+  max-width: 900px !important;
+  .img {
+    height: 213px !important;
+    margin: 0 !important;
+    border-radius: 6px 0 0 6px;
+  }
+  .info {
+    width: fit-content !important;
+    .title {
+      text-align: left !important;
+      padding: 0 !important;
+      margin-top: 1rem !important;
+    }
+  }
+}
+
+.copy-card {
+  max-width: 900px !important;
+}
+#copy-section {
+  width: 100%;
+  .clipboard-input {
+    border-radius: 6px 0 0 6px !important;
+  }
+  .clipboard-button {
+    border-radius: 0 6px 6px 0 !important;
+  }
+}
