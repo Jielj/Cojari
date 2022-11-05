@@ -1,9 +1,9 @@
 <div class="container cop-new">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white-trans-low blur p-4 b-radius shadow">
+       <div class="bg-white-trans-low blur p-4 b-radius shadow">
 
-        <h4 class="mb-4 mt-0">Créer votre Copropriété</h4>
+        <h4 class="mb-4 mt-0">Fiche Copropriété</h4>
         <%= simple_form_for [current_user.syndic, @coproperty] do |f| %>
           <div class="d-flex flex-wrap justify-content-start">
             <%= f.input :coproperty_name, :label => 'Nom', html: { class: "flex-grow" }%>
