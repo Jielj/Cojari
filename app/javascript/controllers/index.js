@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-import ChartsController from "./charts_controller"
-application.register("charts", ChartsController)
+import ChartsJsController from "./charts_js_controller"
+application.register("charts-js", ChartsJsController)
 
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)

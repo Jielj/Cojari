@@ -48,3 +48,19 @@
   background-color: rgba(26, 17, 28, 0.623);
   z-index: 99999999;
 }
+
+.chart{
+  height: fit-content !important;
+}
+.bar {
+  width: 61% !important;
+  height: 400px;
+}
+.pie {
+  width: 393px !important;
+  height: 400px;
+
+}
+.grow {
+  flex-grow: 1;
+}
