@@ -11,6 +11,9 @@
         <%= f.input :building, :label => 'Immeuble' %>
         <%= f.input :total_property_area, :label => 'Surface Totale', :hint => 'Surface Totale de la propriété (incluant parking et box titrés), en m²' %>
         <%# <%= f.input :payment_frequency , collection: ['Mensuelle','Trimestrielle', 'Annuelle'], :label => 'Fréquence de Paiement', :hint => 'Fréquence de Paiement des frais de copropriété' %>
-        <%= f.submit 'Créer', class: "btn btn-default btn-primary" %>
+        <%= f.input :photo, :label => 'Photo',:hint => 'Ajoutez une photo de la copropriété', as: :file %>
+          <div class="d-flex flex-wrap justify-content-end">
+            <%= f.submit 'Créer',class: "btn btn-primary w-100 " %>
+          </div>
         <% end %>
       </div>
