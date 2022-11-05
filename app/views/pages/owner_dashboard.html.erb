@@ -1,1 +1,150 @@
-MY OWNER DASHBOARD
+<div class="container content-view mt-3"
+      data-controller="charts-js profile-popup">
+  <%# profile container %>
+  <div class="p-absolute profile-popup d-none"
+        data-profile-popup-target="profileContainer">
+    <% @owner = current_user.owner %>
+    <% @coproperties = current_user.owner.coproperties %>
+    <%= render "owners/owner_info", owner: @owner %>
+  </div>
+  <%# top container %>
+  <div class="container map-container mx-2 my-4 d-flex justify-content-between align-items-center ">
+    <div>
+      <h1 class="fw-semibold text-left fade-font property-title txt-raleway p-0">
+        <%= @coproperty.coproperty_name %>
+      </h1>
+      <span class="h6 text-muted"><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;<%= @coproperty.address %></span>
+      <span class="h6 text-muted  mb-4">&nbsp;&nbsp;<i class="fa-solid fa-chart-area"></i>&nbsp;&nbsp;<%= @coproperty.coprop_private_area + @coproperty.coprop_private_area %>&nbsp;m²</span>
+    </div>
+    <div class="profile-div ">
+    <div class=" w-auto m-4 "
+          data-action="click->profile-popup#toggleProfile">
+        <% if !@owner.photo.key.nil? %>
+          <%= cl_image_tag owner.photo.key, class: "rounded-circle shadow-1-strong small-profile mt-0", width:"150", height:"150" %>
+        <% else %>
+          <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80", class: "rounded-circle shadow-1-strong small-profile mt-0", width:"150", height:"150" %>
+        <% end %>
+    </div>
+    </div>
+  </div>
+  <%# ChartJS %>
+  <div  class="d-flex justify-content-between">
+
+    <div class="card bar shadow border-0 p-3 p-relative">
+    <h4>Evolution du Solde de la Copropriété, kdhs</h4>
+      <canvas class="chart" id="barChart"></canvas>
+    </div>
+
+    <div class="card pie shadow border-0 ms-3 p-3 p-relative">
+    <h4>Répartition des dépenses, %</h4>
+      <canvas class="chart" id="pieChart"></canvas>
+    </div>
+  </div>
+  <%# /ChartJS %>
+
+  <div class="d-flex"
+        data-controller="dashboard">
+  <%# Budget card %>
+    <div class="card dashboard-var shadow border-0 var-hover var-body"
+          data-dashboard-variable-value="budget"
+          data-action="click->dashboard#showVar">
+      <div class="card-body">
+          <div class="row">
+              <div class="col">
+                <span class="h5 font-bolder text-muted text-sm d-block mb-2">Budgets en cours, dhs</span>
+                <div class="d-flex">
+                <h3 class="h3 font-bold mb-5 fade-font nbr"><%= @budget ? @budget.budget_amount : 0 %></h3>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="icon icon-shape budget text-white text-lg rounded-circle">
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                </div>
+            </div>
+        </div>
+        <%# <div class="mt-2 mb-0 text-sm">
+            <span class="badge badge-pill bg-soft-success text-success me-2">
+                <i class="fa-solid fa-check"></i>
+            </span>
+            <span class="text-nowrap text-xs text-muted">sur la cible</span>
+        </div> %>
+      </div>
+    </div>
+
+    <%# /Budget Card %>
+    <%# Requests Card %>
+
+    <div class="card dashboard-var shadow border-0 ms-4 var-hover var-body"
+          data-dashboard-variable-value="request"
+          data-action="click->dashboard#showVar">
+      <div class="card-body var-body">
+          <div class="row">
+              <div class="col">
+                <span class="h5 font-bolder text-muted text-sm d-block mb-2">Requêtes Traitées</span>
+                <span class="h3 font-bold mb-5 fade-font nbr">&nbsp;2/10</span>
+                <%# <span class="h6 font-semibold text-muted text-sm d-block my-2">Statut:&nbsp</span> %>
+            </div>
+            <div class="col-auto">
+                <div class="icon icon-shape expenses text-white text-lg rounded-circle">
+                    <i class="fa-sharp fa-solid fa-thumbtack"></i>
+                </div>
+            </div>
+        </div>
+        <%# <div class="d-flex mt-2 mb-0 text-sm">
+            <span class="badge badge-pill bg-soft-warning text-warning me-2">
+                <i class="fa-solid fa-check"></i>
+            </span>
+            <span class="text-nowrap text-xs text-muted">on going</span>
+        </div> %>
+      </div>
+    </div>
+    <%# /requests Card %>
+    <%# Messages %>
+    <div class="card dashboard-var shadow border-0 ms-4 var-hover var-body"
+        data-dashboard-variable-value="message"
+        data-action="click->dashboard#showVar">
+      <div class="card-body var-body">
+          <div class="row">
+              <div class="col">
+                <span class="h5 font-bolder text-muted text-sm d-block mb-2">Nouveaux Messages</span>
+                <span class="h3 font-bold mb-5 fade-font nbr">&nbsp;245</span>
+            </div>
+            <div class="col-auto">
+                <div class="icon icon-shape messages text-white text-lg rounded-circle">
+                    <i class="fa-solid fa-message"></i>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <%# /Messages %>
+    <%# Properties %>
+    <div class="card dashboard-var shadow border-0 ms-4 var-hover var-body"
+          data-dashboard-variable-value="property"
+          data-action="click->dashboard#showVar">
+      <div class="card-body var-body">
+        <div class="row">
+            <div class="col">
+              <span class="h5 font-bolder text-muted text-sm d-block mb-2">Paiments Validés, en dhs</span>
+              <span class="h3 font-bold mb-5 fade-font nbr">&nbsp;850</span>
+
+              <%# <span class="h5 font-bolder text-muted text-sm d-block mt-3 mb-2">Owners</span>
+              <span class="h3 font-bold mb-5 fade-font">&nbsp;22</span>%>
+
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape properties text-white text-lg rounded-circle">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <%# /Properties %>
+  </div>
+  <div class="blur wall d-none"
+        data-dashboard-target="blur"></div>
+  <% @requests = Request.where(property_id: params[:id]) %>
+  <%= render "requests/syndic_index" %>
+
+</div>
