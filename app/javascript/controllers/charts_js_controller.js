@@ -14,10 +14,23 @@ export default class extends Controller {
     new Chart(ctxBar, {
         type: 'bar',
         data: {
-            labels: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept'],
+            labels: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept','Oct', 'Nov', 'Dec'],
             datasets: [{
-                label: '# of Votes',
-                data: [-12, 19, 3, 5, 2, 3, -23, -10, 15],
+                data: [857, 545, 399, 380, 360, 230, 200, 142, 43, -20, -45, -66],
+                 backgroundColor: [
+            '#5AECB9',
+            '#5AECB9',
+            '#5AECB9',
+            '#5AECB9',
+            '#5AECB9',
+            '#5AECB9',
+            '#5AECB9',
+            '#5AECB9',
+            '#5AECB9',
+            '#FF1717',
+            '#FF1717',
+            '#FF1717'
+          ],
                 borderWidth: 1
             }]
         },
@@ -25,6 +38,11 @@ export default class extends Controller {
             scales: {
                 y: {
                     beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
                 }
             }
         }
@@ -34,27 +52,48 @@ export default class extends Controller {
       type: 'doughnut',
       data: {
         labels: [
-          'Red',
-          'Blue',
-          'Yellow'
+          'Nettoyage',
+          'Jardinage',
+          'Sécurité',
+          'Maintenance',
+          'Consommables',
+          'Autres'
         ],
         datasets: [{
           label: 'My First Dataset',
-          data: [300, 50, 100],
+          data: [20, 10, 30, 25, 10, 5],
           backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+            '#AFA2FF',
+            '#662E9B',
+            '#011638',
+            '#131515',
+            '#0D21A1',
+            '#EEF0F2'
           ],
           hoverOffset: 4
         }]
       },
       options: {
+          // scales: {
+          //     y: {
+          //         beginAtZero: true
+          //     }
+          // }
           scales: {
-              y: {
-                  beginAtZero: true
-              }
-          }
+   yAxes: [{
+       ticks: {
+           min: 0,
+           max: 100,
+           callback: function(value) {
+               return value + "%"
+           }
+       },
+       scaleLabel: {
+           display: true,
+           labelString: "Percentage"
+       }
+   }]
+}
       }
   });
   }
