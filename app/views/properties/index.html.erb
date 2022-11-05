@@ -1,9 +1,19 @@
 
 <div class="container map-container mx-2 my-4 d-flex justify-content-between align-items-center ">
 
-    <span class="fw-regular"> <h1>Bonjour, <%= current_user.syndic.syndic_name %> !</h1></span>
+    <span class="fw-regular"> <h1>Bonjour,
+    <% if current_user.is_syndic? %>
+      <%= current_user.syndic.syndic_name %>
+    <% else  %>
+      <%= current_user.owner.full_name %>
+    <% end %>
+    </h1>
+    </span>
     <div class="profile-div ">
-    <%= link_to "Ajouter une propriété", new_syndic_coproperty_property_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
+
+     <% if current_user.is_syndic? %>
+      <%= link_to "Ajouter une propriété" , new_syndic_coproperty_property_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
+    <% end %>
     <div class=" w-auto m-4 "
           data-action="click->profile-popup#toggleProfile">
       <%= image_tag 'syndic', class: "rounded-circle shadow-1-strong small-profile", width:"150", height:"150" %>
