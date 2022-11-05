@@ -1,11 +1,27 @@
-<%# à laisser vide %>
-<div class="px-5">
-  <% @properties.each do |p| %>
-  Numéro de propriété : <%= p.property_number %> <br>
-  Etage : <%= p.floor %> <br>
-  Surface totale : <%= p.total_property_area %>
-  <% end %>
 
-  <%= link_to "Nouveau", new_syndic_coproperty_property_path(current_user.syndic, @coproperty) if current_user.is_syndic? %>
+<div class="container map-container mx-2 my-4 d-flex justify-content-between align-items-center ">
 
+    <span class="fw-regular"> <h1>Bonjour, <%= current_user.syndic.syndic_name %> !</h1></span>
+    <div class="profile-div ">
+    <%= link_to "Ajouter une propriété", new_syndic_coproperty_property_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
+    <div class=" w-auto m-4 "
+          data-action="click->profile-popup#toggleProfile">
+      <%= image_tag 'syndic', class: "rounded-circle shadow-1-strong small-profile", width:"150", height:"150" %>
+    </div>
+    </div>
+  </div>
+
+
+     <% @properties.each do |p| %>
+      <div class="m-3">
+      <div class="mx-1"><i class="fa-solid fa-house"></i>&nbsp;Numéro de propriété :&nbsp;<%=p.property_number%></div>
+      <div class="mx-1 text-justify text-truncate para mb-0"><i class="fa-solid fa-location-dot"></i>&nbsp;Etage :&nbsp;<%= p.floor %></div>
+      <div class="mx-1"><i class="fa-solid fa-map"></i> &nbsp;Surface totale :&nbsp;<%=p.total_property_area%>m²</div>
+      <% if p.paid %>
+        <%= "Payé" %>
+      <% else %>
+        <%= "Non Payé" %>
+      <% end %>
+      </div>
+    <% end %>
 </div>

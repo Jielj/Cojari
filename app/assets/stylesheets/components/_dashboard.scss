@@ -38,6 +38,9 @@
   top: 35%;
   z-index: 999999999;
 }
+.var-body {
+  height: 100px;
+}
 
 .wall {
   position: absolute;
@@ -60,7 +63,6 @@
 .pie {
   width: 400px !important;
   height: 450px;
-
 
 }
 .grow {

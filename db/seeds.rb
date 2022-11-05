@@ -3,6 +3,12 @@ Request.destroy_all
 Payment.destroy_all
 Expense.destroy_all
 Budget.destroy_all
+Property.destroy_all
+Owner.destroy_all
+Syndic.destroy_all
+User.destroy_all
+Coproperty.destroy_all
+
 
 user_syndic1 = User.create!(email: "test1@gmail.com", password: "1234556681", role: "Syndic", admin: false)
 puts 'User syndic 1 created'
@@ -61,9 +67,11 @@ payment_1 = Payment.create!(payment_title: "Paiement Annuel 2023", payment_amoun
 payment_2 = Payment.create!(payment_title: "Paiement Annuel 2023", payment_amount: "1000", payment_date: "01-01-2023", payment_status: "Déclaré", property: property_4, budget: budget_1)
 puts 'Payments created'
 
-request_1 = Request.create!(object: "Problème Plomberie", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
-request_1 = Request.create!(object: "Problème Plomberie 2", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
-request_1 = Request.create!(object: "Problème Plomberie 3", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
-request_1 = Request.create!(object: "Problème Plomberie 4", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
+request_1 = Request.create!(object: "Problème Plomberie", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_1)
+request_2 = Request.create!(object: "Problème Plomberie 2", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_2)
+request_3 = Request.create!(object: "Problème Plomberie 3", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_3)
+request_4 = Request.create!(object: "Problème Plomberie 4", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_4)
+request_5 = Request.create!(object: "Problème Plomberie 4", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_2)
+
 
 puts 'Request created'

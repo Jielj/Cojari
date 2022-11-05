@@ -10,6 +10,9 @@ application.register("charts-js", ChartsJsController)
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
+import ClipboardController from "./clipboard_controller"
+application.register("clipboard", ClipboardController)
+
 import ConditionalInputController from "./conditional_input_controller"
 application.register("conditional-input", ConditionalInputController)
 
