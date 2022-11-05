@@ -47,7 +47,7 @@ coproperty_3 = Coproperty.create!(coproperty_name: "Résidence Salma", number_pr
 coproperty_4 = Coproperty.create!(coproperty_name: "Les Joyaux d'Anfa", number_properties: 30, address: "14, boulevard d'Anfa, Casablanca", expense_method: "Variable au Tantième", coprop_private_area: 6000, coprop_common_area: 1500, bank_account: "123456791", building_type: "Bâtiment Unique", syndic: syndic_1)
 puts 'Coproperties created'
 
-property_1 = Property.create!(property_number: 2, floor: "RDC", total_property_area: 150, payment_frequency: "Mensuelle", coproperty: coproperty_1, owner: owner_1)
+property_1 = Property.create!(property_number: 2, floor: "RDC", total_property_area: 150, payment_frequency: "Mensuelle", coproperty: coproperty_1)
 property_2 = Property.create!(property_number: 3, floor: "1", total_property_area: 110, payment_frequency: "Trimestrielle", coproperty: coproperty_1, owner: owner_2)
 property_3 = Property.create!(property_number: 12, floor: "2", total_property_area: 80, payment_frequency: "Annuelle", building: "A", coproperty: coproperty_2, owner: owner_1)
 property_4 = Property.create!(property_number: 24, floor: "6", total_property_area: 230, payment_frequency: "Annuelle", building: "C", coproperty: coproperty_2, owner: owner_4)

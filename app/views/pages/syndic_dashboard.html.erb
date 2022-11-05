@@ -48,7 +48,7 @@
           data-action="click->dashboard#showVar">
         <div class="card-body var-body">
             <div class="row">
-              
+
                 <span class="h5 font-bolder text-muted text-sm d-block mb-3">Budget</span>
                 <h2 class="font-bold mb-5 fade-font">$<%= @budget ? @budget.budget_amount : 200000 %></h2>
 
@@ -129,9 +129,7 @@
     </div>
     <%# /Properties %>
   </div>
-  <div class="blur wall d-none"
-        data-dashboard-target="blur"></div>
-  <% @requests = Request.where(property_id: params[:id]) %>
-  <%= render "requests/syndic_index" %>
+  
+
 
 </div>

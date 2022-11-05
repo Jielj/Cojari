@@ -40,6 +40,9 @@ application.register("hello", HelloController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import PopupWindowController from "./popup_window_controller"
+application.register("popup-window", PopupWindowController)
+
 import ProfilePopupController from "./profile_popup_controller"
 application.register("profile-popup", ProfilePopupController)
 
