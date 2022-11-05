@@ -54,13 +54,28 @@
 }
 .bar {
   width: 61% !important;
-  height: 400px;
+  height: 450px;
+  // flex-grow: 1;
 }
 .pie {
-  width: 393px !important;
-  height: 400px;
+  width: 400px !important;
+  height: 450px;
+
 
 }
 .grow {
   flex-grow: 1;
+}
+.nbr {
+  font-family: Helvetica, sans-serif;
+}
+.txt-raleway{
+  font-family: 'Raleway', sans-serif !important;
+  letter-spacing: 0 !important;
+  font-size: 36px !important;
+
+}
+
+.var-body {
+  height: 100px;
 }

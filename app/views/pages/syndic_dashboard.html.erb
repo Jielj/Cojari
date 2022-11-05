@@ -1,20 +1,22 @@
 
-<div class="container content-view mt-5"
+<div class="container content-view mt-3"
       data-controller="charts-js">
-  <h1 class="fw-semibold text-left fade-font property-title">
+  <h1 class="fw-semibold text-left fade-font property-title txt-raleway p-0">
     <%= @coproperty.coproperty_name %>
   </h1>
-  <h6 class="font-bolder text-muted"><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;<%= @coproperty.address %></h6>
-  <h6 class="font-bolder text-muted  mb-4"><i class="fa-solid fa-chart-area"></i>&nbsp;&nbsp;<%= @coproperty.coprop_private_area + @coproperty.coprop_private_area %>&nbsp;m²</h6>
+  <h6 class="text-muted"><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;<%= @coproperty.address %></h6>
+  <h6 class="text-muted  mb-4"><i class="fa-solid fa-chart-area"></i>&nbsp;&nbsp;<%= @coproperty.coprop_private_area + @coproperty.coprop_private_area %>&nbsp;m²</h6>
 
   <%# ChartJS %>
-  <div  class="d-flex justify-content-start">
+  <div  class="d-flex justify-content-between">
 
     <div class="card bar shadow border-0 p-3 p-relative">
+    <h4>Evolution du Solde de la Copropriété, kdhs</h4>
       <canvas class="chart" id="barChart"></canvas>
     </div>
 
     <div class="card pie shadow border-0 ms-3 p-3 p-relative">
+    <h4>Répartition des dépenses, %</h4>
       <canvas class="chart" id="pieChart"></canvas>
     </div>
   </div>
@@ -23,14 +25,16 @@
   <div class="d-flex "
         data-controller="dashboard">
   <%# Budget card %>
-    <div class="card dashboard-var shadow border-0 var-hover"
+    <div class="card dashboard-var shadow border-0 var-hover var-body"
           data-dashboard-variable-value="budget"
           data-action="click->dashboard#showVar">
       <div class="card-body">
           <div class="row">
               <div class="col">
-                <span class="h5 font-bolder text-muted text-sm d-block mb-2">Budget</span>
-                <h3 class="h3 font-bold mb-5 fade-font">$<%= @budget ? @budget.budget_amount : 0 %></h3>
+                <span class="h5 font-bolder text-muted text-sm d-block mb-2">Budgets en cours, dhs</span>
+                <div class="d-flex">
+                <h3 class="h3 font-bold mb-5 fade-font nbr"><%= @budget ? @budget.budget_amount : 0 %></h3>
+                </div>
             </div>
             <div class="col-auto">
                 <div class="icon icon-shape budget text-white text-lg rounded-circle">
@@ -38,27 +42,27 @@
                 </div>
             </div>
         </div>
-        <div class="mt-2 mb-0 text-sm">
+        <%# <div class="mt-2 mb-0 text-sm">
             <span class="badge badge-pill bg-soft-success text-success me-2">
                 <i class="fa-solid fa-check"></i>
             </span>
             <span class="text-nowrap text-xs text-muted">sur la cible</span>
-        </div>
+        </div> %>
       </div>
     </div>
 
     <%# /Budget Card %>
     <%# Requests Card %>
 
-    <div class="card dashboard-var shadow border-0 ms-4 var-hover"
+    <div class="card dashboard-var shadow border-0 ms-4 var-hover var-body"
           data-dashboard-variable-value="request"
           data-action="click->dashboard#showVar">
       <div class="card-body">
           <div class="row">
               <div class="col">
-                <span class="h5 font-bolder text-muted text-sm d-block mb-2">Requests</span>
-                <span class="h3 font-bold mb-5 fade-font">&nbsp;12</span>
-                <span class="h6 font-semibold text-muted text-sm d-block my-2">Statut:&nbsp;<%= %></span>
+                <span class="h5 font-bolder text-muted text-sm d-block mb-2">Nouvelles Requêtes</span>
+                <span class="h3 font-bold mb-5 fade-font nbr">&nbsp;12</span>
+                <%# <span class="h6 font-semibold text-muted text-sm d-block my-2">Statut:&nbsp</span> %>
 
             </div>
             <div class="col-auto">
@@ -67,24 +71,24 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex mt-2 mb-0 text-sm">
+        <%# <div class="d-flex mt-2 mb-0 text-sm">
             <span class="badge badge-pill bg-soft-warning text-warning me-2">
                 <i class="fa-solid fa-check"></i>
             </span>
             <span class="text-nowrap text-xs text-muted">on going</span>
-        </div>
+        </div> %>
       </div>
     </div>
     <%# /requests Card %>
     <%# Messages %>
-    <div class="card dashboard-var shadow border-0 ms-4 var-hover"
+    <div class="card dashboard-var shadow border-0 ms-4 var-hover var-body"
         data-dashboard-variable-value="message"
         data-action="click->dashboard#showVar">
       <div class="card-body">
           <div class="row">
               <div class="col">
-                <span class="h5 font-bolder text-muted text-sm d-block mb-2">Messages</span>
-                <span class="h3 font-bold mb-5 fade-font">&nbsp;245</span>
+                <span class="h5 font-bolder text-muted text-sm d-block mb-2">Nouveaux Messages</span>
+                <span class="h3 font-bold mb-5 fade-font nbr">&nbsp;245</span>
 
             </div>
             <div class="col-auto">
@@ -97,17 +101,17 @@
     </div>
     <%# /Messages %>
     <%# Properties %>
-    <div class="card dashboard-var shadow border-0 ms-4 var-hover"
+    <div class="card dashboard-var shadow border-0 ms-4 var-hover var-body"
           data-dashboard-variable-value="property"
           data-action="click->dashboard#showVar">
       <div class="card-body">
         <div class="row">
             <div class="col">
-              <span class="h5 font-bolder text-muted text-sm d-block mb-2">Properties</span>
-              <span class="h3 font-bold mb-5 fade-font">&nbsp;24</span>
+              <span class="h5 font-bolder text-muted text-sm d-block mb-2">Propriétés</span>
+              <span class="h3 font-bold mb-5 fade-font nbr">&nbsp;24</span>
 
-              <span class="h5 font-bolder text-muted text-sm d-block mt-3 mb-2">Owners</span>
-              <span class="h3 font-bold mb-5 fade-font">&nbsp;22</span>
+              <%# <span class="h5 font-bolder text-muted text-sm d-block mt-3 mb-2">Owners</span>
+              <span class="h3 font-bold mb-5 fade-font">&nbsp;22</span>%>
             </div>
             <div class="col-auto">
               <div class="icon icon-shape properties text-white text-lg rounded-circle">
