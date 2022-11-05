@@ -3,7 +3,8 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
   <div class="container">
-    <h1><strong><%= @chatroom.coproperty_name %></strong></h1>
+  <h1></h1>
+    <h1><strong style="font-family:'Raleway', sans-serif; font-size:36px; color:#5335C0" >Chatroom <%= @chatroom.coproperty_name %></strong></h1>
       <div class="messages" data-chatroom-subscription-target="messages">
         <% @chatroom.messages.each do |message| %>
             <%= render "messages/message", message: message %>
@@ -18,7 +19,7 @@
           placeholder: "Message ##{@chatroom.coproperty_name}",
           wrapper_html: {class: "flex-grow-1"}
       %>
-      <%= f.submit "Send",   class: "btn btn-primary mb-3", :html => {:class => 'form-inline'} %>
+      <%= f.submit "Envoyer",   class: "btn btn-primary mb-3", :html => {:class => 'form-inline'} %>
       <% end %>
 
   </div>
