@@ -1,6 +1,13 @@
-  <div class="container">
-    <h1>Modifier votre syndic</h1>
-      <div class="mt-3">
+  <div class="container" data-controller="coproperty-new">
+    <div class="container">
+    <h2>Modifiez votre syndic</h2>
+      <div class="mt-3" style="z-index: 99;">
         <%= render "form", syndic: @syndic %>
       </div>
+    <div class="bg-img-l" >
+      <%= image_tag "coproperty-creation.svg" %>
+    </div>
+    <div class="bg-img-r">
+      <%= image_tag "man-with-paper.svg" %>
+    </div>
   </div>

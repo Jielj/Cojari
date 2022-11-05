@@ -1,0 +1,259 @@
+.chatroom{
+	overflow: hidden;
+	background: #419fd9;
+	background-image: url(https://s-media-cache-ak0.pinimg.com/originals/51/ed/c0/51edc046eb80046ee4755ee71d0f19ca.jpg);
+	font-family: 'Open Sans', 'Roboto', 'Ubuntu', sans-serif;
+	font-size: 16px;
+
+  .msg {
+    position: relative;
+    width: auto;
+    min-width: 100px;
+    height: auto;
+    padding: 8px;
+    padding-bottom: 8px;
+    margin: 20px 15px;
+    margin-bottom: 0px;
+    background: #FFF;
+    border-radius: 7px;
+    clear: both;
+  }
+
+  .msg:nth-last-child(1) {
+    margin-bottom: 20px;
+  }
+
+  .msg .timestamp {
+    display: block;
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+    color: #AAA;
+    user-select: none;
+  }
+
+  .messageReceived {
+    float: left;
+    background: #FFF;
+  }
+
+  .messageSent {
+    float: right;
+    background: #e1fdde;
+  }
+
+
+//   /* THE REPLY BAR CSS */
+
+// .replyBar {
+// 	width: 100%;
+// 	height: 70px;
+// 	float: left;
+// 	background: #fff;
+// }
+
+// .replyBar .attach {
+// 	width: 70px;
+// 	height: 70px;
+//   color: #777;
+// 	background: #FFF;
+// 	float: left;
+// }
+
+// .replyBar .attach:hover {
+//   color: #555;
+// 	background: #DDD;
+// }
+
+// .replyBar .d45 {
+// 	transform: rotate(45deg);
+// 	font-size: 32px;
+// }
+
+// .replyBar .replyMessage {
+// 	width: calc(100% - 220px);
+// 	float: left;
+// 	height: 70px;
+// 	padding: 0px 8px;
+// 	font-size: 16px;
+// }
+
+// .replyBar .otherTools {
+// 	float: right;
+// 	width: 120px;
+// 	height: 70px;
+// }
+
+// .emojiBar {
+// 	display: none;
+// 	position: absolute;
+// 	width: 325px;
+// 	height: 200px;
+// 	padding: 10px;
+// 	right: 30px;
+// 	bottom: 80px;
+// 	border: 2px solid #DDD;
+// 	border-radius: 3px;
+// 	background: #FFF;
+// }
+
+// .emoticonType {
+// 	width: 100%;
+// 	height: 50px;
+// }
+
+// .emoticonType button {
+// 	width: 105px;
+// 	height: 36px;
+// 	font-weight: 600;
+// 	color: #555;
+// 	background: none;
+// }
+
+// .emoticonType button:hover {
+// 	color: #FFF;
+// 	background: #419fd9;
+// }
+
+// .emojiList, .stickerList {
+// 	width: 100%;
+// 	height: 150px;
+// 	overflow-x: hidden;
+// 	overflow-y: auto;
+// }
+
+// .emojiList .pick {
+// 	width: 50px;
+// 	height: 50px;
+// 	background: transparent;
+// 	background-repeat: no-repeat;
+// 	background-position: center;
+// 	background-size: 70%;
+// 	transition: all 0.15s ease-in-out;
+// }
+
+// .emojiList .pick:hover {
+// 	background: #DDD;
+// 	background-repeat: no-repeat;
+// 	background-position: center;
+// 	background-size: 70%;
+// }
+
+// .stickerList .pick {
+// 	width: 80px;
+// 	height: 80px;
+// 	background: transparent;
+// 	background-repeat: no-repeat;
+// 	background-position: center;
+// 	background-size: 65%;
+// 	transition: all 0.15s ease-in-out;
+// }
+
+// .stickerList .pick:hover {
+// 	background: #DDD;
+// 	background-repeat: no-repeat;
+// 	background-position: center;
+// 	background-size: 65%;
+// }
+
+
+// /* hidden, while not complete */
+// .stickerList {
+// 	display: none;
+// }
+
+// /* CSS FOR THE EMOJI IMAGES, JUST SOME */
+
+// #smileface {
+// 	background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/grinning-face_1f600.png);
+// }
+
+// #grinningface {
+// 	background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/grinning-face-with-smiling-eyes_1f601.png);
+// }
+
+// #tearjoyface {
+// 	background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/face-with-tears-of-joy_1f602.png);
+// }
+
+// #rofl {
+// 	background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/rolling-on-the-floor-laughing_1f923.png);
+// }
+
+// #somface {
+// 	background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/smiling-face-with-open-mouth_1f603.png);
+// }
+
+// #swfface {
+// 	background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/smiling-face-with-open-mouth-and-smiling-eyes_1f604.png);
+// }
+
+// /* NIGHT MODE THEMING */
+// .DarkTheme,
+// .DarkTheme .mainApp {
+// 	background: #222;
+// }
+
+// .form-inline div {
+//   display: inline-block;
+//    }
+  /*
+.messageSent > .timestamp, .messageSent > .readStatus {
+	bottom: 10px;
+	right: 40px;
+	color: darkgreen;
+	user-select: none;
+}
+
+.messageSent > .readStatus {
+	position: absolute;
+	bottom: 10px;
+	right: 12px;
+}
+.profile .image {
+	width: 140px;
+	height: 140px;
+	background: #FFF url(https://thispersondoesnotexist.com/image) no-repeat center;
+	background-size: cover;
+	border-radius: 100%;
+	float: left;
+	margin-right: 30px;
+}
+
+.check {
+	position: relative;
+	float: left;
+	display: block;
+	width: 38px;
+	height: 14px;
+	background: #BBB;
+	cursor: pointer;
+	border-radius: 15px;
+	transition: all 0.2s ease-in-out;
+}
+
+.check > .tracer {
+	width: 16px;
+	height: 16px;
+	background: #FFF;
+	border: 2px solid #BBB;
+	border-radius: 100%;
+	float: left;
+	margin-top: -3px;
+	transition: all 0.2s ease-in-out;
+}
+
+#checkNight, #deskNotif, #showSName, #showPreview, #playSounds {
+	display: none;
+}
+
+.toggleTracer:checked ~ .check {
+	background: #419fd9;
+}
+
+.toggleTracer:checked ~ .check > .tracer {
+	border-color: #419fd9;
+	margin-left: 18px;
+}
+ */
+}

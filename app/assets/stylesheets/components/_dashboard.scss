@@ -21,12 +21,12 @@
   background-color: rgb(32, 101, 230);
 }
 
-.messages {
-  background-color: rgb(166, 14, 236);
-}
+// .messages {
+//   background-color: rgb(166, 14, 236);
+// }
 
 .properties {
-  background-color: rgb(243, 144, 14);
+  background-color: #0D21A1;
 }
 
 .dashboard-var {
@@ -56,14 +56,28 @@
   height: fit-content !important;
 }
 .bar {
-  width: 65% !important;
-  height: 482px;
+  width: 61% !important;
+  height: 450px;
+  // flex-grow: 1;
 }
 .pie {
-  width: 430px !important;
-  height: 482px;
+  width: 400px !important;
+  height: 450px;
 
 }
 .grow {
   flex-grow: 1;
+}
+.nbr {
+  font-family: Helvetica, sans-serif;
+}
+.txt-raleway{
+  font-family: 'Raleway', sans-serif !important;
+  letter-spacing: 0 !important;
+  font-size: 36px !important;
+
+}
+
+.var-body {
+  height: 100px;
 }

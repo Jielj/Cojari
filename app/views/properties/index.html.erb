@@ -18,9 +18,13 @@
       <span class="h6 font-bolder text-muted"><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;<%= @coproperty.address %></span>
       <span class="h6 font-bolder text-muted  mb-4">&nbsp;&nbsp;<i class="fa-solid fa-chart-area"></i>&nbsp;&nbsp;<%= @coproperty.coprop_private_area + @coproperty.coprop_private_area %>&nbsp;m²</span>
 
+
     </div>
     <div class="profile-div ">
-    <%= link_to "Ajouter une propriété", new_syndic_coproperty_property_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
+
+     <% if current_user.is_syndic? %>
+      <%= link_to "Ajouter une propriété" , new_syndic_coproperty_property_path(current_user.syndic), class: "btn btn-primary fw-semibold" %>
+    <% end %>
     <div class=" w-auto m-4 "
           data-action="click->profile-popup#toggleProfile">
       <%= image_tag 'syndic', class: "rounded-circle shadow-1-strong small-profile mt-0", width:"150", height:"150" %>
