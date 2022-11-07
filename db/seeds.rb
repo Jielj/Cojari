@@ -9,7 +9,6 @@ Syndic.destroy_all
 User.destroy_all
 Coproperty.destroy_all
 
-
 user_syndic1 = User.create!(email: "test1@gmail.com", password: "1234556681", role: "Syndic", admin: false)
 puts 'User syndic 1 created'
 

@@ -10,10 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/owner_card";
+
 
 @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
-
-
-body {
-  background-color: $primary-bg;
-}
