@@ -73,5 +73,11 @@ request_3 = Request.create!(object: "Problème Plomberie 3", request_title: "Bon
 request_4 = Request.create!(object: "Problème Plomberie 4", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_4)
 request_5 = Request.create!(object: "Problème Plomberie 4", request_title: "Bonjour, j'ai une mauvaise Odeur au niveau de la plomberie, l'odeur remonte des canalisations, veuillez appeler un plombier pour vérifier l'état des canalisations. Merci", request_date: "2022-05-23", request_status: "Soumise", property: property_2)
 
-
 puts 'Request created'
+
+Link.create!(property: property_1)
+Link.create!(property: property_2)
+Link.create!(property: property_3)
+Link.create!(property: property_4)
+
+p "Links created"

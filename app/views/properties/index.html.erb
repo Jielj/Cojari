@@ -36,10 +36,11 @@
 
 
      <% @properties.each do |p| %>
-      <div class="cop-card p-relative shadow prop-index-card"
+      <div class="cop-card shadow prop-index-card"
             data-controller="popup-window"
             data-popup-window-prop-value="<%= p.id %>"
             data-action="click->popup-window#showPopup">
+
             <div class="row no-gutters">
                 <div class="col-sm-5 frame">
                   <%= image_tag "https://source.unsplash.com/random/?door", class: "product-image img" %>
@@ -70,10 +71,10 @@
                 </div>
             </div>
           <div class="blur wall d-none"
-                data-popup-window-target="popup">
+                  data-popup-window-target="popup">
 
-            <% @property = p%>
-            <%= render "properties/show" %>
+              <% @property = p%>
+              <%= render "properties/show" %>
 
           </div>
         </div>

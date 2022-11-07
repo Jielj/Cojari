@@ -3,7 +3,7 @@
     <h6 class="mb-3"> lien à envoyer au proprietaire</h6>
 
     <div id="copy-section" class="input-group" data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
-      <input class="form-control clipboard-input" data-clipboard-target="input" type="text" value="<%=  link_path(@property.links.where(id: @property.id)) %>" readonly>
+      <input class="form-control clipboard-input" data-clipboard-target="input" type="text" value="<%=  link_path(Link.last) %>" readonly>
       <div class="input-group-append">
         <button class="btn btn-primary clipboard-button" data-action="click->clipboard#copy">Copy to Clipboard</button>
       </div>
