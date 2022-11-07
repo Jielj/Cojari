@@ -1,0 +1,63 @@
+
+<h1>Mes Propriétaires</h1>
+
+    <% @owners.each do |owner| %>
+      <div class="m-4 card-border">
+  <div class="container info-card card-dem">
+    <div class="row">
+      <%# <img src= <%=  "#{@syndic.photo}" %>
+      <span class="info-top col">
+        <li>Sexe: <%= owner.gender %></li>
+        <li>Prénom: <%= owner.first_name %></li>
+        <li>Nom de famille: <%= owner.last_name %></li>
+        <li>Age: <%= owner.birth_date %></li>
+        <li>CIN: <%= owner.card_number %></li>
+        <li>GSM: <%= owner.phone_number %></li>
+        <li>Propriétaire depuis: <%= owner.ownership_date %></li>
+        <% if !owner.photo.key.nil? %>
+          <%= cl_image_tag owner.photo.key, class: "img-fluid img-responsive rounded product-image" %>
+        <% else %>
+          <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80", class: "img-fluid img-responsive rounded product-image" %>
+        <% end %>
+        <div class="info-bottom col-8 search-btns">
+        </div>
+      </span>
+    </div>
+    <%# <%= link_to "Update", edit_owner_path(owner.id), class: ""  if current_user.is_syndic? %>
+
+  </div>
+    </div>
+
+    <% end %>
+
+<%# <%= button_to "Create new owner", new_owner_path, method: :get %>
+
+<div class="notification">
+  <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+  <div class="notification-content">
+    <p><strong>14th January</strong></p>
+    <ul>
+      <li>Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ul>
+  </div>
+
+  <div class="notification-actions">
+    <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+    <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+  </div>
+</div>
+
+<div class="notification">
+  <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+  <div class="notification-content">
+    <p><small>9th January</small></p>
+    <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
+  </div>
+
+  <div class="notification-actions">
+    <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+    <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+  </div>
+</div>

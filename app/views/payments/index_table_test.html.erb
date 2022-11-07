@@ -1,0 +1,36 @@
+<div class="px-5 card pt-3">
+<div class="inline-container p-3">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" style="color:white;">lll</th>
+        <th scope="col" style="color:white;">First</th>
+        <th scope="col" style="color:white;">Last</th>
+        <th scope="col" style="color:white;">Handle</th>
+        <th scope="col" style="color:white;">liens</th>
+        <th scope="col" style="color:white;">liens</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @payments.each do |payment| %>
+      <tr>
+        <th scope="row">1</th>
+        <td><%= payment.property.property_number %>, par <%= payment.property.owner.full_name %></td>
+        <td><%= payment.payment_status %></td>
+        <td> <%= payment.payment_title %></td>
+        <td> <%= payment.payment_amount.to_i %></td>
+        <td> <%= payment.payment_date %></td>
+        <td>
+          <% if current_user.is_syndic? %>
+            <%= link_to "Détails", syndic_coproperty_payment_path(current_user.syndic, payment.budget.coproperty,payment.id), class: "bttn btn-main" %>
+          <% else %>
+            <%= link_to "Détails", owner_coproperty_payment_path(current_user.owner, payment.budget.coproperty,payment.id), class: "bttn btn-main" %>
+        <% end %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+     <%= link_to "Nouveau", new_owner_coproperty_payment_path(current_user.owner, current_user.owner.coproperties.first), class: "bttn btn-main" if !current_user.is_syndic? %>
+  </div>
+</div>

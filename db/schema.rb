@@ -170,7 +170,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_185326) do
     t.string "first_name"
     t.string "last_name"
     t.string "gender"
-    t.integer "card_number"
+    t.string "card_number"
     t.string "phone_number"
     t.date "ownership_date"
     t.date "birth_date"
