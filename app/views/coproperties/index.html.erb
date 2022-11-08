@@ -24,7 +24,7 @@
   <div class="container m-2 rounded red-border">
     <div class="flex-tabs gap-4 cop-card-section">
         <% @coproperties.each do |coproperty| %>
-              <div class="cop-card p-relative"
+              <div class="cop-card relative"
                     data-controller="coproperty-card"
                     data-coproperty-info-cop-id-value="<%= coproperty.id %>"
                     data-action="mouseover->coproperty-card#showThreeDots mouseout->coproperty-card#hideThreeDots">
