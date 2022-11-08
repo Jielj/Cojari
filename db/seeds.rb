@@ -66,18 +66,43 @@ owner_9 = Owner.create!(first_name: "Mohammed", last_name: "Machkour", gender: "
 owner_10 = Owner.create!(first_name: "Lina", last_name: "Moussalim", gender: "Femme", card_number: "CE785543", phone_number: "+212678995451", ownership_date: "2021-11-15", birth_date: "1969-03-11", user: user_owner10)
 
 # Coproperties - Prosyndic
-file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+puts 'Creating coproperties'
+file_1 = URI.open("https://images.unsplash.com/photo-1597047084897-51e81819a499?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80")
 coproperty_1 = Coproperty.new(coproperty_name: "Résidence Le Rossignol", number_properties: 10, address: "11, boulevard Roudani, Casablanca", expense_method: "Fixe par Habitant", coprop_private_area: 1018, coprop_common_area: 500, bank_account: "123456", building_type: "Bâtiment Unique",syndic: syndic_1)
-coproperty_1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+coproperty_1.photo.attach(io: file_1, filename: "rossignol.jpg", content_type: "image/jpg")
 coproperty_1.save
-coproperty_2 = Coproperty.create!(coproperty_name: "City Tower", number_properties: 1500, address: "50, rue Les Cercles, Boulevard le Grand, Casablanca", expense_method: "Variable au Tantième", coprop_private_area: 250000, coprop_common_area: 800000, bank_account: "872556", building_type: "Multi-bâtiments", syndic: syndic_1)
-coproperty_3 = Coproperty.create!(coproperty_name: "Résidence Salma", number_properties: 100, address: "44, Mohammed Mahfoud, Marrakech", expense_method: "Fixe par Habitant", coprop_private_area: 20000, coprop_common_area: 6000, bank_account: "982156", building_type: "Multi-bâtiments", syndic: syndic_1)
-coproperty_4 = Coproperty.create!(coproperty_name: "Les Joyaux d'Anfa", number_properties: 30, address: "14, boulevard d'Anfa, Casablanca", expense_method: "Variable au Tantième", coprop_private_area: 1220, coprop_common_area: 820, bank_account: "665556", building_type: "Bâtiment Unique", syndic: syndic_1)
-coproperty_5 = Coproperty.create!(coproperty_name: "Résidence La Paix", number_properties: 80, address: "67, boulevard de la Résistance, Casablanca", expense_method: "Fixe par Habitant", coprop_private_area: 4300, coprop_common_area: 1120, bank_account: "886556", building_type: "Bâtiment Unique", syndic: syndic_1)
-coproperty_6 = Coproperty.create!(coproperty_name: "Casa Park", number_properties: 140, address: "98, boulevard la Corniche , Casablanca", expense_method: "Fixe par Habitant", coprop_private_area: 6590, coprop_common_area: 2300, bank_account: "213356", building_type: "Bâtiment Unique", syndic: syndic_1)
-coproperty_7 = Coproperty.create!(coproperty_name: "Résidence les Iris", number_properties: 900, address: "21, boulevard Mohammed Ayoubi, Bouskoura", expense_method: "Variable au Tantième", coprop_private_area: 185000, coprop_common_area: 53000, bank_account: "098767", building_type: "Multi-bâtiments", syndic: syndic_1)
-coproperty_8 = Coproperty.create!(coproperty_name: "Green View", number_properties: 1200, address: "146, rue Adrien Legrand, Bouskoura", expense_method: "Variable au Tantième", coprop_private_area: 200000, coprop_common_area: 60000, bank_account: "932256", building_type: "Multi-bâtiments", syndic: syndic_1)
-coproperty_9 = Coproperty.create!(coproperty_name: "Sun House", number_properties: 670, address: "11, rue la marche verte, Dar Bouazza", expense_method: "Variable au Tantième", coprop_private_area: 78000, coprop_common_area: 20000, bank_account: "112256", building_type: "Multi-bâtiments", syndic: syndic_1)
+file_2 = URI.open("https://images.trvl-media.com/lodging/16000000/15680000/15672600/15672584/eda8431f.jpg?impolicy=resizecrop&rw=670&ra=fit")
+coproperty_2 = Coproperty.new(coproperty_name: "City Tower", number_properties: 1500, address: "50, rue Les Cercles, Boulevard le Grand, Casablanca", expense_method: "Variable au Tantième", coprop_private_area: 250000, coprop_common_area: 800000, bank_account: "872556", building_type: "Multi-bâtiments", syndic: syndic_1)
+coproperty_2.photo.attach(io: file_2, filename: "tower.jpg", content_type: "image/jpg")
+coproperty_2.save
+file_3 = URI.open ("https://www.maisons-maroc.com/img/1032/1032-00267G_25715212.jpg")
+coproperty_3 = Coproperty.new(coproperty_name: "Résidence Salma", number_properties: 100, address: "44, Mohammed Mahfoud, Marrakech", expense_method: "Fixe par Habitant", coprop_private_area: 20000, coprop_common_area: 6000, bank_account: "982156", building_type: "Multi-bâtiments", syndic: syndic_1)
+coproperty_3.photo.attach(io: file_3, filename: "salma.jpg", content_type: "image/jpg")
+coproperty_3.save
+file_4 = URI.open ("https://bonne-affaire.ma/images/com_adsmanager/contents/projet-residence-arwa-immo-haut-fonty_64875_4.jpg?1558782478")
+coproperty_4 = Coproperty.new(coproperty_name: "Les Joyaux d'Anfa", number_properties: 30, address: "14, boulevard d'Anfa, Casablanca", expense_method: "Variable au Tantième", coprop_private_area: 1220, coprop_common_area: 820, bank_account: "665556", building_type: "Bâtiment Unique", syndic: syndic_1)
+coproperty_4.photo.attach(io: file_4, filename: "anfa.jpg", content_type: "image/jpg")
+coproperty_4.save
+file_5 = URI.open ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHQcrJZqPxYS01qxoynkLrD_JRG-SBFdRylQ&usqp=CAU")
+coproperty_5 = Coproperty.new(coproperty_name: "Résidence La Paix", number_properties: 80, address: "67, boulevard de la Résistance, Casablanca", expense_method: "Fixe par Habitant", coprop_private_area: 4300, coprop_common_area: 1120, bank_account: "886556", building_type: "Bâtiment Unique", syndic: syndic_1)
+coproperty_5.photo.attach(io: file_5, filename: "anfa.jpg", content_type: "image/jpg")
+coproperty_5.save
+file_6 = URI.open("https://q-xx.bstatic.com/xdata/images/hotel/max500/245314751.jpg?k=a0c6ab20a5f55060f013a0c1d8e1322bb3d7354e86da118325e191a8724eb6ea&o=")
+coproperty_6 = Coproperty.new(coproperty_name: "Casa Park", number_properties: 140, address: "98, boulevard la Corniche , Casablanca", expense_method: "Fixe par Habitant", coprop_private_area: 6590, coprop_common_area: 2300, bank_account: "213356", building_type: "Bâtiment Unique", syndic: syndic_1)
+coproperty_6.photo.attach(io: file_6, filename: "park.jpg", content_type: "image/jpg")
+coproperty_6.save
+file_7 = URI.open("https://www.yabiladi.com/files/a8cb300c5b566995899c7ea83c276cff.jpg")
+coproperty_7 = Coproperty.new(coproperty_name: "Résidence les Iris", number_properties: 900, address: "21, boulevard Mohammed Ayoubi, Bouskoura", expense_method: "Variable au Tantième", coprop_private_area: 185000, coprop_common_area: 53000, bank_account: "098767", building_type: "Multi-bâtiments", syndic: syndic_1)
+coproperty_7.photo.attach(io: file_7, filename: "iris.jpg", content_type: "image/jpg")
+coproperty_7.save
+file_8 = URI.open ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXJ8Vi0FchvXFLEjd_gMJQB3HL5wqIJIo8lA&usqp=CAU")
+coproperty_8 = Coproperty.new(coproperty_name: "Green View", number_properties: 1200, address: "146, rue Adrien Legrand, Bouskoura", expense_method: "Variable au Tantième", coprop_private_area: 200000, coprop_common_area: 60000, bank_account: "932256", building_type: "Multi-bâtiments", syndic: syndic_1)
+coproperty_8.photo.attach(io: file_8, filename: "view.jpg", content_type: "image/jpg")
+coproperty_8.save
+file_9 = URI.open ("https://rayaaqqari.com/wp-content/uploads/2021/06/SLIDE-2.jpeg")
+coproperty_9 = Coproperty.new(coproperty_name: "Sun House", number_properties: 670, address: "11, rue la marche verte, Dar Bouazza", expense_method: "Variable au Tantième", coprop_private_area: 78000, coprop_common_area: 20000, bank_account: "112256", building_type: "Multi-bâtiments", syndic: syndic_1)
+coproperty_9.photo.attach(io: file_9, filename: "sun.jpg", content_type: "image/jpg")
+coproperty_9.save
 puts 'Coproperties created'
 
 # Proroperties - Résidence le Rossignol
