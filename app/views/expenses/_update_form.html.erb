@@ -16,5 +16,5 @@
         wrapper_html:{"data-conditional-input-target":"date", class: "d-none"})%>
         <%= f.input :photos, :label => 'Pièces Justificatives',:hint => 'Vous pouvez joindre des documents ou photos pour justifier ce frais', as: :file, input_html: { multiple: true } %>
         <%= f.submit 'Soumettre', class: "btn btn-default btn-primary" %>
-        <%= link_to 'Précédent',  syndic_coproperty_expense_path %>
+        <%# <%= link_to 'Précédent',  syndic_coproperty_expense_path %>
         <% end %>
