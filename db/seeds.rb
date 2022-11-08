@@ -1,3 +1,4 @@
+require "open-uri"
 
 Request.destroy_all
 Payment.destroy_all
@@ -65,7 +66,10 @@ owner_9 = Owner.create!(first_name: "Mohammed", last_name: "Machkour", gender: "
 owner_10 = Owner.create!(first_name: "Lina", last_name: "Moussalim", gender: "Femme", card_number: "CE785543", phone_number: "+212678995451", ownership_date: "2021-11-15", birth_date: "1969-03-11", user: user_owner10)
 
 # Coproperties - Prosyndic
-coproperty_1 = Coproperty.create!(coproperty_name: "Résidence Le Rossignol", number_properties: 10, address: "11, boulevard Roudani, Casablanca", expense_method: "Fixe par Habitant", coprop_private_area: 1018, coprop_common_area: 500, bank_account: "123456", building_type: "Bâtiment Unique",syndic: syndic_1)
+file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+coproperty_1 = Coproperty.new(coproperty_name: "Résidence Le Rossignol", number_properties: 10, address: "11, boulevard Roudani, Casablanca", expense_method: "Fixe par Habitant", coprop_private_area: 1018, coprop_common_area: 500, bank_account: "123456", building_type: "Bâtiment Unique",syndic: syndic_1)
+coproperty_1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+coproperty_1.save
 coproperty_2 = Coproperty.create!(coproperty_name: "City Tower", number_properties: 1500, address: "50, rue Les Cercles, Boulevard le Grand, Casablanca", expense_method: "Variable au Tantième", coprop_private_area: 250000, coprop_common_area: 800000, bank_account: "872556", building_type: "Multi-bâtiments", syndic: syndic_1)
 coproperty_3 = Coproperty.create!(coproperty_name: "Résidence Salma", number_properties: 100, address: "44, Mohammed Mahfoud, Marrakech", expense_method: "Fixe par Habitant", coprop_private_area: 20000, coprop_common_area: 6000, bank_account: "982156", building_type: "Multi-bâtiments", syndic: syndic_1)
 coproperty_4 = Coproperty.create!(coproperty_name: "Les Joyaux d'Anfa", number_properties: 30, address: "14, boulevard d'Anfa, Casablanca", expense_method: "Variable au Tantième", coprop_private_area: 1220, coprop_common_area: 820, bank_account: "665556", building_type: "Bâtiment Unique", syndic: syndic_1)
