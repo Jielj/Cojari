@@ -28,10 +28,10 @@
                   <% else %>
                     <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80", class: "rounded-circle shadow-1-strong owner-sm-img", width:"150", height:"150" %>
                   <% end %>
-                  <% if @property.owner && !@property.owner.photo.key.nil? %>
-                    <span class="ms-2"><%= @property.owner.first_name %>&nbsp;<%= @property.owner.last_name %></span>
+                  <% if !@property.owner.nil? %>
+                    <span class="ms-2"><%= @property.owner.full_name %></span>
                   <% else %>
-                    <span class="ms-2">Property owner</span>
+                    <span class="ms-2">Aucun propriétaire</span>
                   <% end %>
                 </div>
                 <div class="col-sm-7 info">
@@ -40,9 +40,6 @@
                         <div class="h5 card-text"><strong>Name: </strong><%= @property.building %></div>
                         <div class="h5 card-text"><strong>Etage: </strong><%= @property.floor %></div>
                         <div class="h5 card-text"><strong>Superficie: </strong><%= @property.total_property_area %>&nbsp;m²</div>
-                        <% if !@property.owner.nil? %>
-                          <div class="h7 card-text mb-3"><strong>Owner: </strong><%= @property.owner.full_name %> </div>
-                        <% end %>
                     </div>
                 </div>
             </div>
