@@ -150,6 +150,13 @@ h5 {
 
 
 // prop index
+.prop-hover {
+  transition: 100ms;
+  &:hover {
+    box-shadow: 0px 0px 0px 4px $blue !important;
+  }
+}
+
 .close-btn {
   right: 0 !important;
   color: $dark-gray !important;

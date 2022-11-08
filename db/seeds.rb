@@ -36,7 +36,11 @@ syndic_2 = Syndic.create!(syndic_name: "Comfort Syndic", creation_date: "2021-10
 puts 'Comfort Syndic created'
 
 owner_1 = Owner.create!(first_name: "Jihane", last_name: "El Jbari", gender: "Femme", card_number: "CD567833", phone_number: "+212618335908", ownership_date: "2022-10-15", birth_date: "1994-04-11", user: user_owner1)
-owner_2 = Owner.create!(first_name: "Amal", last_name: "Loudiyi", gender: "Femme", card_number: "CD567844", phone_number: "+212612783321", ownership_date: "2022-01-22", birth_date: "1995-08-22", user: user_owner2)
+owner_2 = Owner.create!(first_name: "Amal1", last_name: "Loudiyi", gender: "Femme", card_number: "CD567844", phone_number: "+212612783321", ownership_date: "2022-01-22", birth_date: "1995-08-22", user: user_owner2)
+owner_7 = Owner.create!(first_name: "Amal2", last_name: "Loudiyi", gender: "Femme", card_number: "CD567844", phone_number: "+212612783321", ownership_date: "2022-01-22", birth_date: "1995-08-22", user: user_owner2)
+owner_4 = Owner.create!(first_name: "Amal3", last_name: "Loudiyi", gender: "Femme", card_number: "CD567844", phone_number: "+212612783321", ownership_date: "2022-01-22", birth_date: "1995-08-22", user: user_owner2)
+owner_5 = Owner.create!(first_name: "Amal4", last_name: "Loudiyi", gender: "Femme", card_number: "CD567844", phone_number: "+212612783321", ownership_date: "2022-01-22", birth_date: "1995-08-22", user: user_owner2)
+owner_6 = Owner.create!(first_name: "Amal5", last_name: "Loudiyi", gender: "Femme", card_number: "CD567844", phone_number: "+212612783321", ownership_date: "2022-01-22", birth_date: "1995-08-22", user: user_owner2)
 owner_3 = Owner.create!(first_name: "Yassine", last_name: "Ambari", gender: "Homme", card_number: "CD567822", phone_number: "+212612557766", ownership_date: "2021-12-02", birth_date: "1996-03-01", user: user_owner3)
 owner_4 = Owner.create!(first_name: "Houssam", last_name: "Chakir", gender: "Homme", card_number: "CD567866", phone_number: "+212692113488", ownership_date: "2021-11-15", birth_date: "1997-09-21", user: user_owner4)
 
@@ -48,6 +52,10 @@ puts 'Coproperties created'
 
 property_1 = Property.create!(property_number: 2, floor: "RDC", total_property_area: 150, payment_frequency: "Mensuelle", coproperty: coproperty_1)
 property_2 = Property.create!(property_number: 3, floor: "1", total_property_area: 110, payment_frequency: "Trimestrielle", coproperty: coproperty_1, owner: owner_2)
+property_5 = Property.create!(property_number: 3, floor: "1", total_property_area: 110, payment_frequency: "Trimestrielle", coproperty: coproperty_1, owner: owner_4)
+property_6 = Property.create!(property_number: 3, floor: "1", total_property_area: 110, payment_frequency: "Trimestrielle", coproperty: coproperty_1, owner: owner_5)
+property_7 = Property.create!(property_number: 3, floor: "1", total_property_area: 110, payment_frequency: "Trimestrielle", coproperty: coproperty_1, owner: owner_6)
+
 property_3 = Property.create!(property_number: 12, floor: "2", total_property_area: 80, payment_frequency: "Annuelle", building: "A", coproperty: coproperty_2, owner: owner_1)
 property_4 = Property.create!(property_number: 24, floor: "6", total_property_area: 230, payment_frequency: "Annuelle", building: "C", coproperty: coproperty_2, owner: owner_4)
 puts 'Properties created'

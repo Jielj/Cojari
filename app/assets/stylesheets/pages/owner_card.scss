@@ -1,13 +1,14 @@
 .notification {
   display: flex;
   align-items: center;
-  width: 48%;
+  width: 45%;
   margin-bottom: 8px;
-  margin-left: 45px;
+  margin-left: 20px;
   margin-top: 8px;
   background: white;
   padding: 8px 16px;
   border: 1px solid rgb(235, 235, 235);
+  border-radius: 6px;
 }
 
 .notification .notification-content {
@@ -37,10 +38,15 @@
 
 .notification .notification-actions a {
   color: #999999;
-  margin-left: 16px;
+  margin-left: -1px;
   font-size: 14px;
+  height: 25px;
 }
 
 .notification .notification-actions a:hover {
   color: #555555;
+}
+
+.owner-main-title {
+  margin-left: 4rem;
 }
