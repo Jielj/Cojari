@@ -1,0 +1,26 @@
+<div class="px-5 card pt-3">
+  <div class="inline-container p-3">
+      <% @expenses.each do |expense| %>
+        <div class="slide-container">
+          <%# <div class="wrapper"> %>
+            <div class="clash-card barbarian btns">
+              <div class="clash-card__image clash-card__image--barbarian">
+              </div>
+              <div class="clash-card__level clash-card__level--barbarian"><%= expense.expense_name %></div>
+              <div class="clash-card__unit-name">Type : <%= expense.expense_type %></div>
+              <div class="clash-card__unit-name">Montant :<%= expense.expense_amount.to_i %> MAD</div>
+              <%# <%# <div class="clash-card__unit-name"><%= expense.expense_status % !! à voir statut dans le edit> %>
+              <div class="clash-card__unit-description">
+              </div>
+              <%= render "expenses/vote_form", expense: expense %>
+              <%= link_to "Détails", syndic_coproperty_expense_path(current_user.syndic,expense.budget.coproperty,expense.id), class: "bttn btn-main" %>
+              <hr/>
+            </div>
+        </div>
+      <% end %>
+
+    </div>
+
+  <%= link_to "Nouveau", new_syndic_coproperty_expense_path(current_user.syndic, @coproperty) %>
+
+</div>

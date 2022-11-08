@@ -9,6 +9,7 @@
   margin-top: 4em;
   border-spacing: 0px;
   width: 100%;
+  overflow: hidden;
 }
 
 #my-table th {
@@ -64,6 +65,27 @@ td.fw-medium {
 .badge.blue {
   background-color: rgb(237, 248, 253);
   color: rgb(10, 89, 153);
+  border-radius: 50px;
+  padding: 4px 8px;
+}
+
+.badge.pink {
+  background-color: rgb(253, 218, 253);
+  color: rgb(139, 4, 67);
+  border-radius: 50px;
+  padding: 4px 8px;
+}
+
+.badge.yellow {
+  background-color: rgb(252, 253, 218);
+  color: rgb(117, 81, 2);
+  border-radius: 50px;
+  padding: 4px 8px;
+}
+
+.badge.orange {
+  background-color: rgb(253, 231, 218);
+  color: rgb(116, 66, 19);
   border-radius: 50px;
   padding: 4px 8px;
 }

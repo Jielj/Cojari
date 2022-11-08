@@ -1,26 +1,32 @@
-<div class="px-5 card pt-3">
-  <div class="inline-container p-3">
-      <% @expenses.each do |expense| %>
-        <div class="slide-container">
-          <%# <div class="wrapper"> %>
-            <div class="clash-card barbarian btns">
-              <div class="clash-card__image clash-card__image--barbarian">
-              </div>
-              <div class="clash-card__level clash-card__level--barbarian"><%= expense.expense_name %></div>
-              <div class="clash-card__unit-name">Type : <%= expense.expense_type %></div>
-              <div class="clash-card__unit-name">Montant :<%= expense.expense_amount.to_i %> MAD</div>
-              <%# <%# <div class="clash-card__unit-name"><%= expense.expense_status % !! à voir statut dans le edit> %>
-              <div class="clash-card__unit-description">
-              </div>
-              <%= render "expenses/vote_form", expense: expense %>
-              <%= link_to "Détails", syndic_coproperty_expense_path(current_user.syndic,expense.budget.coproperty,expense.id), class: "bttn btn-main" %>
-              <hr/>
-            </div>
-        </div>
-      <% end %>
-
-    </div>
-
-  <%= link_to "Nouveau", new_syndic_coproperty_expense_path(current_user.syndic, @coproperty) %>
-
+<div class="container pt-3">
+<%= link_to "Nouveau Frais", new_syndic_coproperty_expense_path(current_user.syndic, @coproperty), class: "btn btn-primary fw-semibold", style: "float: right;" %>
+<table id="my-table">
+    <tr>
+      <th>Titre</th>
+      <th>Montant (dhs)</th>
+      <th>Type</th>
+      <th>Date de Paiement</th>
+      <th>Budget Rattaché</th>
+      <th>Statut</th>
+      <th>Actions</th>
+    </tr>
+  <% @expenses.each do |expense| %>
+  <% type = expense.expense_type == "Nettoyage" ? "blue" : expense.expense_type == "Jardinage" ? "green" : expense.expense_type == "Consommables" ? "pink" : expense.expense_type == "Sécurité" ? "yellow" : expense.expense_type == "Maintenace" ? "orange" : "red" %>
+    <tr>
+      <td class="fw-medium"> <%= expense.expense_name %> </td>
+      <td><%= expense.expense_amount.to_i %></td>
+      <td><span class="badge <%= type %>"><%= expense.expense_type %></span></td>
+      <td><%= expense.expense_date %></td>
+      <td><%= expense.budget.budget_title %></td>
+      <td><%= expense.expense_status %></td>
+      <%# IF WE WANT TO ADD ICON TO CELL : %>
+      <%# <td><i class="fa-solid fa-pen-to-square "></i><span class="badge <%= status %>
+      <td class= "text-center">
+        <%= link_to edit_syndic_coproperty_expense_path(current_user.syndic,expense.budget.coproperty,expense.id) do %>
+          <i class="fa-solid fa-pen-to-square "></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
 </div>

@@ -22,7 +22,7 @@
       <%# IF WE WANT TO ADD ICON TO CELL : %>
       <%# <td><i class="fa-solid fa-pen-to-square "></i><span class="badge <%= status %>
       <td class= "text-center">
-        <%= link_to syndic_coproperty_budget_path(current_user.syndic,budget.coproperty,budget.id) do %>
+        <%= link_to edit_syndic_coproperty_budget_path(current_user.syndic,budget.coproperty,budget.id) do %>
           <i class="fa-solid fa-pen-to-square "></i>
         <% end %>
       </td>

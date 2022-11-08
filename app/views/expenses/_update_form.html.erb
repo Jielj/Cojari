@@ -3,7 +3,7 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow" data-controller="conditional-input">
 
-        <h2>Frais</h2>
+        <h2>Fiche de Frais</h2>
 
         <%= simple_form_for [current_user.syndic, @coproperty, @expense] do |f| %>
         <%= f.input :expense_name, :label => 'Titre', :hint => 'Donnez un titre à ce frais' %>
