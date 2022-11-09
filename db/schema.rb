@@ -208,14 +208,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_185326) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.text "request_title"
+    t.string "request_title"
     t.date "request_date"
     t.string "request_status"
     t.bigint "property_id", null: false
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "object"
     t.index ["property_id"], name: "index_requests_on_property_id"
   end
 
