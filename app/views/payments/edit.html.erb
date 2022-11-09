@@ -7,10 +7,10 @@
     <div class="bg-img-r">
       <%= image_tag "man-with-paper.svg" %>
     </div>
-    <h2>Modification de Paiement</h2>
+    <%# <h2>Modification de Paiement</h2> %>
       <div class="mt-3" style="z-index: 99;">
           <%= render "update_form", payment: @payment %>
-      <%= link_to 'Précédent', owner_coproperty_payments_path %>
+      <%= link_to 'Précédent', syndic_coproperty_payments_path %>
       </div>
 
   </div>

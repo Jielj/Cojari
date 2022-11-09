@@ -32,19 +32,19 @@
         <div class="col-sm-7 info">
           <div class="card-body">
             <div class="h1 card-title title text-left mb-4">Propriété N°: </strong><%= @property.property_number %></div>
-            <div class="h5 card-text"><strong>Name: </strong><%= @property.building %></div>
-            <div class="h5 card-text"><strong>Etage: </strong><%= @property.floor %></div>
-            <div class="h5 card-text"><strong>Superficie: </strong><%= @property.total_property_area %>&nbsp;m²</div>
+            <div class="h5 card-text"><strong>Etage : </strong><%= @property.floor %></div>
+            <div class="h5 card-text"><strong>Superficie totale : </strong><%= @property.total_property_area %>&nbsp;m²</div>
+            <div class="h5 card-text"><strong>Fréquence de Paiement : </strong><%= @property.payment_frequency %></div>
           </div>
         </div>
       </div>
     </div>
-    <div>
+    </div>
       <% if current_user.is_syndic? %>
         <%= render "show_syndic" %>
       <% else %>
         <%= render "show_owner" %>
       <% end %>
-    </div>
+    <div>
   </div>
 </div>
