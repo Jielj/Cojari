@@ -125,12 +125,14 @@ h5 {
 
 .prop-index-card {
   margin-right: 1.5rem !important;
+  margin-top: 1.5rem !important;
+  width: 31% !important;
   .frame {
     width: 100% !important;
   }
   .img {
     margin: 0 !important;
-    border-radius: 6px 0 0 6px !important;
+    // border-radius: 6px 0 0 6px !important;
     width: 100% !important;
   }
 }
@@ -150,6 +152,13 @@ h5 {
 
 
 // prop index
+.prop-hover {
+  transition: 100ms;
+  &:hover {
+    box-shadow: 0px 0px 0px 4px $blue !important;
+  }
+}
+
 .close-btn {
   right: 0 !important;
   color: $dark-gray !important;
@@ -160,11 +169,14 @@ h5 {
   }
   z-index: 99999999;
 }
+.prop-img {
+  width: 282px !important;
+}
 .gradient {
   background: rgba(136, 136, 136, 0.3);
   bottom: 0px;
-  left: -1px;
-  width: 361px;
+  left: 0px;
+  width: 258px !important;
   border-radius: 0 0 0 6px;
   &.lite-blur {
     backdrop-filter: blur(3.5px);

@@ -1,16 +1,19 @@
 
-<%# <h1>Mes Propriétaires</h1> %>
-<div class="d-flex justify-content-around mt-5 container">
+<div class="container mt-5 d-flex justify-content-between align-items-center">
+  <h1 class="owner-main-title fw-semibold text-left fade-font property-title txt-raleway p-0">Mes Propriétaires</h1>
+  <%= link_to "Nouveau Propriétaire",  new_owner_path(), class: "btn btn-primary fw-semibold me-5" %>
+</div>
+<div class="d-flex justify-content-center mt-5 container flex-wrap">
     <% @owners.each do |owner| %>
-      <div class="notification">
+      <div class="notification shadow p-4">
       <% if !owner.photo.key.nil? %>
         <%= cl_image_tag owner.photo.key, class: "avatar-large" %>
       <% else %>
         <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80", class: "avatar-large" %>
       <% end %>
       <div class="notification-content">
-       <p><strong><%= owner.full_name %></strong></p>
-        <ul>
+       <p class="ms-3"><strong><%= owner.full_name %></strong></p>
+        <ul class="list-unstyled mt-2 ms-3">
           <li>Genre: <%= owner.gender %></li>
           <li>Date de Naissance: <%= owner.birth_date %></li>
           <li>Numéro de téléphone: <%= owner.phone_number %></li>
@@ -20,7 +23,7 @@
         </ul>
       </div>
 
-      <div class="notification-actions">
+      <div class="notification-actions flex-wrap align-content-start">
         <a href="#"><i class="fas fa-pencil-alt"></i></a>
         <a href="#"><i class="far fa-trash-alt"></i></a>
       </div>

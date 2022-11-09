@@ -14,5 +14,10 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "@prettier/plugin-ruby": "^3.2.2",
+    "prettier": "^2.7.1",
+    "prettier-plugin-erb": "^0.4.0"
   }
 }
