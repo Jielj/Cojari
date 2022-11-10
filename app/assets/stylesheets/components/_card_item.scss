@@ -193,3 +193,19 @@ h5 {
     margin-bottom: 8px !important;
   }
 }
+
+.owner-md-img {
+  position: relative;
+  width: 171px !important;
+  height: 171px !important;
+  margin-top: 8px !important;
+  margin-left: 0px !important;
+  margin-bottom: 8px !important;
+}
+
+.btn-settings {
+  transition: 100ms;
+  &:hover {
+    color: $gray !important;
+  }
+}
