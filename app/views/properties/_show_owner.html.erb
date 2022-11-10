@@ -6,17 +6,17 @@
         <h3><%= request.request_title %></h3>
         <p>Message: <%= request.message %></p>
         <p>Date de la requête: <%= request.request_date %></p>
-        <p>Statut: <%= request.request_status %></p>  
+        <p>Statut: <%= request.request_status %></p>
         <p>Documents: </p>
         <% request.photos.each do |photo| %>
           <%= cl_image_tag photo.key, alt: "Pièce justificative de #{request.object}"%>
         <% end %>
-        <%= link_to "Update", edit_owner_coproperty_property_request_path(current_user.owner,@property.coproperty,@property,request), class: "" %>
+        <%= link_to "Modifier", edit_owner_coproperty_property_request_path(current_user.owner,@property.coproperty,@property,request), class: "" %>
       <% end %>
     </div>
   </div>
 
-      <%= link_to "New request", new_owner_coproperty_property_request_path(current_user.owner,@property.coproperty,@property), class: "" %>
-      <%= link_to 'Back', owner_coproperty_path %>
+      <%= link_to "Nouvelle Requête", new_owner_coproperty_property_request_path(current_user.owner,@property.coproperty,@property), class: "" %>
+      <%= link_to 'Précédent', owner_coproperty_path %>
     </div>
 </div>

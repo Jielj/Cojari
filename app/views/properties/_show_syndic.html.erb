@@ -1,16 +1,16 @@
 <% if @property.owner.nil? %>
   <div class="card copy-card shadow mx-5 p-3">
-    <h6 class="mb-3"> lien à envoyer au proprietaire</h6>
-    <div id="copy-section" class="input-group" data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
+    <h6 class="mb-3"> Lien à envoyer au propriétaire</h6>
+    <div id="copy-section" class="input-group" data-controller="clipboard" data-clipboard-feedback-text-value="Copié !">
       <input class="form-control clipboard-input" data-clipboard-target="input" type="text" value="<%=  link_path(Link.last) %>" readonly>
       <div class="input-group-append">
-        <button class="btn btn-primary clipboard-button" data-action="click->clipboard#copy">Copy to Clipboard</button>
+        <button class="btn btn-primary clipboard-button" data-action="click->clipboard#copy">Copier le lien</button>
       </div>
     </div>
     <p class="p-2 mb-0 mt-2">
-      First line of instruction for owners <br>
-      Second line of instruction for owners <br>
-      third line of instruction for owners <br>
+      - Copiez ce lien et partagez le avec le propriétaire de cette propriété <br>
+      - Grâce à ce lien, le propriétaire pourra créer son compte et rejoindre l'espace de la copropriété sur Cojari <br>
+      - Veuillez noter que ce lien est à utilisation unique par propriété <br>
     </p>
   </div>
 <% else %>
