@@ -11,6 +11,7 @@
       <th>Propriété</th>
       <th>Propriétaire</th>
       <th>Statut</th>
+      <th>Justif</th>
       <% if current_user.is_syndic? %>
         <th>Actions</th>
       <% end %>
@@ -25,6 +26,16 @@
       <td><%= payment.property.property_number %></td>
       <td><%= payment.property.owner.full_name %></td>
       <td><span class="badge <%= status %>"><%= payment.payment_status %></span></td>
+            <td class= "text-center">
+      <% if payment.photos.count != 0 %>
+        <%= link_to payment.photos.first do %>
+          <i class="fa-solid fa-file"></i>
+        <% end %>
+      <% else %>
+        <%= link_to "https://res.cloudinary.com/dn7adx3jz/image/upload/v1668254767/justif_virement_fqqfkq.png" do %>
+          <i class="fa-solid fa-file"></i>
+        <% end %>
+      <% end %>
       <td class= "text-center">
       <% if current_user.is_syndic? %>
         <%= link_to edit_syndic_coproperty_payment_path(current_user.syndic, payment.budget.coproperty,payment.id) do %>

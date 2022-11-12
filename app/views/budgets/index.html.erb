@@ -8,6 +8,7 @@
       <th>Date de Début</th>
       <th>Date de Fin</th>
       <th>Statut</th>
+      <th>Justif</th>
       <th>Actions</th>
     </tr>
   <% @budgets.each do |budget| %>
@@ -21,6 +22,18 @@
       <td><span class="badge <%= status %>"><%= budget.budget_status %></span></td>
       <%# IF WE WANT TO ADD ICON TO CELL : %>
       <%# <td><i class="fa-solid fa-pen-to-square "></i><span class="badge <%= status %>
+
+      <td class= "text-center">
+      <% if budget.photos.count != 0 %>
+        <%= link_to budget.photos.first do %>
+          <i class="fa-solid fa-file"></i>
+        <% end %>
+      <% else %>
+        <%= link_to "https://res.cloudinary.com/dn7adx3jz/image/upload/v1668253964/budget_copro_bzqlij.jpg" do %>
+          <i class="fa-solid fa-file"></i>
+        <% end %>
+      <% end %>
+
       <td class= "text-center">
         <%= link_to edit_syndic_coproperty_budget_path(current_user.syndic,budget.coproperty,budget.id) do %>
           <i class="fa-solid fa-pen-to-square "></i>

@@ -8,6 +8,7 @@
       <th>Date de Paiement</th>
       <th>Budget Rattaché</th>
       <th>Statut</th>
+      <th>Justif</th>
       <th>Actions</th>
     </tr>
   <% @expenses.each do |expense| %>
@@ -21,6 +22,17 @@
       <td><%= expense.expense_status %></td>
       <%# IF WE WANT TO ADD ICON TO CELL : %>
       <%# <td><i class="fa-solid fa-pen-to-square "></i><span class="badge <%= status %>
+      <td class= "text-center">
+      <% if expense.photos.count != 0 %>
+        <%= link_to expense.photos.first do %>
+          <i class="fa-solid fa-file"></i>
+        <% end %>
+      <% else %>
+        <%= link_to "https://res.cloudinary.com/dn7adx3jz/image/upload/v1668253363/facture-nettoyage_t22dwy.png" do %>
+          <i class="fa-solid fa-file"></i>
+        <% end %>
+      <% end %>
+
       <td class= "text-center">
         <%= link_to edit_syndic_coproperty_expense_path(current_user.syndic,expense.budget.coproperty,expense.id) do %>
           <i class="fa-solid fa-pen-to-square "></i>
