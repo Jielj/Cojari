@@ -40,7 +40,7 @@ class RequestsController < ApplicationController
   def update
     @coproperty = Coproperty.find(params[:coproperty_id])
     if @request.update(request_params)
-      redirect_to syndic_coproperty_requests_path(current_user.syndic, @coproperty), :notice => "Successfully created request."
+      redirect_to syndic_coproperty_requests_path(current_user.syndic, @coproperty), :notice => "Requête créee!"
     else
       render :action => 'edit'
     end
@@ -48,7 +48,7 @@ class RequestsController < ApplicationController
 
   def destroy
     @request.destroy
-    redirect_to coproperties_url, :notice => "Successfully destroyed request."
+    redirect_to coproperties_url, :notice => "Requête supprimée!"
   end
 
 private

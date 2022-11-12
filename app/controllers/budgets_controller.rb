@@ -19,7 +19,7 @@ class BudgetsController < ApplicationController
     @coproperty = Coproperty.find(params[:coproperty_id])
     @budget.coproperty = @coproperty
     if @budget.save
-    redirect_to syndic_coproperty_budgets_path, :notice => "Successfully created budget."
+    redirect_to syndic_coproperty_budgets_path, :notice => "Budget créé !"
     else
     render :action => 'new'
     end
@@ -31,7 +31,7 @@ class BudgetsController < ApplicationController
 
   def update
     if @budget.update(budget_params)
-    redirect_to syndic_coproperty_budgets_path, :notice  => "Successfully updated budget."
+    redirect_to syndic_coproperty_budgets_path, :notice  => "Budget mis à jour!"
     else
     render :action => 'edit'
     end

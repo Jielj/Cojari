@@ -17,7 +17,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     if @expense.save
-    redirect_to  syndic_coproperty_expenses_path, :notice => "Successfully created expense."
+    redirect_to  syndic_coproperty_expenses_path, :notice => "Dépense créée !"
     else
     render :action => 'new'
     end
@@ -29,7 +29,7 @@ class ExpensesController < ApplicationController
 
   def update
     if @expense.update(expense_params)
-    redirect_to syndic_coproperty_expense_path, :notice  => "Successfully updated expense."
+    redirect_to syndic_coproperty_expense_path, :notice  => "Dépesne mise à jour!"
     else
     render :action => 'edit'
     end

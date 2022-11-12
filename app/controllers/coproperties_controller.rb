@@ -27,7 +27,7 @@ class CopropertiesController < ApplicationController
     @coproperty = Coproperty.new(coproperty_params)
     @coproperty.syndic = current_user.syndic
     if @coproperty.save
-    redirect_to syndic_coproperties_path, :notice => "Successfully created coproperty."
+    redirect_to syndic_coproperties_path, :notice => "Copropriété créée !"
     else
     render :action => 'new'
     end
@@ -38,7 +38,7 @@ class CopropertiesController < ApplicationController
 
   def update
     if @coproperty.update(coproperty_params)
-    redirect_to syndic_coproperty_path(current_user.syndic, @coproperty), :notice  => "Successfully updated coproperty."
+    redirect_to syndic_coproperty_path(current_user.syndic, @coproperty), :notice  => "Copropriété mise à jour!"
     else
     render :action => 'edit'
     end
@@ -46,7 +46,7 @@ class CopropertiesController < ApplicationController
 
   def destroy
     @coproperty.destroy
-    redirect_to syndic_coproperties_path, :notice => "Successfully destroyed coproperty."
+    redirect_to syndic_coproperties_path, :notice => "Copropriété supprimée !"
   end
 
 private
