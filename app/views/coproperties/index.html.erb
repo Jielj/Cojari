@@ -40,7 +40,7 @@
                   </div class="">
                   <div class="mx-1"><i class="fa-solid fa-house"></i>&nbsp;<%= coproperty.number_properties %>&nbsp;propriétés</div>
                   <div class="mx-1 text-justify text-truncate para mb-0"><i class="fa-solid fa-location-dot"></i>&nbsp;<%= coproperty.address %></div>
-                  <div class="mx-1"><i class="fa-solid fa-map"></i>&nbsp;<%= coproperty.coprop_private_area %> + <%=coproperty.coprop_common_area %>m²</div>
+                  <div class="mx-1"><i class="fa-solid fa-map"></i>&nbsp;<%= coproperty.coprop_private_area + coproperty.coprop_common_area %>m²</div>
                   <div class="mx-1"><i class="fa-solid fa-building"></i>&nbsp;<%= coproperty.building_type %></div>
                   <%# to be calculated %>
                   <h6 class="mx-1 text-success"> <%= rand 7..coproperty.number_properties %>/<%= coproperty.number_properties %> propriétés payées</h6>
