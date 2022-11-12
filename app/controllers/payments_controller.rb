@@ -40,7 +40,7 @@ class PaymentsController < ApplicationController
 
   def update
     if @payment.update(payment_params)
-    redirect_to syndic_coproperty_payment_path, :notice  => "Paiement mis à jour!"
+    redirect_to syndic_coproperty_payments_path, :notice  => "Paiement mis à jour!"
     else
     render :action => 'edit'
     end

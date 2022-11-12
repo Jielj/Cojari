@@ -114,7 +114,7 @@ puts 'Owners created'
 # Coproperties - Prosyndic
 puts 'Creating coproperties...'
 file_1 = URI.open("https://images.unsplash.com/photo-1597047084897-51e81819a499?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80")
-coproperty_1 = Coproperty.new(coproperty_name: "Résidence Le Rossignol", number_properties: 10, address: "11, boulevard Roudani, Casablanca", expense_method: "Fixe par Habitant", coprop_private_area: 1018, coprop_common_area: 500, bank_account: "123456", building_type: "Bâtiment Unique",syndic: syndic_1)
+coproperty_1 = Coproperty.new(coproperty_name: "Résidence Le Rossignol", number_properties: 24, address: "11, boulevard Roudani, Casablanca", expense_method: "Fixe par Habitant", coprop_private_area: 1018, coprop_common_area: 500, bank_account: "123456", building_type: "Bâtiment Unique",syndic: syndic_1)
 coproperty_1.photo.attach(io: file_1, filename: "rossignol.jpg", content_type: "image/jpg")
 coproperty_1.save
 file_2 = URI.open("https://images.trvl-media.com/lodging/16000000/15680000/15672600/15672584/eda8431f.jpg?impolicy=resizecrop&rw=670&ra=fit")

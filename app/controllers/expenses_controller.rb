@@ -29,7 +29,7 @@ class ExpensesController < ApplicationController
 
   def update
     if @expense.update(expense_params)
-    redirect_to syndic_coproperty_expense_path, :notice  => "Dépesne mise à jour!"
+    redirect_to syndic_coproperty_expenses_path, :notice  => "Dépesne mise à jour!"
     else
     render :action => 'edit'
     end
