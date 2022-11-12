@@ -25,7 +25,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     if @request.save!
-    redirect_to owner_coproperty_requests_path(current_user.owner, @request.property.coproperty), :notice => "Successfully created request."
+    redirect_to owner_coproperty_requests_path(current_user.owner, @request.property.coproperty), :notice => "Requête Soumise"
     else
     render :action => 'new'
     end

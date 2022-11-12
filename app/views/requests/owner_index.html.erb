@@ -1,21 +1,18 @@
-<div class="card pt-3">
-<div class="inline-container p-3">
-    <% @requests.each do |request| %>
-      <div class="slide-container">
-        <%# <div class="wrapper"> %>
-          <div class="clash-card barbarian btns">
-            <div class="clash-card__image cla sh-card__image--barbarian">
-            </div>
-            <div class="clash-card__level clash-card__level--barbarian"><%= request.request_title %></div>
-            <div class="clash-card__level clash-card__level--barbarian"><%= request.message %></div>
-            <div class="clash-card__unit-name">Date : <%= request.request_date %></div>
-            <div class="clash-card__unit-name">Statut : <%= request.request_status %></div>
-            <%# <%# <div class="clash-card__unit-name">ID Propriété : <%= request.property_id% - need to have the property_number> %>
-            <div class="clash-card__unit-description">
-            </div>
+  <div class="container pt-3">
+  <%= link_to "Nouvelle Requête",  new_owner_coproperty_request_path(current_user.owner, @coproperty), class: "btn btn-primary fw-semibold", style: "float: right;" %>
+  <div class="px-5 variable"
+      data-dashboard-target="request">
+    <div class="inline-container card p-4">
+      <% @requests.each do |request| %>
+        <div class="container card border-0 shadow   radius-0 m-1 p-2">
+          <div class="card-body">
+            <div class="clash-card__unit-name mb-3"><i class="fa-solid fa-user"></i>&nbsp; <%= request.property.owner ? request.property.owner.full_name : "Pas de propriétaire" %></div>
+            <h4 class="card-title mb-3"><%= request.request_title %></h4>
+            <p class="card-text fw-regular"><%= request.message %></p>
+            <h6 class="card-subtitle mb-1 text-muted mb-2"><i class="fa-regular fa-calendar-days"></i>&nbsp; Créé le : <%= request.request_date %>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-building"></i>&nbsp;n°<%= request.property.property_number %>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-file"></i>&nbsp; Statut : <%= request.request_status %></h6>
           </div>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <%= link_to "Nouveau",  new_owner_coproperty_request_path(current_user.owner, @coproperty) %>
 </div>

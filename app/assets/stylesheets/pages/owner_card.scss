@@ -50,3 +50,12 @@
 .owner-main-title {
   margin-left: 4rem;
 }
+
+.owner-icons li {
+  margin: 8px 0px;
+  i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    color: $purple-cojari;
+  }
+}

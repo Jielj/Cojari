@@ -27,7 +27,7 @@ class PaymentsController < ApplicationController
       @payment = Payment.new(payment_params)
       @coproperty = Coproperty.find(params[:coproperty_id])
       if @payment.save
-      redirect_to owner_coproperty_payments_path(current_user.owner, @coproperty), :notice => "Successfully created payment."
+      redirect_to owner_coproperty_payments_path(current_user.owner, @coproperty), :notice => "Paiement Soumis"
       else
       render :action => 'new'
       end
