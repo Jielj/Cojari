@@ -7,6 +7,7 @@
 
         <%= simple_form_for [ @syndic, @coproperty, @property] do |f| %>
         <%= f.input :property_number, :label => 'Numéro de propriété' %>
+        <%= f.input :floor, :label => 'Étage' %>
         <%# conditionner par type de copro multi-immeuble %>
         <%= f.input :building, :label => 'Immeuble' %>
         <%= f.input :total_property_area, :label => 'Surface Totale', :hint => 'Surface Totale de la propriété (incluant parking et box titrés), en m²' %>
