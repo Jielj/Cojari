@@ -72,28 +72,28 @@
   width: 35px;
   height: 35px;
   background: #ffffff15;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  // backdrop-filter: blur(5px);
+  // -webkit-backdrop-filter: blur(5px);
   border-radius: 50px;
 }
 
-.button-86:hover::before {
-  transform: translate(5%, 20%);
-  width: 110%;
-  height: 110%;
-}
+// .button-86:hover::before {
+//   transform: translate(5%, 20%);
+//   width: 110%;
+//   height: 110%;
+// }
 
-.button-86:hover::after {
-  border-radius: 6px;
-  transform: translate(0, 0);
-  width: 100%;
-  height: 100%;
-}
+// .button-86:hover::after {
+//   border-radius: 6px;
+//   transform: translate(0, 0);
+//   width: 100%;
+//   height: 100%;
+// }
 
-.button-86:active::after {
-  transition: 0s;
-  transform: translate(0, 5%);
-}
+// .button-86:active::after {
+//   transition: 0s;
+//   transform: translate(0, 5%);
+// }
 
 .navbar-brand {
   img {

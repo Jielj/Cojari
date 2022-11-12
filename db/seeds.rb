@@ -54,19 +54,65 @@ syndic_1 = Syndic.create!(syndic_name: "Prosyndic", creation_date: "2008-01-01",
 puts 'Prosyndic created'
 
 # Owners - Résidence le Rossignol
-owner_1 = Owner.create!(first_name: "Jihane", last_name: "El Jbari", gender: "Femme", card_number: "CD567833", phone_number: "+212618335908", ownership_date: "2022-10-15", birth_date: "1994-04-11", user: user_owner1)
-owner_2 = Owner.create!(first_name: "Amal", last_name: "Loudiyi", gender: "Femme", card_number: "KS567844", phone_number: "+212612783321", ownership_date: "2022-01-22", birth_date: "1995-08-22", user: user_owner2)
-owner_3 = Owner.create!(first_name: "Yassine", last_name: "Ambari", gender: "Homme", card_number: "DE567822", phone_number: "+212619557766", ownership_date: "2021-12-02", birth_date: "1987-03-01", user: user_owner3)
-owner_4 = Owner.create!(first_name: "Houssam", last_name: "Chakir", gender: "Homme", card_number: "CL567866", phone_number: "+212645113488", ownership_date: "2021-11-15", birth_date: "1984-10-04", user: user_owner4)
-owner_5 = Owner.create!(first_name: "Zakarya", last_name: "Karti", gender: "Homme", card_number: "CM5677334", phone_number: "+212611225678", ownership_date: "2021-11-15", birth_date: "1993-05-25", user: user_owner5)
-owner_6 = Owner.create!(first_name: "Omar", last_name: "Kazeb", gender: "Homme", card_number: "CD876654", phone_number: "+212667113488", ownership_date: "2021-11-15", birth_date: "1970-01-28", user: user_owner6)
-owner_7 = Owner.create!(first_name: "Bachir", last_name: "Cherrat", gender: "Homme", card_number: "SZ5224567", phone_number: "+212643113488", ownership_date: "2021-11-15", birth_date: "1985-02-09", user: user_owner7)
-owner_8 = Owner.create!(first_name: "Alex", last_name: "Codiepie", gender: "Homme", card_number: "KL567866", phone_number: "+212654338722", ownership_date: "2021-11-15", birth_date: "1992-01-23", user: user_owner8)
-owner_9 = Owner.create!(first_name: "Mohammed", last_name: "Machkour", gender: "Homme", card_number: "MO335123", phone_number: "+2127992381", ownership_date: "2021-11-15", birth_date: "1977-10-09", user: user_owner9)
-owner_10 = Owner.create!(first_name: "Lina", last_name: "Moussalim", gender: "Femme", card_number: "CE785543", phone_number: "+212678995451", ownership_date: "2021-11-15", birth_date: "1969-03-11", user: user_owner10)
+puts 'Creating owners...'
+file_1 = URI.open("https://res.cloudinary.com/dn7adx3jz/image/upload/v1668246825/WhatsApp_Image_2022-06-03_at_22.31.54_yxvigl.jpg")
+owner_1 = Owner.new(first_name: "Jihane", last_name: "El Jbari", gender: "Femme", card_number: "CD567833", phone_number: "+212618335908", ownership_date: "2022-10-15", birth_date: "1994-04-11", user: user_owner1)
+owner_1.photo.attach(io: file_1, filename: "Jihane.jpg", content_type: "image/jpg")
+owner_1.save
+
+file_2 = URI.open("https://res.cloudinary.com/dn7adx3jz/image/upload/v1668246733/amal_tv6isp.jpg")
+owner_2 = Owner.new(first_name: "Amal", last_name: "Loudiyi", gender: "Femme", card_number: "KS567844", phone_number: "+212612783321", ownership_date: "2022-01-22", birth_date: "1995-08-22", user: user_owner2)
+owner_2.photo.attach(io: file_2, filename: "Amal.jpg", content_type: "image/jpg")
+owner_2.save
+
+file_3 = URI.open("https://res.cloudinary.com/dn7adx3jz/image/upload/v1668246951/yassine2_brhfa8.png")
+owner_3 = Owner.new(first_name: "Yassine", last_name: "Ambari", gender: "Homme", card_number: "DE567822", phone_number: "+212619557766", ownership_date: "2021-12-02", birth_date: "1987-03-01", user: user_owner3)
+owner_3.photo.attach(io: file_3, filename: "Yassine.jpg", content_type: "image/jpg")
+owner_3.save
+
+file_4 = URI.open("https://res.cloudinary.com/dn7adx3jz/image/upload/v1668246688/houssam_kelnug.jpg")
+owner_4 = Owner.new(first_name: "Houssam", last_name: "Chakir", gender: "Homme", card_number: "CL567866", phone_number: "+212645113488", ownership_date: "2021-11-15", birth_date: "1984-10-04", user: user_owner4)
+owner_4.photo.attach(io: file_4, filename: "Houssam.jpg", content_type: "image/jpg")
+owner_4.save
+
+file_5 = URI.open("https://res.cloudinary.com/dn7adx3jz/image/upload/v1668246688/zakarya_jgyswk.jpg")
+owner_5 = Owner.new(first_name: "Zakarya", last_name: "Karti", gender: "Homme", card_number: "CM5677334", phone_number: "+212611225678", ownership_date: "2021-11-15", birth_date: "1993-05-25", user: user_owner5)
+owner_5.photo.attach(io: file_5, filename: "Zakarya.jpg", content_type: "image/jpg")
+owner_5.save
+
+file_6 = URI.open("https://res.cloudinary.com/dn7adx3jz/image/upload/v1668246688/1641198103979_npjzqs.jpg")
+owner_6 = Owner.new(first_name: "Omar", last_name: "Kazeb", gender: "Homme", card_number: "CD876654", phone_number: "+212667113488", ownership_date: "2021-11-15", birth_date: "1970-01-28", user: user_owner6)
+owner_6.photo.attach(io: file_6, filename: "Omar.jpg", content_type: "image/jpg")
+owner_6.save
+
+file_7 = URI.open("https://res.cloudinary.com/dn7adx3jz/image/upload/v1668246688/Bachir_jskm85.webp")
+owner_7 = Owner.new(first_name: "Bachir", last_name: "Cherrat", gender: "Homme", card_number: "SZ5224567", phone_number: "+212643113488", ownership_date: "2021-11-15", birth_date: "1985-02-09", user: user_owner7)
+owner_7.photo.attach(io: file_7, filename: "Bachir.jpg", content_type: "image/jpg")
+owner_7.save
+
+file_8 = URI.open("https://res.cloudinary.com/dn7adx3jz/image/upload/v1668246689/alex_zu2bax.jpg")
+owner_8 = Owner.new(first_name: "Alex", last_name: "Codiepie", gender: "Homme", card_number: "KL567866", phone_number: "+212654338722", ownership_date: "2021-11-15", birth_date: "1992-01-23", user: user_owner8)
+owner_8.photo.attach(io: file_8, filename: "Alex.jpg", content_type: "image/jpg")
+owner_8.save
+
+file_9 = URI.open("https://images.unsplash.com/photo-1600878459108-617a253537e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHN1aXQlMjBtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+owner_9 = Owner.new(first_name: "Mohammed", last_name: "Machkour", gender: "Homme", card_number: "MO335123", phone_number: "+2127992381", ownership_date: "2021-11-15", birth_date: "1977-10-09", user: user_owner9)
+owner_9.photo.attach(io: file_9, filename: "Mohammed.jpg", content_type: "image/jpg")
+owner_9.save
+
+file_10 = URI.open("https://images.unsplash.com/photo-1617077644557-64be144aa306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHdvbWVuJTIwZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+owner_10 = Owner.new(first_name: "Lina", last_name: "Moussalim", gender: "Femme", card_number: "CE785543", phone_number: "+212678995451", ownership_date: "2021-11-15", birth_date: "1969-03-11", user: user_owner10)
+owner_10.photo.attach(io: file_10, filename: "Lina.jpg", content_type: "image/jpg")
+owner_10.save
+puts 'Owners created'
+# owner_6 = Owner.create!(first_name: "Omar", last_name: "Kazeb", gender: "Homme", card_number: "CD876654", phone_number: "+212667113488", ownership_date: "2021-11-15", birth_date: "1970-01-28", user: user_owner6)
+# owner_7 = Owner.create!(first_name: "Bachir", last_name: "Cherrat", gender: "Homme", card_number: "SZ5224567", phone_number: "+212643113488", ownership_date: "2021-11-15", birth_date: "1985-02-09", user: user_owner7)
+# owner_8 = Owner.create!(first_name: "Alex", last_name: "Codiepie", gender: "Homme", card_number: "KL567866", phone_number: "+212654338722", ownership_date: "2021-11-15", birth_date: "1992-01-23", user: user_owner8)
+# owner_9 = Owner.create!(first_name: "Mohammed", last_name: "Machkour", gender: "Homme", card_number: "MO335123", phone_number: "+2127992381", ownership_date: "2021-11-15", birth_date: "1977-10-09", user: user_owner9)
+# owner_10 = Owner.create!(first_name: "Lina", last_name: "Moussalim", gender: "Femme", card_number: "CE785543", phone_number: "+212678995451", ownership_date: "2021-11-15", birth_date: "1969-03-11", user: user_owner10)
 
 # Coproperties - Prosyndic
-puts 'Creating coproperties'
+puts 'Creating coproperties...'
 file_1 = URI.open("https://images.unsplash.com/photo-1597047084897-51e81819a499?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80")
 coproperty_1 = Coproperty.new(coproperty_name: "Résidence Le Rossignol", number_properties: 10, address: "11, boulevard Roudani, Casablanca", expense_method: "Fixe par Habitant", coprop_private_area: 1018, coprop_common_area: 500, bank_account: "123456", building_type: "Bâtiment Unique",syndic: syndic_1)
 coproperty_1.photo.attach(io: file_1, filename: "rossignol.jpg", content_type: "image/jpg")
@@ -119,7 +165,7 @@ property_10 = Property.create!(property_number: 10, floor: "4", total_property_a
 puts 'Properties created'
 
 # Budgets - Résidence le Rossignol
-budget_1 = Budget.create!(budget_type: "Standard", budget_status: "Proposé", budget_start_date: "2023-01-01", budget_end_date: "2023-12-31", budget_amount: 1000000, budget_title:"Budget Annuel 2023",coproperty: coproperty_1)
+budget_1 = Budget.create!(budget_type: "Standard", budget_status: "Proposé", budget_start_date: "2023-01-01", budget_end_date: "2023-12-31", budget_amount: 1250580, budget_title:"Budget Annuel 2023",coproperty: coproperty_1)
 budget_2 = Budget.create!(budget_type: "Exceptionnel", budget_status: "Validé", budget_start_date: "2023-08-11", budget_end_date: "2022-09-11", budget_amount: 7000, budget_title:"Budget Exceptionnel 2022 - Système Ascenseur",coproperty: coproperty_1)
 budget_3 = Budget.create!(budget_type: "Exceptionnel", budget_status: "Rejeté", budget_start_date: "2023-08-11", budget_end_date: "2022-09-11", budget_amount: 9000, budget_title:"Budget Exceptionnel 2022 - Système Ascenseur",coproperty: coproperty_1)
 budget_4 = Budget.create!(budget_type: "Standard", budget_status: "Validé", budget_start_date: "2022-01-01", budget_end_date: "2022-12-31", budget_amount: 1500000, budget_title:"Budget Annuel 2022",coproperty: coproperty_1)
