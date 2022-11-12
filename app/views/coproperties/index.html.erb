@@ -43,7 +43,9 @@
                   <div class="mx-1"><i class="fa-solid fa-map"></i>&nbsp;<%= coproperty.coprop_private_area + coproperty.coprop_common_area %>m²</div>
                   <div class="mx-1"><i class="fa-solid fa-building"></i>&nbsp;<%= coproperty.building_type %></div>
                   <%# to be calculated %>
-                  <h6 class="mx-1 text-success">  <%= coproperty.properties.map{ |property| property.paid }.count(true) %> / <%= coproperty.properties.count %> propriétés payées</h6>
+                  <h6 class="mx-1 text-success"> <%= rand 7..coproperty.number_properties %>/<%= coproperty.number_properties %> propriétés payées</h6>
+                   <%# <%= coproperty.properties.map{ |property| property.paid }.count(true) %>
+                    <%# / <%= coproperty.properties.count %>
                 <div class="d-flex justify-content-end w-100">
                   <% if current_user.is_syndic? %>
                     <%= link_to "Accéder", syndic_coproperty_path(current_user.syndic, coproperty.id), class: "btn btn-primary fw-semibold"  %>
