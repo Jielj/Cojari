@@ -10,8 +10,8 @@
       </div>
       <div class="information lh-3">
         <h1><%= owner.full_name %></h1>
-        <h5 class="mb-3"><i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;<%= @owner.user.email  %></h5>
-        <h5 class="mb-3"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;<%= "Propriétaire" if @owner.user.role.to_s %></h5>
+        <h5 class="mb-3"><i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;<%= owner.user.email  %></h5>
+        <h5 class="mb-3"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;<%= "Propriétaire" if owner.user.role.to_s %></h5>
         <h5 class="mb-3"><i class="fa-solid fa-building"></i>&nbsp;&nbsp;<span class="fw-semibold"><%= owner.properties.count %></span> propriétés</h5>
         <div class="p-absolute dots-menu blur d-none" data-dropdown-menus-target="editMenu">
           <%= link_to "Modifier", root_path, class: "dropdown-item dropdown-button fw-semibold" %>

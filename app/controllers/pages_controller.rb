@@ -17,9 +17,11 @@ class PagesController < ApplicationController
 
   def syndic_dashboard
     @coproperty = Coproperty.find(params[:coproperty_id])
+    @budget = @coproperty.budgets.first
   end
 
   def owner_dashboard
     @coproperty = Coproperty.find(params[:coproperty_id])
+     @budget = @coproperty.budgets.first
   end
 end
