@@ -15,7 +15,7 @@ class SyndicsController < ApplicationController
     @syndic = Syndic.new(syndic_params)
     @syndic.user = current_user
     if @syndic.save
-    redirect_to syndic_coproperties_path(@syndic.id), :notice => "Successfully created Syndic."
+    redirect_to syndic_coproperties_path(@syndic.id), :notice => "Syndic créé !"
     else
     render :action => 'new'
     end
@@ -26,7 +26,7 @@ class SyndicsController < ApplicationController
 
   def update
     if @syndic.update(syndic_params)
-    redirect_to @syndic, :notice  => "Successfully updated coproperty."
+    redirect_to @syndic, :notice  => "Coproprité mise à jour!"
     else
     render :action => 'edit'
     end

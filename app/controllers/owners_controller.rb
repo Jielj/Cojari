@@ -23,7 +23,7 @@ class OwnersController < ApplicationController
     if @owner.save
       @property.owner = @owner
       @property.save
-      redirect_to owner_path @owner, :notice => "Successfully created owner."
+      redirect_to owner_path @owner, :notice => "Résident créé !"
     else
       render :action => 'new'
     end
@@ -36,7 +36,7 @@ class OwnersController < ApplicationController
   def update
     @owner = Owner.find(params[:id])
     if @owner.update(owner_params)
-      redirect_to owner_path(current_user.owner), :notice  => "Successfully updated owner."
+      redirect_to owner_path(current_user.owner), :notice  => "Résident mis à jour!"
     else
       render :action => 'edit'
     end
@@ -45,7 +45,7 @@ class OwnersController < ApplicationController
   def delete
     @owner = Owner.find(params[:id])
     @owner.destroy
-    redirect_to owners_url, :notice => "Successfully destroyed owner."
+    redirect_to owners_url, :notice => "Résident supprimé !"
   end
 
 private

@@ -25,7 +25,7 @@ class PropertiesController < ApplicationController
     @property.coproperty_id = current_user.syndic.coproperties.first.id
     if @property.save
       Link.create(property_id: @property.id)
-      redirect_to syndic_coproperty_properties_path(current_user.syndic, Coproperty.find(params[:coproperty_id])), :notice => "Successfully created property."
+      redirect_to syndic_coproperty_properties_path(current_user.syndic, Coproperty.find(params[:coproperty_id])), :notice => "Propriété créée!"
     else
       render :action => 'new'
     end
@@ -37,7 +37,7 @@ class PropertiesController < ApplicationController
 
   def update
     if @property.update_attributes(property_params)
-      redirect_to @property, :notice  => "Successfully updated property."
+      redirect_to @property, :notice  => "Propriété mise à jour!"
     else
       render :action => 'edit'
     end
@@ -46,7 +46,7 @@ class PropertiesController < ApplicationController
   def delete
     @property = Property.find(params[:id])
     @property.destroy
-    redirect_to properties_url, :notice => "Successfully destroyed property."
+    redirect_to properties_url, :notice => "Propriété supprimée!"
   end
 
 private
